@@ -1,21 +1,19 @@
 package com.infinity.app.model;
 
-//import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-//import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 @CrossOrigin(origins="http://localhost:4200")
@@ -31,12 +29,10 @@ public class EmailIssue {
 	private String fromEmail;
 	
 	@NotNull
-	@ElementCollection
-	private List<String> toEmail;
+	private String toEmail;
 	
 	@NotNull
-	@ElementCollection
-	private List<String> cc;
+	private String cc;
 	
 	@NotNull
 	@Size(min = 10)
@@ -72,19 +68,19 @@ public class EmailIssue {
 		this.fromEmail = fromEmail;
 	}
 
-	public List<String> getToEmail() {
+	public String getToEmail() {
 		return toEmail;
 	}
 
-	public void setToEmail(List<String> toEmail) {
+	public void setToEmail(String toEmail) {
 		this.toEmail = toEmail;
 	}
 
-	public List<String> getCc() {
+	public String getCc() {
 		return cc;
 	}
 
-	public void setCc(List<String> cc) {
+	public void setCc(String cc) {
 		this.cc = cc;
 	}
 
@@ -133,8 +129,8 @@ public class EmailIssue {
 		// TODO Auto-generated constructor stub
 	}
 
-	public EmailIssue(Long id, @NotNull @Email String fromEmail, @NotNull List<String> toEmail,
-			@NotNull List<String> cc, @NotNull @Size(min = 10) String subject, @NotNull String mIntro,
+	public EmailIssue(Long id, @NotNull @Email String fromEmail, @NotNull String toEmail,
+			@NotNull String cc, @NotNull @Size(min = 10) String subject, @NotNull String mIntro,
 			@NotNull List<String> mHeader, @NotNull List<String> mBody, @NotNull String mEnd) {
 		super();
 		this.id = id;
@@ -149,8 +145,8 @@ public class EmailIssue {
 	}
 
 
-	public EmailIssue(@NotNull @Email String fromEmail, @NotNull List<String> toEmail,
-			@NotNull List<String> cc, @NotNull @Size(min = 10) String subject, @NotNull String mIntro,
+	public EmailIssue(@NotNull @Email String fromEmail, @NotNull String toEmail,
+			@NotNull String cc, @NotNull @Size(min = 10) String subject, @NotNull String mIntro,
 			@NotNull List<String> mHeader, @NotNull List<String> mBody, @NotNull String mEnd) {
 		super();
 		this.fromEmail = fromEmail;
@@ -170,17 +166,7 @@ public class EmailIssue {
 				+ ", mEnd=" + mEnd + "]";
 	}
 
-	public String[] getToEmailArray() {
-		String[] toEmailArray=new String[toEmail.size()];
-		return toEmail.toArray(toEmailArray);
-	}	
-	
-	
-	public String[] getCcArray() {
-		String[] ccArray=new String[cc.size()];
-		return cc.toArray(ccArray);
-	}	
-	
+
 	
 	public String getBody() {
 		

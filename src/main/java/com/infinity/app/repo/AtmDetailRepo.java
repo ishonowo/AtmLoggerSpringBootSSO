@@ -15,10 +15,10 @@ import org.springframework.data.jpa.repository.Query;
 @Lazy(false)
 public interface AtmDetailRepo extends CrudRepository<AtmDetail, Long> {
 
-	@Query(value="select a.id, a.branchEmail, a.branchName, c.terminalId, c.atmName, a.physicalAddress, b.contact, b.vendorName "
-			+ " from BranchInfo a (nolock) join VendorTerminal c (nolock) on a.solId = SUBSTRING(c.terminalId,5,3)"
-			+ " join VendorContact b (nolock) on b.vendorName = c.vendorName "
-			+ " where c.terminalId = ?1",nativeQuery=true)
+	@Query(value="select a.id, a.branch_email, a.branch_name, c.terminal_id, c.atm_name, a.physical_address, b.contact, b.vendor_name "
+			+ " from branch_info a (nolock) join vendor_terminal c (nolock) on a.sol_id = SUBSTRING(c.terminal_id,5,3)"
+			+ " join vendor_contact b (nolock) on b.vendor_name = c.vendor_name "
+			+ " where c.terminal_id = ?1",nativeQuery=true)
 	public AtmDetail getAtmDetail(String terminalId);
 	
 	 //AtmDetail getAtmDetail(String terminalId);

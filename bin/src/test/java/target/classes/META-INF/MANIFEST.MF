@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: ATMIssueResolver
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: doctor
+Implementation-Vendor-Id: com.infinity.app
+Build-Jdk: 1.8.0_201
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/ATMIssueResolver
+Created-By: Maven Integration for Eclipse
+

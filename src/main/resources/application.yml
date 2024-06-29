@@ -1,0 +1,71 @@
+logging:
+ file:
+  path: logs
+ level:
+  root: info
+
+
+server:
+ port: 9442
+ forward-headers-strategy: native
+
+
+spring:
+ application:
+  name: AtmLoggerSpringBootSSO
+ banner:
+  location: banner.txt
+ #cloud:
+  #azure:
+   #active-directory:
+    #credential: 
+     #client-id: 76fc83f1-b464-451a-bb1e-a1b41a591380
+     #client-secret: dNU8Q~NNxaMVUMFJ~TqJGdbGVzxWzpq0DV~CyaAF
+    #enabled: true
+    #profile: 
+     #tenant-id: 8407c113-e5a4-4747-9ff1-6f8cde76dba7
+ datasource:
+  driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  password: password
+  url: jdbc:sqlserver://localhost;databaseName=ATMIssueResolver;encrypt=true;trustServerCertificate=true
+  username: ikenna
+ jpa:
+   generate-ddl: true
+   properties:
+    hibernate:
+     ddl-auto: update
+     dialect: org.hibernate.dialect.SQLServer2012Dialect
+     format-sql: true
+     naming:
+      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImplnaming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl     
+   show-sql: true
+ mail:
+  default-encoding: UTF-8
+  host: smtp.mailtrap.io
+  password: fd5346e2206c67
+  port: 2525
+  properties:
+   mail:
+    smtp:
+     connectiontimeout: 100000
+     writetimeout: 100000
+  protocol: smtp
+  username: 6de7c8e7b17655
+ messages:
+  basename: messages
+  encoding: UTF-8
+
+support:
+ email: ATMServices@fidelitybank.ng
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,14 +2,14 @@ package com.infinity.app.model;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.context.annotation.Bean;
@@ -49,9 +49,9 @@ public class AtmIssue {
 	@NotNull
 	private Date logDate;
 	
-	@NotNull
+	//@NotNull
 	@Email
-	@Value("${spring.support.email}")
+	@Value("ATMServices@fidelitybank.ng")
 	private String supportEmail;
 	
 	@NotNull

@@ -5,10 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
@@ -24,20 +25,19 @@ import freemarker.template.TemplateException;
 @Service
 public class EmailIssueService implements EmailIssueSender {
 
-	@Autowired
-	private JavaMailSenderImpl mailSender;
+	private final JavaMailSenderImpl mailSender;
 
-	@Autowired
-	private EmailIssueRepo emailRepo;
+	private final EmailIssueRepo emailRepo;
 	
-	@Autowired
-	private Configuration freemarkerConfig;
+	private final Configuration freemarkerConfig;
 
-	//@Autowired
-	//private Environment environment;
 	
 	
-	public EmailIssueService(Environment environment) {
+	public EmailIssueService(Environment environment, JavaMailSenderImpl mailSender, EmailIssueRepo emailRepo,
+							Configuration freemarkerConfig) {
+		this.freemarkerConfig= freemarkerConfig;
+		this.mailSender= mailSender;
+		this.emailRepo=emailRepo;
 		mailSender = new JavaMailSenderImpl();
 
 		mailSender.setHost(environment.getProperty("spring.mail.host"));
@@ -59,8 +59,8 @@ public class EmailIssueService implements EmailIssueSender {
     	Map<String,EmailIssue> emailIssueModel= new HashMap<String, EmailIssue>();
     	emailIssueModel.put("emailIssue",emailIssue);
     	helper.setFrom(emailIssue.getFromEmail());
-    	helper.setTo(emailIssue.getToEmailArray());
-    	helper.setCc(emailIssue.getCcArray());
+    	helper.setTo(emailFormatter(emailIssue.getToEmail()));
+    	helper.setCc(emailFormatter(emailIssue.getCc()));
         helper.setSubject(emailIssue.getSubject());
 
     	Template t;
@@ -81,6 +81,18 @@ public class EmailIssueService implements EmailIssueSender {
     		Logger.getLogger(EmailIssueService.class.getName()).log(Level.SEVERE, null, ex);
     	}
     }
+
+	private String[] emailFormatter(String emailString) {
+
+		String[] emailsArray = emailString.split(";");
+        
+        // Trim whitespace from each email address
+        for (int i = 0; i < emailsArray.length; i++) {
+            emailsArray[i] = emailsArray[i].trim();
+        }
+        
+        return emailsArray;
+	}
 
 	
 
