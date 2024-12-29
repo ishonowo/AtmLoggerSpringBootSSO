@@ -5,21 +5,23 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
 import org.springframework.context.annotation.Lazy;
 
 @Entity
 @Lazy(false)
-public class VendorTerminal {
+@Table(name="terminals")
+public class Terminals {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@SequenceGenerator(name = "vendorTerminal", schema="dbo", sequenceName = "sq_vendorTerminal", allocationSize = 1)
+	@SequenceGenerator(name = "terminal", schema="dbo", sequenceName = "sq_terminal", allocationSize = 1)
 	private Long id;
 	
 	@NotNull
-	private String vendorName;
+	private Long vendorId;
 	
 	@NotNull
 	private String terminalId;
@@ -38,12 +40,12 @@ public class VendorTerminal {
 		this.id = id;
 	}
 
-	public String getVendorName() {
-		return vendorName;
+	public Long getVendorId() {
+		return vendorId;
 	}
 
-	public void setVendorName(String vendorName) {
-		this.vendorName = vendorName;
+	public void setVendorId(Long vendorId) {
+		this.vendorId = vendorId;
 	}
 
 	public String getTerminalId() {
@@ -62,7 +64,7 @@ public class VendorTerminal {
 		this.atmName = atmName;
 	}
 
-	public Boolean getOffsite() {
+	public Boolean isOffsite() {
 		return offsite;
 	}
 
@@ -72,24 +74,28 @@ public class VendorTerminal {
 
 	@Override
 	public String toString() {
-		return "VendorTerminal [id=" + id + ", vendorName=" + vendorName + ", terminalId=" + terminalId + ", atmName="
-				+ atmName + ", offsite=" + offsite + "]";
+		return "Terminals [id=" + id + ", vendorId=" + vendorId + ", terminalId=" + terminalId + ", atmName=" + atmName
+				+ ", offsite=" + offsite + "]";
 	}
 
-	public VendorTerminal(Long id, @NotNull String vendorName, @NotNull String terminalId, @NotNull String atmName,
+	public Terminals() {}
+
+	public Terminals(Long id, @NotNull Long vendorId, @NotNull String terminalId, @NotNull String atmName,
 			@NotNull Boolean offsite) {
-		super();
 		this.id = id;
-		this.vendorName = vendorName;
+		this.vendorId = vendorId;
 		this.terminalId = terminalId;
 		this.atmName = atmName;
 		this.offsite = offsite;
 	}
 
-	public VendorTerminal() {
-		super();
-		// TODO Auto-generated constructor stub
+	public Terminals(@NotNull Long vendorId, @NotNull String terminalId, @NotNull String atmName,
+			@NotNull Boolean offsite) {
+		this.vendorId = vendorId;
+		this.terminalId = terminalId;
+		this.atmName = atmName;
+		this.offsite = offsite;
 	}
-	
+
 	
 }

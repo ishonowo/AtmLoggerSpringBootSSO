@@ -1,5 +1,7 @@
 package com.infinity.app.dto;
 
+//import org.springframework.beans.factory.annotation.Value;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -9,6 +11,10 @@ public class IssueLogged {
 	@NotNull
 	@Email
 	private String userEmail;
+
+	@NotNull
+	@Email
+	private String supportEmail;
 
 	@NotNull
 	@Size(min = 8, max = 8)
@@ -77,7 +83,17 @@ public class IssueLogged {
 		this.loggerPhoneNo = loggerPhoneNo;
 	}
 
-	public IssueLogged(@NotNull String userEmail, @NotNull @Size(min = 8, max = 8) String terminalId, @NotNull String issueDesc,
+	public String getSupportEmail() {
+		return supportEmail;
+	}
+
+	public void setSupportEmail(String supportEmail) {
+		this.supportEmail = supportEmail;
+	}
+
+	
+	public IssueLogged(@NotNull String userEmail, @NotNull String supportEmail, @NotNull @Size(min = 8, max = 8) String terminalId, 
+			@NotNull String issueDesc,
 			@NotNull String branchLogger, @NotNull String loggerEmail, @NotNull @Size(min = 11, max = 14) String loggerPhoneNo) {
 		super();
 		this.userEmail= userEmail;
@@ -86,6 +102,7 @@ public class IssueLogged {
 		this.branchLogger = branchLogger;
 		this.loggerEmail = loggerEmail;
 		this.loggerPhoneNo = loggerPhoneNo;
+		this.supportEmail=supportEmail;
 	}
 
 	public IssueLogged() {
@@ -94,11 +111,10 @@ public class IssueLogged {
 
 	@Override
 	public String toString() {
-		return "IssueLogged [userEmail="+ userEmail + ", terminalId=" + terminalId + ", issueDesc=" + issueDesc + ", branchLogger=" + branchLogger
+		return "IssueLogged [supportEmail="+ supportEmail + "IssueLogged [userEmail="+ userEmail + ", terminalId=" + terminalId
+				+ ", issueDesc=" + issueDesc + ", branchLogger=" + branchLogger
 				+ ", loggerEmail=" + loggerEmail + ", loggerPhoneNo=" + loggerPhoneNo + "]";
 	}
-	
-	
-	
+
 	
 }

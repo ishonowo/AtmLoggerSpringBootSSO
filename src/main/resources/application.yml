@@ -27,14 +27,14 @@ spring:
  datasource:
   driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
   password: password
-  url: jdbc:sqlserver://localhost;databaseName=ATMIssueResolver;encrypt=true;trustServerCertificate=true
+  url: jdbc:sqlserver://localhost:1433;databaseName=AtmIssueLogger;encrypt=true;trustServerCertificate=true
   username: ikenna
  jpa:
    generate-ddl: true
    properties:
     hibernate:
      ddl-auto: update
-     dialect: org.hibernate.dialect.SQLServer2012Dialect
+     #dialect: org.hibernate.dialect.SQLServerDialect
      format-sql: true
      naming:
       physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImplnaming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl     
@@ -55,8 +55,9 @@ spring:
   basename: messages
   encoding: UTF-8
 
-support:
- email: ATMServices@fidelitybank.ng
+atm:
+ support:
+  email: ATMServices@fidelitybank.ng;Aderinsola.Adeyeye@fidelitybank.ng
 
 
 

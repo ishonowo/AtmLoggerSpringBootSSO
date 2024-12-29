@@ -1,10 +1,12 @@
 package com.infinity.app.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -15,29 +17,36 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @Entity
 @Lazy(false)
 @CrossOrigin(origins="http://localhost:4200")
+@Table(name="branch_info")
 public class BranchInfo {
 
 	@Id
+	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@SequenceGenerator(name = "branchInfo", schema="dbo", sequenceName = "sq_branchInfo", allocationSize = 1)
 	private Long id;
 	
 	@NotNull
 	@Size(min = 3, max = 3)
+	@Column(name="sol_id")
 	private String solId;
 	
 	@NotNull
 	@Email
+	@Column(name="branch_email")
 	private String branchEmail;
 	
 	@NotNull
+	@Column(name="physical_address")
 	private String physicalAddress;
 	
 	@NotNull
+	@Column(name="branch_name")
 	private String branchName;
 	
 	@NotNull
-	private String region;
+	@Column(name="region_id")
+	private Long region;
 
 	public Long getId() {
 		return id;
@@ -79,11 +88,11 @@ public class BranchInfo {
 		this.branchName = branchName;
 	}
 
-	public String getRegion() {
+	public Long getRegion() {
 		return region;
 	}
 
-	public void setRegion(String region) {
+	public void setRegion(Long region) {
 		this.region = region;
 	}
 
@@ -94,7 +103,7 @@ public class BranchInfo {
 	}
 
 	public BranchInfo(Long id, @NotNull @Size(min = 3, max = 3) String solId, @NotNull @Email String branchEmail,
-			@NotNull String physicalAddress, @NotNull String branchName, @NotNull String region) {
+			@NotNull String physicalAddress, @NotNull String branchName, @NotNull Long region) {
 		super();
 		this.id = id;
 		this.solId = solId;

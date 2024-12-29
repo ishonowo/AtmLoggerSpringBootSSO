@@ -1,5 +1,7 @@
 package com.infinity.app.service;
 
+import java.util.List;
+
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,10 @@ public class AtmDetailService {
 
 	public AtmDetail getAtmDetail(String terminalId) {
 		return atmRepo.getAtmDetail(terminalId);
+	}
+	
+	public List<String> getActiveContacts(String terminalId){
+		return atmRepo.getActiveContacts(terminalId);
 	}
 	
 	public AtmDetail save(AtmDetail atmDetail) {

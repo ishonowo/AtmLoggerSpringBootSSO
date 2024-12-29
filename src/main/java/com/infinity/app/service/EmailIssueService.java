@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jakarta.mail.MessagingException;
-import jakarta.mail.internet.InternetAddress;
+//import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
 //import org.springframework.beans.factory.annotation.Autowired;

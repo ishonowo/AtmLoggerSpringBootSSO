@@ -11,7 +11,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-import org.springframework.beans.factory.annotation.Value;
+//import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -49,10 +49,10 @@ public class AtmIssue {
 	@NotNull
 	private Date logDate;
 	
-	//@NotNull
-	@Email
-	@Value("ATMServices@fidelitybank.ng")
+	@NotNull
+	//@Email
 	private String supportEmail;
+	
 	
 	@NotNull
 	private String contact;
@@ -66,10 +66,15 @@ public class AtmIssue {
 	
 	@NotNull
 	private String atmName;
+	
 	private String physicalAddress;
 	
 	@NotNull
 	private String vendorName;
+	
+	@NotNull
+	@Email
+	private String userEmail;
 	
 	public Long getId() {
 		return id;
@@ -152,13 +157,26 @@ public class AtmIssue {
 	public String getVendorName() {
 		return vendorName;
 	}
-	public void setVendor(String vendorName) {
+	public void setVendorName(String vendorName) {
 		this.vendorName = vendorName;
 	}
+	public String getUserEmail() {
+		return userEmail;
+	}
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+//	public AtmIssue(String terminalId2, String issueDesc2, String branchLogger2, String loggerEmail2,
+//	String loggerPhoneNo2, Date logDate2, String userEmail2, Object supportEmail2, String contact2,
+//	String branchEmail2, String branchName2, String atmName2, String physicalAddress2, String vendorName2) {
+//// TODO Auto-generated constructor stub
+//}
 	
 	public AtmIssue(String terminalId, String issueDesc, String branchLogger, @Email String loggerEmail,
-			String loggerPhoneNo, Date logDate, @Email String supportEmail, String contact, @Email String branchEmail,
-			String branchName, String atmName, String physicalAddress, String vendorName) {
+			String loggerPhoneNo, Date logDate,
+			@Email String supportEmail, String contact, @Email String branchEmail,
+			String branchName, String atmName, String physicalAddress, String vendorName,@Email String userEmail) {
 		super();
 		this.terminalId = terminalId;
 		this.issueDesc = issueDesc;
@@ -166,6 +184,7 @@ public class AtmIssue {
 		this.loggerEmail = loggerEmail;
 		this.loggerPhoneNo = loggerPhoneNo;
 		this.logDate = logDate;
+		this.userEmail = userEmail;
 		this.supportEmail = supportEmail;
 		this.contact = contact;
 		this.branchEmail = branchEmail;
@@ -173,6 +192,7 @@ public class AtmIssue {
 		this.atmName = atmName;
 		this.physicalAddress = physicalAddress;
 		this.vendorName = vendorName;
+		this.userEmail=userEmail;
 	}
 	
 	public AtmIssue() {
@@ -183,14 +203,16 @@ public class AtmIssue {
 	public String toString() {
 		return "AtmIssue [id=" + id + ", terminalId=" + terminalId + ", issueDesc=" + issueDesc + ", branchLogger="
 				+ branchLogger + ", loggerEmail=" + loggerEmail + ", loggerPhoneNo=" + loggerPhoneNo + ", logDate="
-				+ logDate + ", supportEmail=" + supportEmail + ", contact=" + contact + ", branchEmail=" + branchEmail
+				+ logDate + ", userEmail=" + userEmail + ", supportEmail=" + supportEmail + ", contact=" + contact +
+				", branchEmail=" + branchEmail
 				+ ", branchName=" + branchName + ", atmName=" + atmName + ", physicalAddress=" + physicalAddress
 				+ ", vendorName=" + vendorName + "]";
 	}
 	
 	public AtmIssue(Long id, String terminalId, String issueDesc, String branchLogger, @Email String loggerEmail,
-			String loggerPhoneNo, Date logDate, @Email String supportEmail, String contact, @Email String branchEmail,
-			String branchName, String atmName, String physicalAddress, String vendorName) {
+			String loggerPhoneNo, Date logDate, @Email String supportEmail, 
+			String contact, @Email String branchEmail,
+			String branchName, String atmName, String physicalAddress, String vendorName, @Email String userEmail) {
 		super();
 		this.id = id;
 		this.terminalId = terminalId;
@@ -199,6 +221,7 @@ public class AtmIssue {
 		this.loggerEmail = loggerEmail;
 		this.loggerPhoneNo = loggerPhoneNo;
 		this.logDate = logDate;
+		this.userEmail=userEmail;
 		this.supportEmail = supportEmail;
 		this.contact = contact;
 		this.branchEmail = branchEmail;
@@ -207,6 +230,7 @@ public class AtmIssue {
 		this.physicalAddress = physicalAddress;
 		this.vendorName = vendorName;
 	}
+
 	
 	
 

@@ -5,12 +5,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
 import org.springframework.context.annotation.Lazy;
 
 @Entity
 @Lazy(false)
+@Table(name="vendor_contacts")
 public class VendorContact {
 
 	@Id
@@ -19,7 +21,7 @@ public class VendorContact {
 	private Long id;
 
 	@NotNull
-	private String vendorName;
+	private String vendorId;
 	
 	@NotNull
 	private String contact;
@@ -35,12 +37,12 @@ public class VendorContact {
 		this.id = id;
 	}
 
-	public String getVendorName() {
-		return vendorName;
+	public String getVendorId() {
+		return vendorId;
 	}
 
-	public void setVendorName(String vendorName) {
-		this.vendorName = vendorName;
+	public void setVendorId(String vendorId) {
+		this.vendorId = vendorId;
 	}
 
 	public String getContact() {
@@ -61,21 +63,19 @@ public class VendorContact {
 
 	@Override
 	public String toString() {
-		return "VendorContact [id=" + id + ", vendorName=" + vendorName + ", contact=" + contact + ", status=" + status
+		return "VendorContact [id=" + id + ", vendorId=" + vendorId + ", contact=" + contact + ", status=" + status
 				+ "]";
 	}
 
-	public VendorContact(Long id, @NotNull String vendorName, @NotNull String contact, @NotNull Boolean status) {
-		super();
+	public VendorContact() {}
+
+	public VendorContact(Long id, @NotNull String vendorId, @NotNull String contact, @NotNull Boolean status) {
 		this.id = id;
-		this.vendorName = vendorName;
+		this.vendorId = vendorId;
 		this.contact = contact;
 		this.status = status;
 	}
 
-	public VendorContact() {
-		super();
-	}
 	
 	
 }

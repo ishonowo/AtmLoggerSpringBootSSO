@@ -60,8 +60,8 @@ public class AtmDetail {
 	
 	private String physicalAddress;
 	
-	@NotNull
-	private String contact;
+	/*@NotNull
+	private String contact;*/
 	
 	@NotNull
 	private String vendorName;
@@ -111,12 +111,12 @@ public class AtmDetail {
 		this.physicalAddress = physicalAddress;
 	}
 	
-	public String getContact() {
+	/*public String getContact() {
 		return contact;
 	}
 	public void setContact(String contact) {
 		this.contact = contact;
-	}
+	}*/
 	
 	public String getVendorName() {
 		return vendorName;
@@ -126,38 +126,40 @@ public class AtmDetail {
 	}
 	
 	public AtmDetail(String branchEmail, String branchName, String terminalId, String atmName,
-			String physicalAddress, String contact, String vendorName) {
-		super();
+			String physicalAddress, //String contact,
+			String vendorName) {
 		this.branchEmail = branchEmail;
 		this.branchName = branchName;
 		this.terminalId = terminalId;
 		this.atmName = atmName;
 		this.physicalAddress = physicalAddress;
-		this.contact = contact;
+		//this.contact = contact;
 		this.vendorName = vendorName;
 	}
 	
-	public AtmDetail(Long id, String branchEmail, String branchName, String terminalId, String atmName,
-			String physicalAddress, String contact, String vendorName) {
-		super();
+	public AtmDetail(Long id, 
+			String branchEmail, String branchName, String terminalId, String atmName,
+			String physicalAddress, //String contact,
+			String vendorName) {
+		//super();
 		this.id= id;
 		this.branchEmail = branchEmail;
 		this.branchName = branchName;
 		this.terminalId = terminalId;
 		this.atmName = atmName;
 		this.physicalAddress = physicalAddress;
-		this.contact = contact;
+		//this.contact = contact;
 		this.vendorName = vendorName;
 	}
 	
-	public AtmDetail() {
-		super();
-	}
+	public AtmDetail() {}
 	
 	@Override
 	public String toString() {
-		return "AtmDetail [ id" + id + ", branchEmail=" + branchEmail + ", branchName=" + branchName + ", terminalId=" + terminalId
-				+ ", atmName=" + atmName + ", physicalAddress=" + physicalAddress + ", contact=" + contact
+		return "AtmDetail ["
+				+ " id" + id + ", "
+				+ "branchEmail=" + branchEmail + ", branchName=" + branchName + ", terminalId=" + terminalId
+				+ ", atmName=" + atmName + ", physicalAddress=" + physicalAddress //+ ", contact=" + contact
 				+ ", vendorName=" + vendorName + "]";
 	}
 	
