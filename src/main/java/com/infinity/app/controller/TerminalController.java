@@ -45,7 +45,7 @@ public class TerminalController {
 
     // Insert a new terminal
     @PostMapping
-    public ResponseEntity<Terminals> insertVendor(@RequestBody Terminals terminal) {
+    public ResponseEntity<Terminals> insertTerminal(@RequestBody Terminals terminal) {
     	Terminals savedTerminal = terminalService.insertTerminal(terminal);
         return ResponseEntity.ok(savedTerminal);
     }

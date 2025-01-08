@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class EmailIssue {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@SequenceGenerator(name = "emailIssues", schema="dbo", sequenceName = "sq_emailIssues", allocationSize = 1)
 	private Long id;
 	

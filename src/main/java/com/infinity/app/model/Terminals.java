@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Lazy;
 public class Terminals {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@SequenceGenerator(name = "terminal", schema="dbo", sequenceName = "sq_terminal", allocationSize = 1)
 	private Long id;
 	

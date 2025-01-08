@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class AtmIssue {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@SequenceGenerator(name = "atmIssues", schema="dbo", sequenceName = "sq_atmIssues", allocationSize = 1)
 	private Long id;
 	

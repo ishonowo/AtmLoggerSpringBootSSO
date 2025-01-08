@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
+import com.infinity.app.dto.VendorNameDto;
 import com.infinity.app.model.Vendors;
 import com.infinity.app.service.VendorService;
 
@@ -42,5 +41,10 @@ public class VendorController {
     	vendorString.setShortName(vendorString.getShortName().toUpperCase());
     	Vendors savedVendor = vendorService.insertVendor(vendorString);
         return ResponseEntity.ok(savedVendor);
+    }
+    
+    @GetMapping("/names")
+    public ResponseEntity<List<VendorNameDto>> findAllNames() {
+        return ResponseEntity.ok(vendorService.findAllNames());
     }
 }

@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Lazy;
 public class VendorContact {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@SequenceGenerator(name = "vendorContact", schema="dbo", sequenceName = "sq_vendorContact", allocationSize = 1)
 	private Long id;
 
@@ -71,6 +71,12 @@ public class VendorContact {
 
 	public VendorContact(Long id, @NotNull String vendorId, @NotNull String contact, @NotNull Boolean status) {
 		this.id = id;
+		this.vendorId = vendorId;
+		this.contact = contact;
+		this.status = status;
+	}
+
+	public VendorContact(@NotNull String vendorId, @NotNull String contact, @NotNull Boolean status) {
 		this.vendorId = vendorId;
 		this.contact = contact;
 		this.status = status;

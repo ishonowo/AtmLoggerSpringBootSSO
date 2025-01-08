@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins="http://localhost:4200")
 public class AtmDetail {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@SequenceGenerator(name = "atmDetail", schema="dbo", sequenceName = "sq_atmDetail", allocationSize = 1)
 	private Long id;
 	
