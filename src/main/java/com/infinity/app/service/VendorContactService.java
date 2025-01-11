@@ -2,11 +2,12 @@ package com.infinity.app.service;
 
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.infinity.app.model.VendorContactObject;
-import com.infinity.app.repo.VendorContactObjectRepo;
+import com.infinity.app.dto.VendorContactObject;
+import com.infinity.app.model.VendorContact;
 import com.infinity.app.repo.VendorContactRepo;
 
 
@@ -14,16 +15,23 @@ import com.infinity.app.repo.VendorContactRepo;
 public class VendorContactService {
 	private final VendorContactRepo vendorContactRepo;
 	
-	private final VendorContactObjectRepo vendorContactObjectRepo;
-
-	public VendorContactService(VendorContactRepo vendorContactRepo,
-			VendorContactObjectRepo vendorContactObjectRepo) {
+	public VendorContactService(VendorContactRepo vendorContactRepo) {
 			this.vendorContactRepo=vendorContactRepo;
-			this.vendorContactObjectRepo=vendorContactObjectRepo;
 		}
 	
-	public List<VendorContactObject> findAllVendorContactObject(){
-		return vendorContactObjectRepo.findAllVendorContactObject();
+	public List<VendorContactObject> findAllVendorContactObject() {
+        return vendorContactRepo.findAllVendorContactObject()
+            .stream()
+            .map(projection -> new VendorContactObject(
+                projection.getVendorName(),
+                projection.getContact(),
+                projection.getStatus()))
+            .collect(Collectors.toList());
+    }
+
+	public VendorContact insertContact(VendorContact contact) {
+		// TODO Auto-generated method stub
+		return vendorContactRepo.save(contact);
 	}
 
 }

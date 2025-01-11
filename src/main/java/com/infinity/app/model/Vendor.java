@@ -8,8 +8,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Vendors")
-public class Vendors {
+@Table(name = "vendors")
+public class Vendor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,18 +47,18 @@ public class Vendors {
         this.shortName = shortName;
     }
 
-	public Vendors(String vendorName, String shortName) {
+	public Vendor(String vendorName, String shortName) {
 		this.vendorName = vendorName;
 		this.shortName = shortName;
 	}
 
-	public Vendors(Long id, String vendorName, String shortName) {
+	public Vendor(Long id, String vendorName, String shortName) {
 		this.id = id;
 		this.vendorName = vendorName;
 		this.shortName = shortName;
 	}
 
-	public Vendors() {}
+	public Vendor() {}
 
 	@Override
 	public String toString() {

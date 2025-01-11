@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.infinity.app.dto.VendorNameDto;
-import com.infinity.app.model.Vendors;
+import com.infinity.app.model.Vendor;
 import com.infinity.app.service.VendorService;
 
 
@@ -29,17 +29,17 @@ public class VendorController {
     }
     // Fetch all vendors
     @GetMapping
-    public ResponseEntity<List<Vendors>> getAllVendors() {
-        List<Vendors> vendors = vendorService.getAllVendors();
+    public ResponseEntity<List<Vendor>> getAllVendors() {
+        List<Vendor> vendors = vendorService.getAllVendors();
         System.out.println(vendors);
         return ResponseEntity.ok(vendors);
     }
 
     // Insert a new vendor
     @PostMapping
-    public ResponseEntity<Vendors> insertVendor(@RequestBody Vendors vendorString) {
+    public ResponseEntity<Vendor> insertVendor(@RequestBody Vendor vendorString) {
     	vendorString.setShortName(vendorString.getShortName().toUpperCase());
-    	Vendors savedVendor = vendorService.insertVendor(vendorString);
+    	Vendor savedVendor = vendorService.insertVendor(vendorString);
         return ResponseEntity.ok(savedVendor);
     }
     

@@ -4,7 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.infinity.app.dto.VendorNameDto;
-import com.infinity.app.model.Vendors;
+import com.infinity.app.model.Vendor;
 import com.infinity.app.repo.VendorRepo;
 
 @Service
@@ -15,11 +15,11 @@ public class VendorService {
 			this.vendorRepo=vendorRepo;
 		}
 
-	public Vendors insertVendor(Vendors vendorString) {
+	public Vendor insertVendor(Vendor vendorString) {
 		return vendorRepo.save(vendorString);
 	}
 
-	public List<Vendors> getAllVendors() {
+	public List<Vendor> getAllVendors() {
 		return vendorRepo.findAll();
 	}
 	

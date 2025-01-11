@@ -10,6 +10,6 @@ import com.infinity.app.model.TerminalObjects;
 public interface TerminalObjectRepo extends JpaRepository<TerminalObjects, Long>{
 
 	@Query("SELECT new com.infinity.app.model.TerminalObjects(v.vendorName, t.id, t.terminalId, t.atmName, t.offsite) " +
-	           "FROM Vendors v JOIN Terminals t ON v.id = t.vendorId")
+	           "FROM Vendor v JOIN Terminals t ON v.id = t.vendorId")
 	    List<TerminalObjects> findAllTerminalObjects();
 }
