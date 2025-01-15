@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Entity
 @Lazy(false)
-@CrossOrigin(origins="http://localhost:4200")
+//@CrossOrigin(origins="http://localhost:4200")
 @Table(name="branch_info")
 public class BranchInfo {
 
@@ -46,7 +46,7 @@ public class BranchInfo {
 	
 	@NotNull
 	@Column(name="region_id")
-	private Long region;
+	private Long regionId;
 
 	public Long getId() {
 		return id;
@@ -88,29 +88,37 @@ public class BranchInfo {
 		this.branchName = branchName;
 	}
 
-	public Long getRegion() {
-		return region;
+	public Long getRegionId() {
+		return regionId;
 	}
 
-	public void setRegion(Long region) {
-		this.region = region;
+	public void setRegionId(Long regionId) {
+		this.regionId = regionId;
 	}
 
 	@Override
 	public String toString() {
 		return "BranchInfo [id=" + id + ", solId=" + solId + ", branchEmail=" + branchEmail + ", physicalAddress="
-				+ physicalAddress + ", branchName=" + branchName + ", region=" + region + "]";
+				+ physicalAddress + ", branchName=" + branchName + ", regionId=" + regionId + "]";
 	}
 
 	public BranchInfo(Long id, @NotNull @Size(min = 3, max = 3) String solId, @NotNull @Email String branchEmail,
-			@NotNull String physicalAddress, @NotNull String branchName, @NotNull Long region) {
-		super();
+			@NotNull String physicalAddress, @NotNull String branchName, @NotNull Long regionId) {
 		this.id = id;
 		this.solId = solId;
 		this.branchEmail = branchEmail;
 		this.physicalAddress = physicalAddress;
 		this.branchName = branchName;
-		this.region = region;
+		this.regionId = regionId;
+	}
+
+	public BranchInfo(@NotNull @Size(min = 3, max = 3) String solId, @NotNull @Email String branchEmail,
+			@NotNull String physicalAddress, @NotNull String branchName, @NotNull Long regionId) {
+		this.solId = solId;
+		this.branchEmail = branchEmail;
+		this.physicalAddress = physicalAddress;
+		this.branchName = branchName;
+		this.regionId = regionId;
 	}
 
 	public BranchInfo() {
