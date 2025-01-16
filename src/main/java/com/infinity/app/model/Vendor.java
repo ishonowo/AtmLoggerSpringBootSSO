@@ -44,18 +44,18 @@ public class Vendor {
     }
 
     public void setShortName(String shortName) {
-        this.shortName = shortName;
+        this.shortName = shortName.toUpperCase();
     }
 
 	public Vendor(String vendorName, String shortName) {
 		this.vendorName = vendorName;
-		this.shortName = shortName;
+		this.shortName = shortName.toUpperCase();
 	}
 
 	public Vendor(Long id, String vendorName, String shortName) {
 		this.id = id;
 		this.vendorName = vendorName;
-		this.shortName = shortName;
+		this.shortName = shortName.toUpperCase();
 	}
 
 	public Vendor() {}

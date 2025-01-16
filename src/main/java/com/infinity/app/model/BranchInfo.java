@@ -69,7 +69,7 @@ public class BranchInfo {
 	}
 
 	public void setBranchEmail(String branchEmail) {
-		this.branchEmail = branchEmail;
+		this.branchEmail = branchEmail.toLowerCase();
 	}
 
 	public String getPhysicalAddress() {
@@ -85,7 +85,7 @@ public class BranchInfo {
 	}
 
 	public void setBranchName(String branchName) {
-		this.branchName = branchName;
+		this.branchName = branchName.toUpperCase();
 	}
 
 	public Long getRegionId() {
@@ -106,25 +106,22 @@ public class BranchInfo {
 			@NotNull String physicalAddress, @NotNull String branchName, @NotNull Long regionId) {
 		this.id = id;
 		this.solId = solId;
-		this.branchEmail = branchEmail;
+		this.branchEmail = branchEmail.toLowerCase();
 		this.physicalAddress = physicalAddress;
-		this.branchName = branchName;
+		this.branchName = branchName.toUpperCase();
 		this.regionId = regionId;
 	}
 
 	public BranchInfo(@NotNull @Size(min = 3, max = 3) String solId, @NotNull @Email String branchEmail,
 			@NotNull String physicalAddress, @NotNull String branchName, @NotNull Long regionId) {
 		this.solId = solId;
-		this.branchEmail = branchEmail;
+		this.branchEmail = branchEmail.toLowerCase();
 		this.physicalAddress = physicalAddress;
-		this.branchName = branchName;
+		this.branchName = branchName.toUpperCase();
 		this.regionId = regionId;
 	}
 
-	public BranchInfo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public BranchInfo(){}
 	
 	
 }

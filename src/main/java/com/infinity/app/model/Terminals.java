@@ -61,7 +61,7 @@ public class Terminals {
 	}
 
 	public void setAtmName(String atmName) {
-		this.atmName = atmName;
+		this.atmName = atmName.toUpperCase();
 	}
 
 	public Boolean isOffsite() {
@@ -85,7 +85,7 @@ public class Terminals {
 		this.id = id;
 		this.vendorId = vendorId;
 		this.terminalId = terminalId;
-		this.atmName = atmName;
+		this.atmName = atmName.toUpperCase();
 		this.offsite = offsite;
 	}
 
@@ -93,7 +93,7 @@ public class Terminals {
 			@NotNull Boolean offsite) {
 		this.vendorId = vendorId;
 		this.terminalId = terminalId;
-		this.atmName = atmName;
+		this.atmName = atmName.toUpperCase();
 		this.offsite = offsite;
 	}
 
