@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 //import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,6 +39,13 @@ public class RegionController {
     public ResponseEntity<Regions> insertRegion(@RequestBody String regionName) {
     	System.out.println("Saved.");
         Regions savedRegion = regionService.insertRegion(regionName);
+        return ResponseEntity.ok(savedRegion);
+    }
+    
+    @PutMapping
+    public ResponseEntity<Regions> updateRegion(@RequestBody Regions updatedRegion) {
+    	System.out.println("Saved.");
+        Regions savedRegion = regionService.updateRegion(updatedRegion);
         return ResponseEntity.ok(savedRegion);
     }
     
