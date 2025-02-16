@@ -34,4 +34,8 @@ public class VendorContactService {
 		return vendorContactRepo.save(contact);
 	}
 
+	public List<VendorContact> findAllVendorContacts() {
+		return vendorContactRepo.findAll();
+	}
+
 }

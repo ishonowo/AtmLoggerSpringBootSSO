@@ -21,7 +21,7 @@ public class VendorContact {
 	private Long id;
 
 	@NotNull
-	private String vendorId;
+	private Long vendorId;
 	
 	@NotNull
 	private String contact;
@@ -37,11 +37,11 @@ public class VendorContact {
 		this.id = id;
 	}
 
-	public String getVendorId() {
+	public Long getVendorId() {
 		return vendorId;
 	}
 
-	public void setVendorId(String vendorId) {
+	public void setVendorId(Long vendorId) {
 		this.vendorId = vendorId;
 	}
 
@@ -69,14 +69,14 @@ public class VendorContact {
 
 	public VendorContact() {}
 
-	public VendorContact(Long id, @NotNull String vendorId, @NotNull String contact, @NotNull Boolean status) {
+	public VendorContact(Long id, @NotNull Long vendorId, @NotNull String contact, @NotNull Boolean status) {
 		this.id = id;
 		this.vendorId = vendorId;
 		this.contact = contact;
 		this.status = status;
 	}
 
-	public VendorContact(@NotNull String vendorId, @NotNull String contact, @NotNull Boolean status) {
+	public VendorContact(@NotNull Long vendorId, @NotNull String contact, @NotNull Boolean status) {
 		this.vendorId = vendorId;
 		this.contact = contact;
 		this.status = status;

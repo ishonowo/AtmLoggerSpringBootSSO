@@ -23,9 +23,16 @@ public class VendorContactController {
 		this.vendorContactService=vendorContactService;
 	}
 	
-    @GetMapping
+	@GetMapping("/names")
     public ResponseEntity<List<VendorContactObject>> findAllVendorContactObject() {
         List<VendorContactObject> newContact = vendorContactService.findAllVendorContactObject();
+        System.out.println(newContact);
+        return ResponseEntity.ok(newContact);
+    }
+    
+	@GetMapping
+    public ResponseEntity<List<VendorContact>> findAllVendorContacts() {
+        List<VendorContact> newContact = vendorContactService.findAllVendorContacts();
         System.out.println(newContact);
         return ResponseEntity.ok(newContact);
     }

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 //import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.infinity.app.dto.VendorNameDto;
 import com.infinity.app.model.Vendor;
 import com.infinity.app.service.VendorService;
+
+//import jakarta.validation.Valid;
 
 
 @RestController
@@ -41,6 +44,11 @@ public class VendorController {
     	vendorString.setShortName(vendorString.getShortName().toUpperCase());
     	Vendor savedVendor = vendorService.insertVendor(vendorString);
         return ResponseEntity.ok(savedVendor);
+    }
+    
+    @PutMapping
+    public ResponseEntity<Vendor> updateVendor(@RequestBody Vendor updatedVendor) {
+        return ResponseEntity.ok((Vendor)vendorService.updateVendor(updatedVendor));
     }
     
     @GetMapping("/names")

@@ -44,9 +44,7 @@ public class RegionController {
     
     @PutMapping
     public ResponseEntity<Regions> updateRegion(@RequestBody Regions updatedRegion) {
-    	System.out.println("Saved.");
-        Regions savedRegion = regionService.updateRegion(updatedRegion);
-        return ResponseEntity.ok(savedRegion);
+    	return ResponseEntity.ok(regionService.updateRegion(updatedRegion));
     }
     
     @GetMapping
