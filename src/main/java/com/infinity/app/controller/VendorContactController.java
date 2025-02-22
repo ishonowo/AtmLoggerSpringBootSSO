@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,6 +43,10 @@ public class VendorContactController {
     	VendorContact savedContact = vendorContactService.insertContact(contact);
         return ResponseEntity.ok(savedContact);
     }
-
+    
+    @PutMapping
+    public ResponseEntity<VendorContact> updateVendorContact(@RequestBody VendorContact updatedVendorContact) {
+        return ResponseEntity.ok((VendorContact)vendorContactService.updateVendorContact(updatedVendorContact));
+    }
 
 }

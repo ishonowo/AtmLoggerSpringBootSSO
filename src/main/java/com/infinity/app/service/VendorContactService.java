@@ -10,6 +10,8 @@ import com.infinity.app.dto.VendorContactObject;
 import com.infinity.app.model.VendorContact;
 import com.infinity.app.repo.VendorContactRepo;
 
+import jakarta.persistence.EntityNotFoundException;
+
 
 @Service
 public class VendorContactService {
@@ -36,6 +38,16 @@ public class VendorContactService {
 
 	public List<VendorContact> findAllVendorContacts() {
 		return vendorContactRepo.findAll();
+	}
+
+	public VendorContact updateVendorContact(VendorContact updatedVendorContact) {
+		VendorContact vendorContact = vendorContactRepo.findById(updatedVendorContact.getId())
+	            .orElseThrow(() -> new EntityNotFoundException("Vendor not found with id: " + updatedVendorContact.getId()));
+	        
+	        vendorContact.setVendorId(updatedVendorContact.getVendorId());
+	        vendorContact.setContact(updatedVendorContact.getContact());
+	        vendorContact.setStatus(updatedVendorContact.getStatus());
+		return vendorContactRepo.save(vendorContact);
 	}
 
 }

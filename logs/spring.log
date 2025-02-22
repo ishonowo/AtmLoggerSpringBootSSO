@@ -1,77 +1,217 @@
-2025-02-16T16:15:17.342+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [HikariPool-17 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-17 - Thread starvation or clock leap detected (housekeeper delta=4d19h25m49s431ms876µs700ns).
-2025-02-16T20:48:43.598+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2025-02-16T20:48:43.831+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-67] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-02-16T20:48:43.897+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-67] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Shutdown initiated...
-2025-02-16T20:48:43.919+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-67] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Shutdown completed.
-2025-02-16T20:48:45.244+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 17.0.5 with PID 17440 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
-2025-02-16T20:48:45.244+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
-2025-02-16T20:48:46.084+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-16T20:48:46.104+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 9 JPA repository interfaces.
-2025-02-16T20:48:46.308+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9442 (http)
-2025-02-16T20:48:46.310+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-02-16T20:48:46.310+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2025-02-16T20:48:46.358+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-02-16T20:48:46.358+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1112 ms
-2025-02-16T20:48:46.478+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-18 - Starting...
-2025-02-16T20:48:46.590+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-18 - Added connection ConnectionID:500 ClientConnectionId: 7f23b8a4-60c6-4561-8e3f-4a3c41e84b00
-2025-02-16T20:48:46.590+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-18 - Start completed.
-2025-02-16T20:48:46.613+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-16T20:48:46.617+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-02-16T20:48:46.625+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-16T20:48:46.626+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-16T20:48:46.715+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-16T20:48:49.452+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-16T20:48:49.554+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-02-16T20:48:49.557+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+2025-02-22T14:07:33.927+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [HikariPool-20 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - Thread starvation or clock leap detected (housekeeper delta=2d15h14m37s701ms921µs400ns).
+2025-02-22T20:31:16.883+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [HikariPool-20 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - Thread starvation or clock leap detected (housekeeper delta=1h18m6s69ms392µs).
+2025-02-22T20:41:48.088+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [HikariPool-20 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - Thread starvation or clock leap detected (housekeeper delta=5m31s121ms124µs200ns).
+2025-02-22T20:45:10.850+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [HikariPool-20 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - Thread starvation or clock leap detected (housekeeper delta=52s704ms618µs100ns).
+2025-02-22T22:16:03.391+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+2025-02-22T22:26:26.443+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-02-22T22:26:26.676+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-79] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-22T22:26:26.726+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-79] com.zaxxer.hikari.HikariDataSource       : HikariPool-20 - Shutdown initiated...
+2025-02-22T22:26:26.749+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-79] com.zaxxer.hikari.HikariDataSource       : HikariPool-20 - Shutdown completed.
+2025-02-22T22:26:28.167+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 17.0.5 with PID 17440 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
+2025-02-22T22:26:28.168+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-02-22T22:26:28.610+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-22T22:26:28.630+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 9 JPA repository interfaces.
+2025-02-22T22:26:28.829+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9442 (http)
+2025-02-22T22:26:28.832+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-22T22:26:28.832+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-02-22T22:26:28.852+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-22T22:26:28.852+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 681 ms
+2025-02-22T22:26:28.890+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Starting...
+2025-02-22T22:26:28.970+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-21 - Added connection ConnectionID:770 ClientConnectionId: 221a842a-08e0-481b-a420-b014492d7974
+2025-02-22T22:26:28.972+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Start completed.
+2025-02-22T22:26:28.986+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-22T22:26:28.991+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-22T22:26:28.997+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-22T22:26:29.000+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-22T22:26:29.097+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-22T22:26:34.199+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-22T22:26:34.284+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-22T22:26:34.289+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 1a7c854a-652a-4ebb-a135-8fd64f173678
+Using generated security password: f300fbf2-e265-448e-bbc8-a48c6dbb61b7
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-02-16T20:48:49.618+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4e4f97bb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@53ade552, org.springframework.security.web.context.SecurityContextHolderFilter@4c1afbba, org.springframework.security.web.header.HeaderWriterFilter@6d81977e, org.springframework.web.filter.CorsFilter@677cc9a7, org.springframework.security.web.authentication.logout.LogoutFilter@7349ba5f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@749a1b19, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2476d03f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1babd4de, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@431a5482, org.springframework.security.web.access.ExceptionTranslationFilter@f361a9d, org.springframework.security.web.access.intercept.AuthorizationFilter@4a3fdb43]
-2025-02-16T20:48:49.672+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2025-02-16T20:48:49.686+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9442 (http) with context path ''
-2025-02-16T20:48:49.691+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Started AtmIssueLoggerApplication in 4.835 seconds (process running for 777413.89)
-2025-02-16T20:48:49.692+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2025-02-16T20:49:05.122+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-02-16T20:49:05.122+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-02-16T20:49:05.123+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-02-16T20:49:05.180+01:00 ERROR 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed: java.lang.Error: Unresolved compilation problem: 
-	Type mismatch: cannot convert from Long to String
-] with root cause
+2025-02-22T22:26:34.346+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@394057fe, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@569d1893, org.springframework.security.web.context.SecurityContextHolderFilter@44b3c840, org.springframework.security.web.header.HeaderWriterFilter@4fa958eb, org.springframework.web.filter.CorsFilter@3fe3e508, org.springframework.security.web.authentication.logout.LogoutFilter@dd5a88b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@58234ed1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@28394cc7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3028d91b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7d7461e3, org.springframework.security.web.access.ExceptionTranslationFilter@c31952, org.springframework.security.web.access.intercept.AuthorizationFilter@789230b8]
+2025-02-22T22:26:34.391+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-22T22:26:34.402+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9442 (http) with context path ''
+2025-02-22T22:26:34.407+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Started AtmIssueLoggerApplication in 6.422 seconds (process running for 1301675.761)
+2025-02-22T22:26:34.408+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-02-22T22:32:26.540+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2025-02-22T22:32:26.555+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-83] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-22T22:32:26.555+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-83] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Shutdown initiated...
+2025-02-22T22:32:26.556+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-83] com.zaxxer.hikari.HikariDataSource       : HikariPool-21 - Shutdown completed.
+2025-02-22T22:32:26.633+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 17.0.5 with PID 17440 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
+2025-02-22T22:32:26.633+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-02-22T22:32:26.740+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-22T22:32:26.756+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 9 JPA repository interfaces.
+2025-02-22T22:32:26.829+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9442 (http)
+2025-02-22T22:32:26.830+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-22T22:32:26.830+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-02-22T22:32:26.848+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-22T22:32:26.848+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 214 ms
+2025-02-22T22:32:26.869+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-22 - Starting...
+2025-02-22T22:32:26.903+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-22 - Added connection ConnectionID:780 ClientConnectionId: c2d990fd-ee7b-4361-a10d-3dd453479dab
+2025-02-22T22:32:26.903+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-22 - Start completed.
+2025-02-22T22:32:26.912+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-22T22:32:26.913+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-22T22:32:26.916+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-22T22:32:26.917+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-22T22:32:26.982+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-22T22:32:42.567+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-22T22:32:42.661+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-22T22:32:42.664+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
 
-java.lang.Error: Unresolved compilation problem: 
-	Type mismatch: cannot convert from Long to String
+Using generated security password: 5ce8aa6e-d40b-4905-bc48-ae69d0fc7313
 
-	at com.infinity.app.model.VendorContact.getVendorId(VendorContact.java:41) ~[classes/:na]
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-02-22T22:32:42.705+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@318f3a99, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7b77f07d, org.springframework.security.web.context.SecurityContextHolderFilter@514357a8, org.springframework.security.web.header.HeaderWriterFilter@4de88fb4, org.springframework.web.filter.CorsFilter@664b4b42, org.springframework.security.web.authentication.logout.LogoutFilter@1f886188, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3cd71c7c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c494b0f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2bc61c8e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@627b8f0b, org.springframework.security.web.access.ExceptionTranslationFilter@655e58d0, org.springframework.security.web.access.intercept.AuthorizationFilter@608fb5c4]
+2025-02-22T22:32:42.739+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-22T22:32:42.749+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9442 (http) with context path ''
+2025-02-22T22:32:42.753+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Started AtmIssueLoggerApplication in 16.134 seconds (process running for 1302044.107)
+2025-02-22T22:32:42.755+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-02-22T22:32:57.289+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-02-22T22:32:57.311+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-87] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-22T22:32:57.312+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-87] com.zaxxer.hikari.HikariDataSource       : HikariPool-22 - Shutdown initiated...
+2025-02-22T22:32:57.315+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-87] com.zaxxer.hikari.HikariDataSource       : HikariPool-22 - Shutdown completed.
+2025-02-22T22:32:57.397+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 17.0.5 with PID 17440 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
+2025-02-22T22:32:57.398+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-02-22T22:32:57.487+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-22T22:32:57.500+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 9 JPA repository interfaces.
+2025-02-22T22:32:57.550+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9442 (http)
+2025-02-22T22:32:57.550+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-22T22:32:57.550+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-02-22T22:32:57.564+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-22T22:32:57.564+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 166 ms
+2025-02-22T22:32:57.577+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-23 - Starting...
+2025-02-22T22:32:57.608+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-23 - Added connection ConnectionID:790 ClientConnectionId: ffdf5ad4-9fa2-4d4f-b9c3-416fcfd6df64
+2025-02-22T22:32:57.608+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-23 - Start completed.
+2025-02-22T22:32:57.615+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-22T22:32:57.616+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-22T22:32:57.619+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-22T22:32:57.620+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-22T22:32:57.676+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-22T22:33:06.174+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-22T22:33:06.249+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-22T22:33:06.252+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: dcd2e7c0-8387-4cb3-ad53-0ddc93df012e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-02-22T22:33:06.285+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5fe21e82, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@62600258, org.springframework.security.web.context.SecurityContextHolderFilter@2adf7336, org.springframework.security.web.header.HeaderWriterFilter@14a3b9fc, org.springframework.web.filter.CorsFilter@7437758a, org.springframework.security.web.authentication.logout.LogoutFilter@72ad4ddd, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@47b9700d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c01284e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2adfecb1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@78824a19, org.springframework.security.web.access.ExceptionTranslationFilter@7162fd0, org.springframework.security.web.access.intercept.AuthorizationFilter@32148ab4]
+2025-02-22T22:33:06.318+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-22T22:33:06.328+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9442 (http) with context path ''
+2025-02-22T22:33:06.330+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Started AtmIssueLoggerApplication in 8.95 seconds (process running for 1302067.684)
+2025-02-22T22:33:06.331+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-02-22T22:33:16.965+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-02-22T22:33:16.979+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-91] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-22T22:33:16.979+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-91] com.zaxxer.hikari.HikariDataSource       : HikariPool-23 - Shutdown initiated...
+2025-02-22T22:33:16.980+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-91] com.zaxxer.hikari.HikariDataSource       : HikariPool-23 - Shutdown completed.
+2025-02-22T22:33:17.050+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 17.0.5 with PID 17440 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
+2025-02-22T22:33:17.050+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-02-22T22:33:17.135+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-22T22:33:17.146+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 9 JPA repository interfaces.
+2025-02-22T22:33:17.197+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9442 (http)
+2025-02-22T22:33:17.197+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-22T22:33:17.197+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-02-22T22:33:17.209+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-22T22:33:17.209+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 158 ms
+2025-02-22T22:33:17.221+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-24 - Starting...
+2025-02-22T22:33:17.244+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-24 - Added connection ConnectionID:800 ClientConnectionId: 6533eb97-a5be-4a40-bb9a-6bcb72c82e62
+2025-02-22T22:33:17.244+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-24 - Start completed.
+2025-02-22T22:33:17.251+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-22T22:33:17.252+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-22T22:33:17.254+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-22T22:33:17.255+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-22T22:33:17.305+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-22T22:33:17.744+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-22T22:33:17.814+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-22T22:33:17.817+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 21fede04-c4b2-4257-b438-506b40955988
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-02-22T22:33:17.851+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4dda59e1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4f16f50, org.springframework.security.web.context.SecurityContextHolderFilter@2ec71a44, org.springframework.security.web.header.HeaderWriterFilter@25ec38e0, org.springframework.web.filter.CorsFilter@19964934, org.springframework.security.web.authentication.logout.LogoutFilter@202feb24, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1273e640, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5116f81, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7243cf1f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@145afda0, org.springframework.security.web.access.ExceptionTranslationFilter@31c8dda9, org.springframework.security.web.access.intercept.AuthorizationFilter@429bec26]
+2025-02-22T22:33:17.877+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-22T22:33:17.883+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9442 (http) with context path ''
+2025-02-22T22:33:17.885+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Started AtmIssueLoggerApplication in 0.848 seconds (process running for 1302079.239)
+2025-02-22T22:33:17.886+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-02-22T22:33:41.789+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-22T22:33:41.789+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-02-22T22:33:41.790+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-02-22T22:36:14.960+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 547, SQLState: 23000
+2025-02-22T22:36:14.960+01:00 ERROR 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_VendorContact_Vendor_Id". The conflict occurred in database "AtmIssueLogger", table "dbo.vendors", column 'id'.
+2025-02-22T22:36:14.997+01:00 ERROR 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_VendorContact_Vendor_Id". The conflict occurred in database "AtmIssueLogger", table "dbo.vendors", column 'id'.] [update vendor_contacts set contact=?,status=?,vendor_id=? where id=?]; SQL [update vendor_contacts set contact=?,status=?,vendor_id=? where id=?]; constraint [null]] with root cause
+
+com.microsoft.sqlserver.jdbc.SQLServerException: The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_VendorContact_Vendor_Id". The conflict occurred in database "AtmIssueLogger", table "dbo.vendors", column 'id'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:259) ~[mssql-jdbc-12.4.2.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1695) ~[mssql-jdbc-12.4.2.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:648) ~[mssql-jdbc-12.4.2.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:567) ~[mssql-jdbc-12.4.2.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7675) ~[mssql-jdbc-12.4.2.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:4137) ~[mssql-jdbc-12.4.2.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:272) ~[mssql-jdbc-12.4.2.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:246) ~[mssql-jdbc-12.4.2.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeUpdate(SQLServerPreparedStatement.java:512) ~[mssql-jdbc-12.4.2.jre11.jar:na]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.performNonBatchedMutation(AbstractMutationExecutor.java:108) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:40) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:52) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.mutation.UpdateCoordinatorStandard.doStaticUpdate(UpdateCoordinatorStandard.java:778) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.mutation.UpdateCoordinatorStandard.performUpdate(UpdateCoordinatorStandard.java:324) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.mutation.UpdateCoordinatorStandard.coordinateUpdate(UpdateCoordinatorStandard.java:242) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:2810) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.action.internal.EntityUpdateAction.execute(EntityUpdateAction.java:168) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:632) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:499) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:363) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1403) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:484) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2319) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1976) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:794) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:757) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:676) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:426) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.2.5.jar:3.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.6.jar:6.1.6]
+	at jdk.proxy27/jdk.proxy27.$Proxy423.save(Unknown Source) ~[na:na]
+	at com.infinity.app.service.VendorContactService.updateVendorContact(VendorContactService.java:50) ~[classes/:na]
+	at com.infinity.app.controller.VendorContactController.updateVendorContact(VendorContactController.java:49) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) ~[jackson-databind-2.15.4.jar:2.15.4]
-	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:772) ~[jackson-databind-2.15.4.jar:2.15.4]
-	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178) ~[jackson-databind-2.15.4.jar:2.15.4]
-	at com.fasterxml.jackson.databind.ser.std.CollectionSerializer.serializeContents(CollectionSerializer.java:145) ~[jackson-databind-2.15.4.jar:2.15.4]
-	at com.fasterxml.jackson.databind.ser.std.CollectionSerializer.serialize(CollectionSerializer.java:107) ~[jackson-databind-2.15.4.jar:2.15.4]
-	at com.fasterxml.jackson.databind.ser.std.CollectionSerializer.serialize(CollectionSerializer.java:25) ~[jackson-databind-2.15.4.jar:2.15.4]
-	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:479) ~[jackson-databind-2.15.4.jar:2.15.4]
-	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:399) ~[jackson-databind-2.15.4.jar:2.15.4]
-	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1568) ~[jackson-databind-2.15.4.jar:2.15.4]
-	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1061) ~[jackson-databind-2.15.4.jar:2.15.4]
-	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:483) ~[spring-web-6.1.6.jar:6.1.6]
-	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:114) ~[spring-web-6.1.6.jar:6.1.6]
-	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:297) ~[spring-webmvc-6.1.6.jar:6.1.6]
-	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:245) ~[spring-webmvc-6.1.6.jar:6.1.6]
-	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78) ~[spring-web-6.1.6.jar:6.1.6]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.6.jar:6.1.6]
 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.6.jar:6.1.6]
 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.6.jar:6.1.6]
 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.6.jar:6.1.6]
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.6.jar:6.1.6]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.6.jar:6.1.6]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.6.jar:6.1.6]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.6.jar:6.1.6]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.20.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:925) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:593) ~[tomcat-embed-core-10.1.20.jar:6.0]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.6.jar:6.1.6]
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.20.jar:6.0]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
@@ -156,74 +296,3 @@ java.lang.Error: Unresolved compilation problem:
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
 	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
-2025-02-16T20:49:48.596+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2025-02-16T20:49:48.628+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-71] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-02-16T20:49:48.631+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-71] com.zaxxer.hikari.HikariDataSource       : HikariPool-18 - Shutdown initiated...
-2025-02-16T20:49:48.637+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-71] com.zaxxer.hikari.HikariDataSource       : HikariPool-18 - Shutdown completed.
-2025-02-16T20:49:48.921+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 17.0.5 with PID 17440 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
-2025-02-16T20:49:48.921+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
-2025-02-16T20:49:49.209+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-16T20:49:49.222+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 9 JPA repository interfaces.
-2025-02-16T20:49:49.289+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9442 (http)
-2025-02-16T20:49:49.289+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-02-16T20:49:49.289+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2025-02-16T20:49:49.305+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-02-16T20:49:49.305+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 383 ms
-2025-02-16T20:49:49.323+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-19 - Starting...
-2025-02-16T20:49:49.363+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-19 - Added connection ConnectionID:510 ClientConnectionId: ff082450-8dd3-494c-9b35-535f8c870bac
-2025-02-16T20:49:49.363+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-19 - Start completed.
-2025-02-16T20:49:49.373+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-16T20:49:49.375+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-02-16T20:49:49.378+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-16T20:49:49.379+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-16T20:49:49.436+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-16T20:49:51.559+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-16T20:49:51.647+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-02-16T20:49:51.652+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 637a7f09-c50b-4b88-bad0-21f2dbefc6d5
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2025-02-16T20:49:51.694+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@43398490, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6365be69, org.springframework.security.web.context.SecurityContextHolderFilter@1adae8db, org.springframework.security.web.header.HeaderWriterFilter@89d3ba7, org.springframework.web.filter.CorsFilter@3f9b852e, org.springframework.security.web.authentication.logout.LogoutFilter@9aef2b5, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3dfce2c0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@216fd202, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@255e01ce, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65ab9aff, org.springframework.security.web.access.ExceptionTranslationFilter@f617a83, org.springframework.security.web.access.intercept.AuthorizationFilter@30be53e]
-2025-02-16T20:49:51.725+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2025-02-16T20:49:51.734+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9442 (http) with context path ''
-2025-02-16T20:49:51.739+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Started AtmIssueLoggerApplication in 2.907 seconds (process running for 777475.939)
-2025-02-16T20:49:51.740+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2025-02-16T20:50:23.949+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2025-02-16T20:50:23.970+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-75] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-02-16T20:50:23.971+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-75] com.zaxxer.hikari.HikariDataSource       : HikariPool-19 - Shutdown initiated...
-2025-02-16T20:50:23.975+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [Thread-75] com.zaxxer.hikari.HikariDataSource       : HikariPool-19 - Shutdown completed.
-2025-02-16T20:50:24.091+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 17.0.5 with PID 17440 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
-2025-02-16T20:50:24.091+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
-2025-02-16T20:50:24.227+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-16T20:50:24.239+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 9 JPA repository interfaces.
-2025-02-16T20:50:24.294+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9442 (http)
-2025-02-16T20:50:24.294+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-02-16T20:50:24.294+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2025-02-16T20:50:24.304+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-02-16T20:50:24.304+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 211 ms
-2025-02-16T20:50:24.321+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-20 - Starting...
-2025-02-16T20:50:24.355+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - Added connection ConnectionID:520 ClientConnectionId: 01b0b2f5-67c8-43f1-89b7-dcae54dc2c50
-2025-02-16T20:50:24.355+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-20 - Start completed.
-2025-02-16T20:50:24.364+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-16T20:50:24.366+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-02-16T20:50:24.369+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-16T20:50:24.370+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-16T20:50:24.442+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-16T20:50:35.198+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-16T20:50:35.283+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-02-16T20:50:35.286+01:00  WARN 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: f92cc3a5-7c57-4f9e-9da2-5d4245472b0b
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2025-02-16T20:50:35.322+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7e06ff25, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3a1f9ff9, org.springframework.security.web.context.SecurityContextHolderFilter@59b6c64a, org.springframework.security.web.header.HeaderWriterFilter@410d5730, org.springframework.web.filter.CorsFilter@1e669764, org.springframework.security.web.authentication.logout.LogoutFilter@6e28d699, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@56b26774, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@504719e3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2adcb2c1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5baaca1b, org.springframework.security.web.access.ExceptionTranslationFilter@6ee2807a, org.springframework.security.web.access.intercept.AuthorizationFilter@494db20c]
-2025-02-16T20:50:35.359+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2025-02-16T20:50:35.372+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9442 (http) with context path ''
-2025-02-16T20:50:35.376+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Started AtmIssueLoggerApplication in 11.31 seconds (process running for 777519.576)
-2025-02-16T20:50:35.377+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2025-02-16T20:50:51.808+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-02-16T20:50:51.808+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-02-16T20:50:51.811+01:00  INFO 17440 --- [AtmLoggerSpringBootSSO] [http-nio-9442-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
