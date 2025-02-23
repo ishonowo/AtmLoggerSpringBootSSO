@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.infinity.app.model.TerminalObjects;
+import com.infinity.app.dto.TerminalWNames;
 import com.infinity.app.model.Terminals;
 import com.infinity.app.service.TerminalService;
 
@@ -37,8 +37,8 @@ public class TerminalController {
 
     // Fetch all terminals with vendor names
     @GetMapping
-    public ResponseEntity<List<TerminalObjects>> getAllTerminalObjs() {
-        List<TerminalObjects> newTerminals = terminalService.getAllTerminalObjects();
+    public ResponseEntity<List<TerminalWNames>> getAllTerminalObjs() {
+        List<TerminalWNames> newTerminals = terminalService.findAllTerminalsWNames();
         System.out.println(newTerminals);
         return ResponseEntity.ok(newTerminals);
     }
