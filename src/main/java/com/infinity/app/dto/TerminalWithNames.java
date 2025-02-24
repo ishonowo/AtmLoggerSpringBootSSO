@@ -1,11 +1,11 @@
 package com.infinity.app.dto;
 
 
-public class TerminalWNames {
+public class TerminalWithNames {
 
-	private Long id;
-	private String vendorName;
 	private Long vendorId;
+	private String vendorName;
+	private Long id;
 	private String terminalId;
 	private String atmName;
 	private Boolean offsite;
@@ -46,9 +46,17 @@ public class TerminalWNames {
 		this.offsite = offsite;
 	}
 	
-	public TerminalWNames(Long id, String vendorName, Long vendorId, String terminalId, String atmName,
+	public TerminalWithNames(Long vendorId, String vendorName, Long id, String terminalId, String atmName,
 			Boolean offsite) {
+		this.vendorId = vendorId;
+		this.vendorName = vendorName;
 		this.id = id;
+		this.terminalId = terminalId;
+		this.atmName = atmName;
+		this.offsite = offsite;
+	}
+	
+	public TerminalWithNames(String vendorName, Long vendorId, String terminalId, String atmName, Boolean offsite) {
 		this.vendorName = vendorName;
 		this.vendorId = vendorId;
 		this.terminalId = terminalId;
@@ -56,13 +64,7 @@ public class TerminalWNames {
 		this.offsite = offsite;
 	}
 	
-	public TerminalWNames(String vendorName, Long vendorId, String terminalId, String atmName, Boolean offsite) {
-		this.vendorName = vendorName;
-		this.vendorId = vendorId;
-		this.terminalId = terminalId;
-		this.atmName = atmName;
-		this.offsite = offsite;
-	}
+	public TerminalWithNames(){}
 	
 	@Override
 	public String toString() {

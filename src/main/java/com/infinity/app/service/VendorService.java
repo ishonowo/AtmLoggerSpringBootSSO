@@ -30,7 +30,7 @@ public class VendorService {
 		return vendorRepo.findAllNames();
 	}
 
-	public Object updateVendor(Vendor updatedVendor) {
+	public Vendor updateVendor(Vendor updatedVendor) {
 		Vendor vendor = vendorRepo.findById(updatedVendor.getId())
 	            .orElseThrow(() -> new EntityNotFoundException("Vendor not found with id: " + updatedVendor.getId()));
 	        

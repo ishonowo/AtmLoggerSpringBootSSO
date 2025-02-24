@@ -5,11 +5,11 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.infinity.app.dto.TerminalWNames;
-import com.infinity.app.dto.VendorContactObject;
+import com.infinity.app.dto.TerminalWithNames;
 import com.infinity.app.model.Terminals;
 import com.infinity.app.repo.TerminalRepo;
-//import com.infinity.app.repo.TerminalObjectRepo;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class TerminalService {
@@ -24,19 +24,31 @@ public class TerminalService {
 		return terminalRepo.save(terminal);
 	}
 
-	public List<TerminalWNames> findAllTerminalsWNames() {
-        return terminalRepo.findAllTerminalsWNames()
+	public List<TerminalWithNames> findAllTerminalsWithNames() {
+        return terminalRepo.findAllTerminalsWithNames()
             .stream()
-            .map(projection -> new TerminalWNames(
-                projection.vendorId(),
-                projection.vendorName(),
-                projection.id(),
-                projection.terminalId(),
-                projection.atmName(),
-                projection.offsite()
+            .map(projection -> new TerminalWithNames(
+                projection.getVendorId(),
+                projection.getVendorName(),
+                projection.getId(),
+                projection.getTerminalId(),
+                projection.getAtmName(),
+                projection.getOffsite()
                 ))
             .collect(Collectors.toList());
     }
+
+	public Terminals updateTerminal(TerminalWithNames updatedTerminal) {
+		Terminals terminal = terminalRepo.findById(updatedTerminal.getId())
+	            .orElseThrow(() -> new EntityNotFoundException("Terminal not found with id: " + updatedTerminal.getId()));
+	        
+		terminal.setTerminalId(updatedTerminal.getTerminalId());
+        terminal.setAtmName(updatedTerminal.getAtmName());
+        terminal.setVendorId(updatedTerminal.getVendorId());
+        terminal.setOffsite(updatedTerminal.getOffsite());
+        
+		return terminalRepo.save(terminal);
+	}
 	
 	/*public List<TerminalObjects> getAllTerminalObjects(){
 		return terminalObjectRepo.findAllTerminalObjects();
