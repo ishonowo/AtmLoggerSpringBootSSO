@@ -6,12 +6,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.infinity.app.dto.BranchObject;
+import com.infinity.app.dto.BranchWithName;
+import com.infinity.app.dto.TerminalWithNames;
 import com.infinity.app.model.BranchInfo;
+import com.infinity.app.model.Terminals;
 import com.infinity.app.service.BranchService;
 
 @RestController
@@ -25,9 +28,9 @@ public class BranchController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<BranchObject>>
+	public ResponseEntity<List<BranchWithName>>
 	findAllBranchObject(){
-		List<BranchObject> branches = branchService.findAllBranchObject();
+		List<BranchWithName> branches = branchService.findAllBranchesWithNames();
 		System.out.println(branches);
 		return ResponseEntity.ok(branches);
 	}
@@ -44,6 +47,11 @@ public class BranchController {
     public ResponseEntity<BranchInfo> insertBranch(@RequestBody BranchInfo branch) {
     	BranchInfo savedBranch = branchService.insertBranch(branch);
         return ResponseEntity.ok(savedBranch);
+    }
+	
+	@PutMapping
+    public ResponseEntity<BranchInfo> updateVendor(@RequestBody BranchWithName updatedBranch) {
+        return ResponseEntity.ok((BranchInfo)branchService.updateBranch(updatedBranch));
     }
 
 }

@@ -13,6 +13,8 @@ import com.infinity.app.model.BranchInfo;
 public interface BranchRepo extends JpaRepository<BranchInfo, Long>{
 	
 	public interface BranchProjection {
+		Long getId();
+		Long getRegionId();
 	    String getRegionName();
 	    String getBranchEmail();
 	    String getBranchName();
@@ -20,11 +22,12 @@ public interface BranchRepo extends JpaRepository<BranchInfo, Long>{
 	    String getSolId();	    
 	}
 	
-	@Query(value = "SELECT r.region_name as regionName,b.branch_email as branchEmail,b.branch_name as branchName,"
+	@Query(value = "SELECT b.id as id, r.id as regionId,r.region_name as regionName,b.branch_email as branchEmail,"
+			+ "b.branch_name as branchName,"
 			+ " b.physical_address as physicalAddress,b.sol_id  as solId " +
 		       "FROM branch_info b JOIN regions r ON r.id = b.region_id",
 		       nativeQuery = true)
-		public List<BranchProjection> findAllBranchObject();
+		public List<BranchProjection> findAllBranchesWithNames();
 	
 	@Query(value = "SELECT CASE WHEN COUNT(b.sol_id) > 0 THEN 'TRUE' ELSE 'FALSE' END " +
 	           "FROM branch_info b WHERE b.sol_id = :sol", 
