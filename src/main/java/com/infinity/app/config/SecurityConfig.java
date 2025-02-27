@@ -26,8 +26,10 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers(mvcMatcherBuilder.pattern("/api/**")).permitAll()
-                .requestMatchers(mvcMatcherBuilder.pattern("/public/**")).permitAll()
+            		.requestMatchers(mvcMatcherBuilder.pattern("/api/**")).permitAll()
+            		.requestMatchers(mvcMatcherBuilder.pattern("/atm/**")).permitAll()
+            		.requestMatchers(mvcMatcherBuilder.pattern("/email/**")).permitAll()
+                    .requestMatchers(mvcMatcherBuilder.pattern("/public/**")).permitAll()
                 .anyRequest().authenticated()
             )
             .httpBasic(Customizer.withDefaults());

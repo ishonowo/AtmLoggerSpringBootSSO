@@ -20,9 +20,9 @@ import jakarta.validation.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = {"Content-Type", "Authorization"}, 
+/*@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = {"Content-Type", "Authorization"}, 
 methods = {RequestMethod.POST, RequestMethod.DELETE},
-allowCredentials = "true")
+allowCredentials = "true")*/
 @RestController
 @RequestMapping("/email")
 //@PreAuthorize("hasRole('ROLE_Logger')")
