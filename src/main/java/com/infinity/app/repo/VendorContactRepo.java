@@ -12,14 +12,17 @@ import com.infinity.app.model.VendorContact;
 @Repository
 public interface VendorContactRepo extends JpaRepository<VendorContact, Long> {
 	public interface VendorContactProjection {
-	    String getVendorName();
+		Long getVendorId();
 	    String getContact();
 	    Boolean getStatus();
+	    Long getId();
+		String getVendorName();
 	}
 
-	@Query(value = "SELECT v.vendor_name as vendorName, c.contact as contact, c.status as status " +
+	@Query(value = "SELECT v.id as vendorId, c.contact as contact,"
+			+ " c.status as status,c.id as id, v.vendor_name as vendorName " +
 	       "FROM vendors v " +
-	       "JOIN vendor_contacts c ON v.id = c.vendor_id",
+	       "JOIN vendor_contacts c ON v.id = c.vendor_id;",
 	       nativeQuery = true)
 	public List<VendorContactProjection> findAllVendorContactObject();
 }

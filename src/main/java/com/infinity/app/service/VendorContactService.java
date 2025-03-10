@@ -25,9 +25,11 @@ public class VendorContactService {
         return vendorContactRepo.findAllVendorContactObject()
             .stream()
             .map(projection -> new VendorContactObject(
-                projection.getVendorName(),
-                projection.getContact(),
-                projection.getStatus()))
+            	projection.getVendorId(),
+            	projection.getContact(),
+            	projection.getStatus(),
+            	projection.getId(),
+                projection.getVendorName()))
             .collect(Collectors.toList());
     }
 

@@ -3,21 +3,22 @@ package com.infinity.app.dto;
 
 public class VendorContactObject {
 
-	
-	private String vendorName;
+	private Long vendorId;
 	
 	private String contact;
 	
 	private Boolean status;
+	
+	private Long id;
+	
+	private String vendorName;
 
-
-
-	public String getVendorName() {
-		return vendorName;
+	public Long getVendorId() {
+		return vendorId;
 	}
 
-	public void setVendorName(String vendorName) {
-		this.vendorName = vendorName;
+	public void setVendorId(Long vendorId) {
+		this.vendorId = vendorId;
 	}
 
 	public String getContact() {
@@ -36,22 +37,46 @@ public class VendorContactObject {
 		this.status = status;
 	}
 
-	public VendorContactObject(  String vendorName,  String contact,
-			Boolean status) {
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getVendorName() {
+		return vendorName;
+	}
+
+	public void setVendorName(String vendorName) {
 		this.vendorName = vendorName;
+	}
+
+	public VendorContactObject(Long vendorId, String contact, Boolean status, Long id, String vendorName) {
+		this.vendorId = vendorId;
 		this.contact = contact;
 		this.status = status;
+		this.id = id;
+		this.vendorName = vendorName;
 	}
 
 	public VendorContactObject() {}
 
+	public VendorContactObject(Long vendorId, String contact, Boolean status, String vendorName) {
+		this.vendorId = vendorId;
+		this.contact = contact;
+		this.status = status;
+		this.vendorName = vendorName;
+	}
+
 	@Override
 	public String toString() {
-		return "VendorContactObject [ vendorName=" + vendorName + ", contact=" + contact + ", status="
-				+ status + "]";
+		return "VendorContactObject [vendorId=" + vendorId + ", contact=" + contact + ", status=" + status + ", id="
+				+ id + ", vendorName=" + vendorName + "]";
 	}
 	
-	
+
 
 
 
