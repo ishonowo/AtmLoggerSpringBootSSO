@@ -1,9 +1,9 @@
 package com.infinity.app.repo;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.infinity.app.model.EmailIssue;
 
-public interface EmailIssueRepo extends CrudRepository<EmailIssue, Long> {
+public interface EmailIssueRepo extends JpaRepository<EmailIssue, Long> {
 
 }

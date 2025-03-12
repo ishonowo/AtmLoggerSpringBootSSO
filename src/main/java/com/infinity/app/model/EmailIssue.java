@@ -1,23 +1,22 @@
 package com.infinity.app.model;
 
-import java.util.List;
+import java.util.Objects;
 
-import jakarta.persistence.ElementCollection;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 @Entity
-@CrossOrigin(origins="http://localhost:4200")
-public class EmailIssue {
+	public class EmailIssue {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "emailIssues")
@@ -41,13 +40,10 @@ public class EmailIssue {
 	@NotNull
 	private String mIntro;
 	
-	@NotNull
-	@ElementCollection
-	private List<String> mHeader;
 	
 	@NotNull
-	@ElementCollection
-	private List<String> mBody;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Message message;
 	
 	@NotNull
 	private String  mEnd;
@@ -100,22 +96,14 @@ public class EmailIssue {
 		this.mIntro = mIntro;
 	}
 
-	public List<String> getmHeader() {
-		return mHeader;
-	}
-
-	public void setmHeader(List<String> mHeader) {
-		this.mHeader = mHeader;
-	}
-
-	public List<String> getmBody() {
-		return mBody;
-	}
-
-	public void setmBody(List<String> mBody) {
-		this.mBody = mBody;
-	}
-
+	public Message getMessage() {
+        return message;
+    }
+    
+    public void setMessage(Message message) {
+        this.message = message;
+    }
+    
 	public String getmEnd() {
 		return mEnd;
 	}
@@ -124,14 +112,11 @@ public class EmailIssue {
 		this.mEnd = mEnd;
 	}
 
-	public EmailIssue() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public EmailIssue() {}
 
-	public EmailIssue(Long id, @NotNull @Email String fromEmail, @NotNull String toEmail,
-			@NotNull String cc, @NotNull @Size(min = 10) String subject, @NotNull String mIntro,
-			@NotNull List<String> mHeader, @NotNull List<String> mBody, @NotNull String mEnd) {
+	public EmailIssue(Long id, @NotNull @Email String fromEmail, @NotNull String toEmail, @NotNull String cc,
+			@NotNull @Size(min = 10) String subject, @NotNull String mIntro, @NotNull Message message,
+			@NotNull String mEnd) {
 		super();
 		this.id = id;
 		this.fromEmail = fromEmail;
@@ -139,48 +124,49 @@ public class EmailIssue {
 		this.cc = cc;
 		this.subject = subject;
 		this.mIntro = mIntro;
-		this.mHeader = mHeader;
-		this.mBody = mBody;
+		this.message = message;
 		this.mEnd = mEnd;
 	}
 
-
-	public EmailIssue(@NotNull @Email String fromEmail, @NotNull String toEmail,
-			@NotNull String cc, @NotNull @Size(min = 10) String subject, @NotNull String mIntro,
-			@NotNull List<String> mHeader, @NotNull List<String> mBody, @NotNull String mEnd) {
+	public EmailIssue(@NotNull @Email String fromEmail, @NotNull String toEmail, @NotNull String cc,
+			@NotNull @Size(min = 10) String subject, @NotNull String mIntro, @NotNull Message message,
+			@NotNull String mEnd) {
 		super();
 		this.fromEmail = fromEmail;
 		this.toEmail = toEmail;
 		this.cc = cc;
 		this.subject = subject;
 		this.mIntro = mIntro;
-		this.mHeader = mHeader;
-		this.mBody = mBody;
+		this.message = message;
 		this.mEnd = mEnd;
 	}
 
 	@Override
 	public String toString() {
 		return "EmailIssue [id=" + id + ", fromEmail=" + fromEmail + ", toEmail=" + toEmail + ", cc=" + cc
-				+ ", subject=" + subject + ", mIntro=" + mIntro + ", mHeader=" + mHeader + ", mBody=" + mBody
-				+ ", mEnd=" + mEnd + "]";
+				+ ", subject=" + subject + ", mIntro=" + mIntro + ", message=" + message + ", mEnd=" + mEnd + "]";
 	}
 
-
-	
-	public String getBody() {
-		
-		String tableHead=""; 
-		for(String h : mHeader) { 
-			tableHead+= "<th>"+h+"</th>";
-		}
-		String tableBody="";
-		for(String b :mBody) {
-			tableBody+="<th>"+b+"</th>";
-		}
-		return "<p>"+ mIntro+"</p><table><thead><tr>"+ tableHead
-		        +"</tr></thead><tbody><tr>"+tableBody +"</tbody></table><br/><p>"+mEnd+"</p>";
+	@Override
+	public int hashCode() {
+		return Objects.hash(cc, fromEmail, id, mEnd, mIntro, message, subject, toEmail);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EmailIssue other = (EmailIssue) obj;
+		return Objects.equals(cc, other.cc) && Objects.equals(fromEmail, other.fromEmail)
+				&& Objects.equals(id, other.id) && Objects.equals(mEnd, other.mEnd)
+				&& Objects.equals(mIntro, other.mIntro) && Objects.equals(message, other.message)
+				&& Objects.equals(subject, other.subject) && Objects.equals(toEmail, other.toEmail);
+	}
+
 	
 
 }

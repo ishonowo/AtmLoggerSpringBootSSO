@@ -1,0 +1,106 @@
+package com.infinity.app.model;
+
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Message {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    private String atmLocation;
+    private String branchName;
+    private String vendorName;
+    private String issueDesc;
+    private String branchLogger;
+    private String loggerPhone;
+    private LocalDate dateLogged;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getAtmLocation() {
+		return atmLocation;
+	}
+	public void setAtmLocation(String atmLocation) {
+		this.atmLocation = atmLocation;
+	}
+	public String getBranchName() {
+		return branchName;
+	}
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
+	}
+	public String getVendorName() {
+		return vendorName;
+	}
+	public void setVendorName(String vendorName) {
+		this.vendorName = vendorName;
+	}
+	public String getIssueDesc() {
+		return issueDesc;
+	}
+	public void setIssueDesc(String issueDesc) {
+		this.issueDesc = issueDesc;
+	}
+	public String getBranchLogger() {
+		return branchLogger;
+	}
+	public void setBranchLogger(String branchLogger) {
+		this.branchLogger = branchLogger;
+	}
+	public String getLoggerPhone() {
+		return loggerPhone;
+	}
+	public void setLoggerPhone(String loggerPhone) {
+		this.loggerPhone = loggerPhone;
+	}
+	public LocalDate getDateLogged() {
+		return dateLogged;
+	}
+	public void setDateLogged(LocalDate dateLogged) {
+		this.dateLogged = dateLogged;
+	}
+	
+	public Message(Long id, String atmLocation, String branchName, String vendorName, String issueDesc,
+			String branchLogger, String loggerPhone, LocalDate dateLogged) {
+		this.id = id;
+		this.atmLocation = atmLocation;
+		this.branchName = branchName;
+		this.vendorName = vendorName;
+		this.issueDesc = issueDesc;
+		this.branchLogger = branchLogger;
+		this.loggerPhone = loggerPhone;
+		this.dateLogged = dateLogged;
+	}
+	
+	public Message(String atmLocation, String branchName, String vendorName, String issueDesc, String branchLogger,
+			String loggerPhone, LocalDate dateLogged) {
+		this.atmLocation = atmLocation;
+		this.branchName = branchName;
+		this.vendorName = vendorName;
+		this.issueDesc = issueDesc;
+		this.branchLogger = branchLogger;
+		this.loggerPhone = loggerPhone;
+		this.dateLogged = dateLogged;
+	}
+	
+	@Override
+	public String toString() {
+		return "Message [id=" + id + ", atmLocation=" + atmLocation + ", branchName=" + branchName + ", vendorName="
+				+ vendorName + ", issueDesc=" + issueDesc + ", branchLogger=" + branchLogger + ", loggerPhone="
+				+ loggerPhone + ", dateLogged=" + dateLogged + "]";
+	}
+    
+	
+    
+}
