@@ -117,7 +117,6 @@ import jakarta.validation.constraints.Size;
 	public EmailIssue(Long id, @NotNull @Email String fromEmail, @NotNull String toEmail, @NotNull String cc,
 			@NotNull @Size(min = 10) String subject, @NotNull String mIntro, @NotNull Message message,
 			@NotNull String mEnd) {
-		super();
 		this.id = id;
 		this.fromEmail = fromEmail;
 		this.toEmail = toEmail;
@@ -131,7 +130,6 @@ import jakarta.validation.constraints.Size;
 	public EmailIssue(@NotNull @Email String fromEmail, @NotNull String toEmail, @NotNull String cc,
 			@NotNull @Size(min = 10) String subject, @NotNull String mIntro, @NotNull Message message,
 			@NotNull String mEnd) {
-		super();
 		this.fromEmail = fromEmail;
 		this.toEmail = toEmail;
 		this.cc = cc;

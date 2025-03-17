@@ -1,5 +1,7 @@
 package com.infinity.app.dto;
 
+import java.util.Date;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -41,7 +43,7 @@ public class EmailIssueMessageDto {
     private String loggerPhone;
     
     @NotNull
-    private String dateLogged;
+    private Date dateLogged;
     
     @NotNull
     private String mEnd;
@@ -134,11 +136,11 @@ public class EmailIssueMessageDto {
 		this.loggerPhone = loggerPhone;
 	}
 
-	public String getDateLogged() {
+	public Date getDateLogged() {
 		return dateLogged;
 	}
 
-	public void setDateLogged(String dateLogged) {
+	public void setDateLogged(Date dateLogged) {
 		this.dateLogged = dateLogged;
 	}
 
@@ -155,7 +157,7 @@ public class EmailIssueMessageDto {
 	public EmailIssueMessageDto(@NotNull @Email String fromEmail, @NotNull String toEmail, @NotNull String cc,
 			@NotNull @Size(min = 10) String subject, @NotNull String mIntro, @NotNull String atmLocation,
 			@NotNull String branchName, @NotNull String vendorName, @NotNull String issueDesc,
-			@NotNull String branchLogger, @NotNull String loggerPhone, @NotNull String dateLogged,
+			@NotNull String branchLogger, @NotNull String loggerPhone, @NotNull Date dateLogged,
 			@NotNull String mEnd) {
 		this.fromEmail = fromEmail;
 		this.toEmail = toEmail;

@@ -2,6 +2,7 @@ package com.infinity.app.model;
 
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class Message {
     private String issueDesc;
     private String branchLogger;
     private String loggerPhone;
-    private LocalDate dateLogged;
+    private Date dateLogged;
 	public Long getId() {
 		return id;
 	}
@@ -64,15 +65,15 @@ public class Message {
 	public void setLoggerPhone(String loggerPhone) {
 		this.loggerPhone = loggerPhone;
 	}
-	public LocalDate getDateLogged() {
+	public Date getDateLogged() {
 		return dateLogged;
 	}
-	public void setDateLogged(LocalDate dateLogged) {
+	public void setDateLogged(Date dateLogged) {
 		this.dateLogged = dateLogged;
 	}
 	
 	public Message(Long id, String atmLocation, String branchName, String vendorName, String issueDesc,
-			String branchLogger, String loggerPhone, LocalDate dateLogged) {
+			String branchLogger, String loggerPhone, Date dateLogged) {
 		this.id = id;
 		this.atmLocation = atmLocation;
 		this.branchName = branchName;
@@ -84,7 +85,7 @@ public class Message {
 	}
 	
 	public Message(String atmLocation, String branchName, String vendorName, String issueDesc, String branchLogger,
-			String loggerPhone, LocalDate dateLogged) {
+			String loggerPhone, Date dateLogged) {
 		this.atmLocation = atmLocation;
 		this.branchName = branchName;
 		this.vendorName = vendorName;

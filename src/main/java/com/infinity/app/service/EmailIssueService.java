@@ -1,61 +1,104 @@
 package com.infinity.app.service;
 
-import com.infinity.app.model.EmailIssue;
-import com.infinity.app.repo.EmailIssueRepo;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
+
+import com.infinity.app.model.EmailIssue;
+import com.infinity.app.repo.EmailIssueRepo;
+
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
 
 @Service
 public class EmailIssueService {
-    
-    private final EmailIssueRepo emailIssueRepository;
-    private final EmailSenderService emailSenderService;
-    
-    @Autowired
-    public EmailIssueService(EmailIssueRepo emailIssueRepository, EmailSenderService emailSenderService) {
-        this.emailIssueRepository = emailIssueRepository;
-        this.emailSenderService = emailSenderService;
+
+    //private final EmailIssueRepo emailIssueRepository;
+    private final JavaMailSenderImpl mailSender;
+    private final Configuration freemarkerConfig;
+
+    public EmailIssueService(//EmailIssueRepo emailIssueRepository, 
+    		Environment environment, Configuration freemarkerConfig) {
+        //this.emailIssueRepository = emailIssueRepository;
+        this.freemarkerConfig = freemarkerConfig;
+
+        // Configure mail sender from environment properties
+        mailSender = new JavaMailSenderImpl();
+        mailSender.setHost(environment.getProperty("spring.mail.host"));
+        mailSender.setPort(Integer.parseInt(environment.getProperty("spring.mail.port")));
+        mailSender.setUsername(environment.getProperty("spring.mail.username"));
+        mailSender.setPassword(environment.getProperty("spring.mail.password"));
     }
-    
+
     @Transactional
     public EmailIssue sendEmail(EmailIssue emailIssue) {
         // First save the email issue to the database
-        EmailIssue savedEmailIssue = emailIssueRepository.save(emailIssue);
-        
-        // Construct email content from the email issue object
-        String emailContent = constructEmailContent(emailIssue);
-        
-        // Send the actual email
-        emailSenderService.sendEmail(
-            emailIssue.getFromEmail(),
-            emailIssue.getToEmail(),
-            emailIssue.getCc(),
-            emailIssue.getSubject(),
-            emailContent
-        );
-        
-        return savedEmailIssue;
-    }
-    
-    private String constructEmailContent(EmailIssue emailIssue) {
-        StringBuilder contentBuilder = new StringBuilder();
-        
-        // Add intro
-        contentBuilder.append(emailIssue.getmIntro()).append("\n\n");
-        
-        // Add message details in a formatted way
-        contentBuilder.append("ATM LOCATION: ").append(emailIssue.getMessage().getAtmLocation()).append("\n");
-        contentBuilder.append("BRANCH IN CHARGE: ").append(emailIssue.getMessage().getBranchName()).append("\n");
-        contentBuilder.append("VENDOR: ").append(emailIssue.getMessage().getVendorName()).append("\n");
-        contentBuilder.append("ISSUE(S): ").append(emailIssue.getMessage().getIssueDesc()).append("\n");
-        contentBuilder.append("BRANCH CONTACT: ").append(emailIssue.getMessage().getBranchLogger()).append("\n");
-        contentBuilder.append("CONTACT PHONE NUMBER: ").append(emailIssue.getMessage().getLoggerPhone()).append("\n");
-        contentBuilder.append("DATE LOGGED: ").append(emailIssue.getMessage().getDateLogged()).append("\n\n");
-        
-        // Add ending
-        contentBuilder.append(emailIssue.getmEnd());
-        
-        return contentBuilder.toString();
+        //EmailIssue savedEmailIssue = emailIssueRepository.save(emailIssue);
+
+        try {
+            // Create a MIME message
+            MimeMessage msg = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(msg, 
+                MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED);
+
+            // Set up the message parameters
+            helper.setFrom(emailIssue.getFromEmail());
+            helper.setTo(emailIssue.getToEmail().split(";"));
+            
+            if (emailIssue.getCc() != null && !emailIssue.getCc().isEmpty()) {
+                helper.setCc(emailIssue.getCc().split(";"));
+            }
+            
+            helper.setSubject(emailIssue.getSubject());
+
+            // Create model for the template
+            Map<String, Object> templateModel = new HashMap<>();
+            templateModel.put("emailIssue", emailIssue);
+            templateModel.put("intro", emailIssue.getmIntro());
+            templateModel.put("atmLocation", emailIssue.getMessage().getAtmLocation());
+            templateModel.put("branchName", emailIssue.getMessage().getBranchName());
+            templateModel.put("vendorName", emailIssue.getMessage().getVendorName());
+            templateModel.put("issueDesc", emailIssue.getMessage().getIssueDesc());
+            templateModel.put("branchLogger", emailIssue.getMessage().getBranchLogger());
+            templateModel.put("loggerPhone", emailIssue.getMessage().getLoggerPhone());
+            templateModel.put("dateLogged", emailIssue.getMessage().getDateLogged());
+            templateModel.put("conclusion", emailIssue.getmEnd());
+
+            // Process the FreeMarker template
+            String htmlContent = "";
+            try {
+                Template template = freemarkerConfig.getTemplate("email-template.ftl");
+                htmlContent = FreeMarkerTemplateUtils.processTemplateIntoString(template, templateModel);
+            } catch (IOException | TemplateException e) {
+                Logger.getLogger(EmailIssueService.class.getName()).log(Level.SEVERE, "Error processing template", e);
+                throw new RuntimeException("Failed to process email template", e);
+            }
+
+            // Set the HTML content
+            helper.setText(htmlContent, true);
+
+            // Send the email
+            mailSender.send(msg);
+            
+            return emailIssue;
+            
+        } catch (MessagingException ex) {
+            Logger.getLogger(EmailIssueService.class.getName()).log(Level.SEVERE, "Error sending email", ex);
+            throw new RuntimeException("Failed to send email", ex);
+        }
     }
 }

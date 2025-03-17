@@ -36,7 +36,7 @@ public class EmailIssueController {
 	@PostMapping("/sendEmail")
 	public ResponseEntity<?> sendEmail(@Valid @RequestBody EmailIssueMessageDto emailIssueMessage){
 		
-		logger.info("Received emailIssue "+emailIssueMessage);
+		logger.info("Received emailIssueMessage "+emailIssueMessage);
 		try {
 			// Convert request DTO to EmailIssue domain object
             EmailIssue emailIssue = convertToEmailIssue(emailIssueMessage);
@@ -57,7 +57,7 @@ public class EmailIssueController {
 	
 	private EmailIssue convertToEmailIssue(EmailIssueMessageDto dto) {
         // Parse date from string format
-        LocalDate dateLogged = LocalDate.parse(dto.getDateLogged(), DateTimeFormatter.ISO_DATE);
+        //LocalDate dateLogged = LocalDate.parse(dto.getDateLogged(), DateTimeFormatter.ISO_DATE);
         
         // Create Message object
         Message message = new Message(
@@ -67,7 +67,7 @@ public class EmailIssueController {
             dto.getIssueDesc(),
             dto.getBranchLogger(),
             dto.getLoggerPhone(),
-            dateLogged
+            dto.getDateLogged()
         );
         
         // Create EmailIssue object
