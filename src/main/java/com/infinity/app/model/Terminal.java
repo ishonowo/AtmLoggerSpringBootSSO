@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Lazy;
 @Entity
 @Lazy(false)
 @Table(name="terminals")
-public class Terminals {
+public class Terminal {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -78,9 +78,9 @@ public class Terminals {
 				+ ", offsite=" + offsite + "]";
 	}
 
-	public Terminals() {}
+	public Terminal() {}
 
-	public Terminals(Long id, @NotNull Long vendorId, @NotNull String terminalId, @NotNull String atmName,
+	public Terminal(Long id, @NotNull Long vendorId, @NotNull String terminalId, @NotNull String atmName,
 			@NotNull Boolean offsite) {
 		this.id = id;
 		this.vendorId = vendorId;
@@ -89,7 +89,7 @@ public class Terminals {
 		this.offsite = offsite;
 	}
 
-	public Terminals(@NotNull Long vendorId, @NotNull String terminalId, @NotNull String atmName,
+	public Terminal(@NotNull Long vendorId, @NotNull String terminalId, @NotNull String atmName,
 			@NotNull Boolean offsite) {
 		this.vendorId = vendorId;
 		this.terminalId = terminalId;

@@ -19,8 +19,7 @@ import jakarta.validation.constraints.Size;
 	public class EmailIssue {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "emailIssues")
-	@SequenceGenerator(name = "emailIssues", schema="dbo", sequenceName = "sq_emailIssues", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@NotNull

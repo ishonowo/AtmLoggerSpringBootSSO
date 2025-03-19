@@ -10,8 +10,8 @@ import jakarta.persistence.Table;
 
 //Java Entity (RegionEntity.java)
 @Entity
-@Table(name = "Regions")
-public class Regions {
+@Table(name = "regions")
+public class Region {
 	
  @Id
  @GeneratedValue(strategy = GenerationType.IDENTITY)

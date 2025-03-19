@@ -39,7 +39,7 @@ public class EmailIssueController {
 		logger.info("Received emailIssueMessage "+emailIssueMessage);
 		try {
 			// Convert request DTO to EmailIssue domain object
-            EmailIssue emailIssue = convertToEmailIssue(emailIssueMessage);
+            EmailIssue emailIssue = emailIssueService.convertToEmailIssue(emailIssueMessage);
             
             // Save and send the email
             EmailIssue savedEmailIssue = emailIssueService.sendEmail(emailIssue);
@@ -55,32 +55,5 @@ public class EmailIssueController {
         
     }
 	
-	private EmailIssue convertToEmailIssue(EmailIssueMessageDto dto) {
-        // Parse date from string format
-        //LocalDate dateLogged = LocalDate.parse(dto.getDateLogged(), DateTimeFormatter.ISO_DATE);
-        
-        // Create Message object
-        Message message = new Message(
-            dto.getAtmLocation(),
-            dto.getBranchName(),
-            dto.getVendorName(),
-            dto.getIssueDesc(),
-            dto.getBranchLogger(),
-            dto.getLoggerPhone(),
-            dto.getDateLogged()
-        );
-        
-        // Create EmailIssue object
-        EmailIssue emailIssue = new EmailIssue();
-        emailIssue.setFromEmail(dto.getFromEmail());
-        emailIssue.setToEmail(dto.getToEmail());
-        emailIssue.setCc(dto.getCc());
-        emailIssue.setSubject(dto.getSubject());
-        emailIssue.setmIntro(dto.getmIntro());
-        emailIssue.setMessage(message);
-        emailIssue.setmEnd(dto.getmEnd());
-        
-        return emailIssue;
-    }
 
 }

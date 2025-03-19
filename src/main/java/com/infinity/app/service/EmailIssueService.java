@@ -17,8 +17,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
+import com.infinity.app.dto.EmailIssueMessageDto;
 import com.infinity.app.model.EmailIssue;
+import com.infinity.app.model.Message;
 import com.infinity.app.repo.EmailIssueRepo;
+import com.infinity.app.repo.MessageRepo;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -27,13 +30,15 @@ import freemarker.template.TemplateException;
 @Service
 public class EmailIssueService {
 
-    //private final EmailIssueRepo emailIssueRepository;
+    private final EmailIssueRepo emailIssueRepo;
+    private final MessageRepo messageRepo;
     private final JavaMailSenderImpl mailSender;
     private final Configuration freemarkerConfig;
 
-    public EmailIssueService(//EmailIssueRepo emailIssueRepository, 
+    public EmailIssueService(EmailIssueRepo emailIssueRepo, MessageRepo messageRepo,
     		Environment environment, Configuration freemarkerConfig) {
-        //this.emailIssueRepository = emailIssueRepository;
+        this.emailIssueRepo = emailIssueRepo;
+        this.messageRepo = messageRepo;
         this.freemarkerConfig = freemarkerConfig;
 
         // Configure mail sender from environment properties
@@ -43,6 +48,39 @@ public class EmailIssueService {
         mailSender.setUsername(environment.getProperty("spring.mail.username"));
         mailSender.setPassword(environment.getProperty("spring.mail.password"));
     }
+    
+	public EmailIssue convertToEmailIssue(EmailIssueMessageDto dto) {
+        // Parse date from string format
+        //LocalDate dateLogged = LocalDate.parse(dto.getDateLogged(), DateTimeFormatter.ISO_DATE);
+        
+        // Create Message object
+        Message message = new Message(
+            dto.getAtmLocation(),
+            dto.getBranchName(),
+            dto.getVendorName(),
+            dto.getIssueDesc(),
+            dto.getBranchLogger(),
+            dto.getLoggerPhone(),
+            dto.getDateLogged()
+        );
+        messageRepo.save(message);
+        
+        // Create EmailIssue object
+        EmailIssue emailIssue = new EmailIssue(
+        	    dto.getFromEmail(),
+        	    dto.getToEmail(),
+        	    dto.getCc(),
+        	    dto.getSubject(),
+        	    dto.getmIntro(),
+        	    message,
+        	    dto.getmEnd()
+        	);
+        
+        emailIssueRepo.save(emailIssue);
+        
+        return emailIssue;
+    }
+
 
     @Transactional
     public EmailIssue sendEmail(EmailIssue emailIssue) {

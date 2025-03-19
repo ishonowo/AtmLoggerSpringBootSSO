@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.infinity.app.dto.TerminalWithNames;
-import com.infinity.app.model.Terminals;
+import com.infinity.app.model.Terminal;
 import com.infinity.app.model.Vendor;
 import com.infinity.app.service.TerminalService;
 
@@ -47,13 +47,13 @@ public class TerminalController {
 
     // Insert a new terminal
     @PostMapping
-    public ResponseEntity<Terminals> insertTerminal(@RequestBody Terminals terminal) {
-    	Terminals savedTerminal = terminalService.insertTerminal(terminal);
+    public ResponseEntity<Terminal> insertTerminal(@RequestBody Terminal terminal) {
+    	Terminal savedTerminal = terminalService.insertTerminal(terminal);
         return ResponseEntity.ok(savedTerminal);
     }
     
     @PutMapping
-    public ResponseEntity<Terminals> updateVendor(@RequestBody TerminalWithNames updatedTerminal) {
-        return ResponseEntity.ok((Terminals)terminalService.updateTerminal(updatedTerminal));
+    public ResponseEntity<Terminal> updateVendor(@RequestBody TerminalWithNames updatedTerminal) {
+        return ResponseEntity.ok((Terminal)terminalService.updateTerminal(updatedTerminal));
     }
 }

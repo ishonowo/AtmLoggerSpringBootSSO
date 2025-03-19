@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.infinity.app.model.Regions;
+import com.infinity.app.model.Region;
 //import com.infinity.app.model.Region;
 import com.infinity.app.repo.RegionRepo;
 
@@ -22,18 +22,18 @@ public class RegionService {
         return regionRepo.existsById(regionId);
     }*/
 	
-	public Regions insertRegion(String regionName) {
-		Regions region = new Regions();
+	public Region insertRegion(String regionName) {
+		Region region = new Region();
         region.setRegionName(regionName);
         return regionRepo.save(region);
     }
 	
-	public List<Regions> getAllRegions() {
+	public List<Region> getAllRegions() {
         return regionRepo.findAll();
     }
 
-	public Regions updateRegion(Regions updatedRegion) {
-		Regions region= regionRepo.findById(updatedRegion.getId())
+	public Region updateRegion(Region updatedRegion) {
+		Region region= regionRepo.findById(updatedRegion.getId())
 				.orElseThrow(() -> new EntityNotFoundException("Region not found with id: " + updatedRegion.getId()));
 		region.setRegionName(updatedRegion.getRegionName());
 		return regionRepo.save(region);

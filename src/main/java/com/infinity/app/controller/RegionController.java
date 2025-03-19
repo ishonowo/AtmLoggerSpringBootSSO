@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.infinity.app.model.Regions;
+import com.infinity.app.model.Region;
 import com.infinity.app.service.RegionService;
 
 /*@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = {"Content-Type", "Authorization"}, 
@@ -36,19 +36,19 @@ public class RegionController {
     }*/
     
     @PostMapping
-    public ResponseEntity<Regions> insertRegion(@RequestBody String regionName) {
+    public ResponseEntity<Region> insertRegion(@RequestBody String regionName) {
     	System.out.println("Saved.");
-        Regions savedRegion = regionService.insertRegion(regionName);
+        Region savedRegion = regionService.insertRegion(regionName);
         return ResponseEntity.ok(savedRegion);
     }
     
     @PutMapping
-    public ResponseEntity<Regions> updateRegion(@RequestBody Regions updatedRegion) {
+    public ResponseEntity<Region> updateRegion(@RequestBody Region updatedRegion) {
     	return ResponseEntity.ok(regionService.updateRegion(updatedRegion));
     }
     
     @GetMapping
-    public ResponseEntity<List<Regions>> getAllRegions() {
+    public ResponseEntity<List<Region>> getAllRegions() {
         return ResponseEntity.ok(regionService.getAllRegions());
     }
 }

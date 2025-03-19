@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.infinity.app.dto.BranchWithName;
 import com.infinity.app.dto.TerminalWithNames;
 import com.infinity.app.model.BranchInfo;
-import com.infinity.app.model.Terminals;
+import com.infinity.app.model.Terminal;
 import com.infinity.app.repo.BranchRepo;
 
 import jakarta.persistence.EntityNotFoundException;

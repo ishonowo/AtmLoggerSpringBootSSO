@@ -1,13 +1,14 @@
 package com.infinity.app.model;
 
 
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Message {
@@ -16,13 +17,28 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @NotNull
     private String atmLocation;
+    
+    @NotNull
     private String branchName;
+    
+    @NotNull
     private String vendorName;
+    
+    @NotNull
     private String issueDesc;
+    
+    @NotNull
     private String branchLogger;
+    
+    @NotNull
     private String loggerPhone;
+    
+    @NotNull
     private Date dateLogged;
+    
+    
 	public Long getId() {
 		return id;
 	}
@@ -72,8 +88,9 @@ public class Message {
 		this.dateLogged = dateLogged;
 	}
 	
-	public Message(Long id, String atmLocation, String branchName, String vendorName, String issueDesc,
-			String branchLogger, String loggerPhone, Date dateLogged) {
+	public Message(Long id, @NotNull String atmLocation, @NotNull String branchName, @NotNull String vendorName, 
+			@NotNull String issueDesc,
+			@NotNull String branchLogger, @NotNull String loggerPhone, @NotNull Date dateLogged) {
 		this.id = id;
 		this.atmLocation = atmLocation;
 		this.branchName = branchName;
@@ -84,8 +101,9 @@ public class Message {
 		this.dateLogged = dateLogged;
 	}
 	
-	public Message(String atmLocation, String branchName, String vendorName, String issueDesc, String branchLogger,
-			String loggerPhone, Date dateLogged) {
+	public Message(@NotNull String atmLocation, @NotNull String branchName, @NotNull String vendorName, 
+			@NotNull String issueDesc, @NotNull String branchLogger,
+			@NotNull String loggerPhone, @NotNull Date dateLogged) {
 		this.atmLocation = atmLocation;
 		this.branchName = branchName;
 		this.vendorName = vendorName;
@@ -95,6 +113,7 @@ public class Message {
 		this.dateLogged = dateLogged;
 	}
 	
+	public Message() {}
 	@Override
 	public String toString() {
 		return "Message [id=" + id + ", atmLocation=" + atmLocation + ", branchName=" + branchName + ", vendorName="

@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 //import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.infinity.app.model.Regions;
+import com.infinity.app.model.Region;
 
 @Repository
-public interface RegionRepo extends JpaRepository<Regions, Long> {
+public interface RegionRepo extends JpaRepository<Region, Long> {
     //boolean existsById(long id);
 }
