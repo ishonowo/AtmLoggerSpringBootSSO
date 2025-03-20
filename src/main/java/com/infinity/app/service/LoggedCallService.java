@@ -3,21 +3,24 @@ package com.infinity.app.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.infinity.app.dto.LoggedIssueDto;
-import com.infinity.app.repo.LoggedIssueRepo;
+import org.springframework.stereotype.Service;
 
-public class LoggedIssueService {
+import com.infinity.app.dto.LoggedCallDto;
+import com.infinity.app.repo.LoggedCallRepo;
 
-	private final LoggedIssueRepo loggedIssueRepo;
+@Service
+public class LoggedCallService {
+
+	private final LoggedCallRepo loggedIssueRepo;
 	
-	public LoggedIssueService(LoggedIssueRepo loggedIssueRepo) {
+	public LoggedCallService(LoggedCallRepo loggedIssueRepo) {
 		this.loggedIssueRepo=loggedIssueRepo;
 	}
 	
-	public List<LoggedIssueDto> findAllLoggedIssueDtos() {
+	public List<LoggedCallDto> findAllLoggedIssueDtos() {
         return loggedIssueRepo.findAllLoggedIssueDtos()
             .stream()
-            .map(projection -> new LoggedIssueDto(
+            .map(projection -> new LoggedCallDto(
                 projection.getBranchName(),
                 projection.getTerminalId(),
                 projection.getTerminalName(),

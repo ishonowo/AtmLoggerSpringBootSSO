@@ -5,11 +5,13 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
-import com.infinity.app.dto.LoggedIssueDto;
-import com.infinity.app.model.LoggedIssue;
+import com.infinity.app.dto.LoggedCallDto;
+import com.infinity.app.model.LoggedCall;
 
-public interface LoggedIssueRepo extends JpaRepository<LoggedIssue, Long>{
+@Repository
+public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
 
 	public interface LoggedIssueProjection {
 		String getBranchName();
@@ -46,6 +48,6 @@ public interface LoggedIssueRepo extends JpaRepository<LoggedIssue, Long>{
 			+ "JOIN [dbo].[log_status] ls (nolock) "
 			+ "ON l.status_id=l.id;",
        nativeQuery = true)
-	public List<LoggedIssueDto> findAllLoggedIssueDtos();
+	public List<LoggedCallDto> findAllLoggedIssueDtos();
 	
 }

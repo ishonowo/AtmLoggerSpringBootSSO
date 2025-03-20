@@ -12,7 +12,7 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 @Lazy(false)
 @Table(name="log_status")
-public class LogStatus {
+public class CallStatus {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,16 +37,16 @@ public class LogStatus {
 		this.statusDesc = statusDesc;
 	}
 
-	public LogStatus(Long id, @NotNull String statusDesc) {
+	public CallStatus(Long id, @NotNull String statusDesc) {
 		this.id = id;
 		this.statusDesc = statusDesc;
 	}
 
-	public LogStatus(@NotNull String statusDesc) {
+	public CallStatus(@NotNull String statusDesc) {
 		this.statusDesc = statusDesc;
 	}
 
-	public LogStatus() {}
+	public CallStatus() {}
 
 	@Override
 	public String toString() {

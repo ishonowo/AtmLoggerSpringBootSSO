@@ -16,7 +16,7 @@ import jakarta.validation.constraints.Size;
 
 
 @Entity
-	public class EmailIssue {
+public class EmailIssue {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

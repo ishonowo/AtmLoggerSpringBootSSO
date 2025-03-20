@@ -14,7 +14,7 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 @Lazy(false)
 @Table(name="logged_issues")
-public class LoggedIssue {
+public class LoggedCall {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -40,7 +40,7 @@ public class LoggedIssue {
 	@NotNull
 	private Long statusId;
 
-	public LoggedIssue(Long id, @NotNull Long branchId, @NotNull Long tId, @NotNull Long vendorId,
+	public LoggedCall(Long id, @NotNull Long branchId, @NotNull Long tId, @NotNull Long vendorId,
 			@NotNull Long messageId, @NotNull Date startingDate, @NotNull Date dateCompleted, @NotNull Long statusId) {
 		this.id = id;
 		this.branchId = branchId;
@@ -52,7 +52,7 @@ public class LoggedIssue {
 		this.statusId = statusId;
 	}
 
-	public LoggedIssue(@NotNull Long branchId, @NotNull Long tId, @NotNull Long vendorId, @NotNull Long messageId,
+	public LoggedCall(@NotNull Long branchId, @NotNull Long tId, @NotNull Long vendorId, @NotNull Long messageId,
 			@NotNull Date startingDate, @NotNull Date dateCompleted, @NotNull Long statusId) {
 		this.branchId = branchId;
 		this.tId = tId;
@@ -63,7 +63,7 @@ public class LoggedIssue {
 		this.statusId = statusId;
 	}
 
-	public LoggedIssue() {}
+	public LoggedCall() {}
 
 	@Override
 	public String toString() {

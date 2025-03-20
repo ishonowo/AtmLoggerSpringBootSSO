@@ -4,7 +4,7 @@ import java.util.Date;
 
 import jakarta.validation.constraints.NotNull;
 
-public class LoggedIssueDto {
+public class LoggedCallDto {
 	
 	@NotNull
 	private String branchName;
@@ -127,7 +127,7 @@ public class LoggedIssueDto {
 		this.status = status;
 	}
 
-	public LoggedIssueDto(@NotNull String branchName, @NotNull String terminalId, @NotNull String terminalName,
+	public LoggedCallDto(@NotNull String branchName, @NotNull String terminalId, @NotNull String terminalName,
 			@NotNull String vendorName, @NotNull String issueDesc, @NotNull Date dateLogged,
 			@NotNull String branchLogger, @NotNull String loggerPhone, @NotNull Date startingDate,
 			@NotNull Date dateCompleted, @NotNull String status) {
@@ -144,7 +144,7 @@ public class LoggedIssueDto {
 		this.status = status;
 	}
 
-	public LoggedIssueDto() {}
+	public LoggedCallDto() {}
 
 	@Override
 	public String toString() {
