@@ -25,7 +25,7 @@ public class EmailIssueMessageDto {
     private String mIntro;
     
     @NotNull
-    private String atmLocation;
+    private String physicalAddress;
     
     @NotNull
     private String branchName;
@@ -88,12 +88,12 @@ public class EmailIssueMessageDto {
 		this.mIntro = mIntro;
 	}
 
-	public String getAtmLocation() {
-		return atmLocation;
+	public String getPhysicalAddress() {
+		return physicalAddress;
 	}
 
-	public void setAtmLocation(String atmLocation) {
-		this.atmLocation = atmLocation;
+	public void setPhysicalAddress(String physicalAddress) {
+		this.physicalAddress = physicalAddress;
 	}
 
 	public String getBranchName() {
@@ -152,19 +152,17 @@ public class EmailIssueMessageDto {
 		this.mEnd = mEnd;
 	}
 
-	public EmailIssueMessageDto() {}
-
 	public EmailIssueMessageDto(@NotNull @Email String fromEmail, @NotNull String toEmail, @NotNull String cc,
-			@NotNull @Size(min = 10) String subject, @NotNull String mIntro, @NotNull String atmLocation,
+			@NotNull @Size(min = 10) String subject, @NotNull String mIntro, @NotNull String physicalAddress,
 			@NotNull String branchName, @NotNull String vendorName, @NotNull String issueDesc,
-			@NotNull String branchLogger, @NotNull String loggerPhone, @NotNull Date dateLogged,
-			@NotNull String mEnd) {
+			@NotNull String branchLogger, @NotNull String loggerPhone, @NotNull Date dateLogged, @NotNull String mEnd) {
+		super();
 		this.fromEmail = fromEmail;
 		this.toEmail = toEmail;
 		this.cc = cc;
 		this.subject = subject;
 		this.mIntro = mIntro;
-		this.atmLocation = atmLocation;
+		this.physicalAddress = physicalAddress;
 		this.branchName = branchName;
 		this.vendorName = vendorName;
 		this.issueDesc = issueDesc;
@@ -174,13 +172,16 @@ public class EmailIssueMessageDto {
 		this.mEnd = mEnd;
 	}
 
+	public EmailIssueMessageDto() {}
+
 	@Override
 	public String toString() {
 		return "EmailIssueMessageDto [fromEmail=" + fromEmail + ", toEmail=" + toEmail + ", cc=" + cc + ", subject="
-				+ subject + ", mIntro=" + mIntro + ", atmLocation=" + atmLocation + ", branchName=" + branchName
+				+ subject + ", mIntro=" + mIntro + ", physicalAddress=" + physicalAddress + ", branchName=" + branchName
 				+ ", vendorName=" + vendorName + ", issueDesc=" + issueDesc + ", branchLogger=" + branchLogger
 				+ ", loggerPhone=" + loggerPhone + ", dateLogged=" + dateLogged + ", mEnd=" + mEnd + "]";
 	}
 
+	
     
 }

@@ -9,7 +9,6 @@ import java.util.logging.Logger;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -55,7 +54,7 @@ public class EmailIssueService {
         
         // Create Message object
         Message message = new Message(
-            dto.getAtmLocation(),
+            dto.getPhysicalAddress(),
             dto.getBranchName(),
             dto.getVendorName(),
             dto.getIssueDesc(),
@@ -63,7 +62,7 @@ public class EmailIssueService {
             dto.getLoggerPhone(),
             dto.getDateLogged()
         );
-        messageRepo.save(message);
+        Message tranMessage =messageRepo.save(message);
         
         // Create EmailIssue object
         EmailIssue emailIssue = new EmailIssue(
@@ -76,17 +75,15 @@ public class EmailIssueService {
         	    dto.getmEnd()
         	);
         
-        emailIssueRepo.save(emailIssue);
+        EmailIssue tranEmailIssue = emailIssueRepo.save(emailIssue);
         
-        return emailIssue;
+        return tranEmailIssue;
     }
 
 
     @Transactional
     public EmailIssue sendEmail(EmailIssue emailIssue) {
-        // First save the email issue to the database
-        //EmailIssue savedEmailIssue = emailIssueRepository.save(emailIssue);
-
+        
         try {
             // Create a MIME message
             MimeMessage msg = mailSender.createMimeMessage();
@@ -107,7 +104,7 @@ public class EmailIssueService {
             Map<String, Object> templateModel = new HashMap<>();
             templateModel.put("emailIssue", emailIssue);
             templateModel.put("intro", emailIssue.getmIntro());
-            templateModel.put("atmLocation", emailIssue.getMessage().getAtmLocation());
+            templateModel.put("physicalAddress", emailIssue.getMessage().getPhysicalAddress());
             templateModel.put("branchName", emailIssue.getMessage().getBranchName());
             templateModel.put("vendorName", emailIssue.getMessage().getVendorName());
             templateModel.put("issueDesc", emailIssue.getMessage().getIssueDesc());

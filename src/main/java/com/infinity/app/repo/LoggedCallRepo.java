@@ -4,10 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.infinity.app.dto.LoggedCallDto;
+//import com.infinity.app.dto.LoggedInfo;
 import com.infinity.app.model.LoggedCall;
 
 @Repository
@@ -28,26 +32,38 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
 
 	}
 	
-	@Query(value = "SELECT b.[branch_name] AS [Branch Name],t.terminal_id AS [Terminal ID], t.atm_name AS [Terminal Name],"
-			+ "	v.[vendor_name] AS [Vendor], m.issue_desc+' '+CAST(CAST(m.date_logged AS DATE) AS varchar(255)) AS [Fault],"
-			+ "	m.branch_logger+' '+m.logger_phone AS [Contact Person], "
-			+ "	CASE WHEN CAST(m.date_logged AS TIME)<= '17:00:00.000000' THEN CAST(m.date_logged AS DATE) "
-			+ "	ELSE CAST(DATEADD(DAY,1,m.date_logged) AS DATE) END  AS [Starting Date], "
-			+ "	l.date_completed AS [Date Completed], ls.status_desc AS [Status] "
-			+ "FROM [dbo].[branch_info] b (nolock) "
-			+ "JOIN [dbo].[terminals] t (nolock) "
-			+ "ON b.[sol_id]=SUBSTRING(t.terminal_id,5,3) "
-			+ "JOIN [dbo].[vendors] v (nolock) "
-			+ "ON t.vendor_id=v.id "
-			+ "JOIN [dbo].[message] m (nolock) "
-			+ "ON LEFT(m.[atm_location],8)=t.terminal_id "
-			+ "JOIN [dbo].[email_issue] e (nolock) "
-			+ "ON e.message_id=m.id "
-			+ "JOIN [dbo].[logged_issue] l (nolock) "
-			+ "ON l.message_id= m.id "
-			+ "JOIN [dbo].[log_status] ls (nolock) "
-			+ "ON l.status_id=l.id;",
+	@Query(value = "SELECT bi.[branch_name],t.terminal_id, t.atm_name,v.vendor_name, m.issue_desc,lc.date_logged,"
+			+ "		m.branch_logger,m.logger_phone,lc.starting_date,lc.date_completed, ls.[status_desc]"
+			+ "		FROM [logged_calls] lc (nolock) JOIN [branch_info] bi (nolock)"
+			+ "		ON lc.branch_id=bi.id"
+			+ "		JOIN [terminals] t (nolock)"
+			+ "		ON lc.t_id=t.id"
+			+ "		JOIN [vendors] v (nolock)"
+			+ "		ON lc.vendor_id=v.id"
+			+ "		JOIN [message] m (nolock)"
+			+ "		ON lc.message_id=m.id"
+			+ "		JOIN [log_status] ls (nolock)"
+			+ "		ON lc.status_id=ls.id;",
        nativeQuery = true)
 	public List<LoggedCallDto> findAllLoggedIssueDtos();
+
+	@Modifying
+	@Transactional
+	@Query(value = "INSERT INTO logged_calls (branch_id, t_id, vendor_id, message_id, date_logged, starting_date, date_completed, status_id) " +
+	               "VALUES ((SELECT id FROM branch_info WHERE branch_name=:branchName), " +
+	               "(SELECT id FROM terminals WHERE terminal_id=SUBSTRING(:subject,16,8)), " +
+	               "(SELECT id FROM vendors WHERE vendor_name=:vendorName), " +
+	               ":messageId, :dateLogged, " +
+	               "CASE WHEN CAST(:dateLogged AS TIME) <= '17:00:00.000000' THEN CAST(:dateLogged AS DATE) ELSE CAST(DATEADD(DAY,1,:dateLogged) AS DATE) END, " +
+	               ":dateCompleted, :statusId)", 
+	       nativeQuery = true)
+	void saveObj(@Param("subject") String subject, 
+	             @Param("branchName") String branchName, 
+	             @Param("vendorName") String vendorName, 
+	             @Param("messageId") Long messageId, 
+	             @Param("dateLogged") Date dateLogged, 
+	             @Param("dateCompleted") Date dateCompleted, 
+	             @Param("statusId") Long statusId);
+
 	
 }

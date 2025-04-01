@@ -64,7 +64,7 @@
         <div class="issue-details">
             <div class="detail-row">
                 <div class="label">ATM LOCATION:</div>
-                <div class="value">${atmLocation}</div>
+                <div class="value">${physicalAddress}</div>
             </div>
             
             <div class="detail-row">

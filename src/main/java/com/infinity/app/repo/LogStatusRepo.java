@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.infinity.app.model.CallStatus;
 
 @Repository
-public interface CallStatusRepo extends JpaRepository<CallStatus, Long>{
+public interface LogStatusRepo extends JpaRepository<CallStatus, Long>{
 
 }

@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.infinity.app.dto.EmailIssueMessageDto;
 import com.infinity.app.dto.ErrorResponse;
 import com.infinity.app.model.EmailIssue;
+import com.infinity.app.model.LoggedCall;
 import com.infinity.app.model.Message;
 import com.infinity.app.service.EmailIssueService;
+import com.infinity.app.service.LoggedCallService;
 
 import jakarta.validation.Valid;
 
@@ -29,8 +31,11 @@ public class EmailIssueController {
 		
 	private final EmailIssueService emailIssueService;
 	
-	public EmailIssueController(EmailIssueService emailIssueService) {
+	private final LoggedCallService loggedService;
+	
+	public EmailIssueController(EmailIssueService emailIssueService, LoggedCallService loggedService) {
 		this.emailIssueService= emailIssueService;
+		this.loggedService=loggedService;
 	}
 
 	@PostMapping("/sendEmail")
@@ -39,11 +44,12 @@ public class EmailIssueController {
 		logger.info("Received emailIssueMessage "+emailIssueMessage);
 		try {
 			// Convert request DTO to EmailIssue domain object
-            EmailIssue emailIssue = emailIssueService.convertToEmailIssue(emailIssueMessage);
-            
+            EmailIssue tranEmailIssue = emailIssueService.convertToEmailIssue(emailIssueMessage);
             // Save and send the email
-            EmailIssue savedEmailIssue = emailIssueService.sendEmail(emailIssue);
+            EmailIssue savedEmailIssue = emailIssueService.sendEmail(tranEmailIssue);
             logger.info("Email submitted successfully. "+ savedEmailIssue); 
+            loggedService.saveObj(emailIssueMessage,tranEmailIssue.getMessage().getId());
+            logger.info("Email submitted successfully. ");
             return new ResponseEntity<>(savedEmailIssue, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(
