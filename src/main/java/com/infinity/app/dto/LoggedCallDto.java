@@ -7,6 +7,9 @@ import jakarta.validation.constraints.NotNull;
 public class LoggedCallDto {
 	
 	@NotNull
+	private Long logId;
+	
+	@NotNull
 	private String branchName;
 	
 	@NotNull
@@ -37,7 +40,18 @@ public class LoggedCallDto {
 	private Date dateCompleted;
 	
 	@NotNull
-	private String status;
+	private String statusDesc;
+	
+	@NotNull
+	private Long statusId;
+
+	public Long getLogId() {
+		return logId;
+	}
+
+	public void setLogId(Long logId) {
+		this.logId = logId;
+	}
 
 	public String getBranchName() {
 		return branchName;
@@ -119,18 +133,29 @@ public class LoggedCallDto {
 		this.dateCompleted = dateCompleted;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getStatusDesc() {
+		return statusDesc;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatusDesc(String statusDesc) {
+		this.statusDesc = statusDesc;
 	}
 
-	public LoggedCallDto(@NotNull String branchName, @NotNull String terminalId, @NotNull String terminalName,
-			@NotNull String vendorName, @NotNull String issueDesc, @NotNull Date dateLogged,
-			@NotNull String branchLogger, @NotNull String loggerPhone, @NotNull Date startingDate,
-			@NotNull Date dateCompleted, @NotNull String status) {
+	public Long getStatusId() {
+		return statusId;
+	}
+
+	public void setStatusId(Long statusId) {
+		this.statusId = statusId;
+	}
+
+	public LoggedCallDto(@NotNull Long logId, @NotNull String branchName, @NotNull String terminalId,
+			@NotNull String terminalName, @NotNull String vendorName, @NotNull String issueDesc,
+			@NotNull Date dateLogged, @NotNull String branchLogger, @NotNull String loggerPhone,
+			@NotNull Date startingDate, @NotNull Date dateCompleted, @NotNull String statusDesc,
+			@NotNull Long statusId) {
+		super();
+		this.logId = logId;
 		this.branchName = branchName;
 		this.terminalId = terminalId;
 		this.terminalName = terminalName;
@@ -141,19 +166,23 @@ public class LoggedCallDto {
 		this.loggerPhone = loggerPhone;
 		this.startingDate = startingDate;
 		this.dateCompleted = dateCompleted;
-		this.status = status;
+		this.statusDesc = statusDesc;
+		this.statusId = statusId;
 	}
 
-	public LoggedCallDto() {}
+	public LoggedCallDto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public String toString() {
-		return "LoggedIssueDto [branchName=" + branchName + ", terminalId=" + terminalId + ", terminalName="
-				+ terminalName + ", vendorName=" + vendorName + ", issueDesc=" + issueDesc + ", dateLogged="
-				+ dateLogged + ", branchLogger=" + branchLogger + ", loggerPhone=" + loggerPhone + ", startingDate="
-				+ startingDate + ", dateCompleted=" + dateCompleted + ", status=" + status + "]";
+		return "LoggedCallDto [logId=" + logId + ", branchName=" + branchName + ", terminalId=" + terminalId
+				+ ", terminalName=" + terminalName + ", vendorName=" + vendorName + ", issueDesc=" + issueDesc
+				+ ", dateLogged=" + dateLogged + ", branchLogger=" + branchLogger + ", loggerPhone=" + loggerPhone
+				+ ", startingDate=" + startingDate + ", dateCompleted=" + dateCompleted + ", statusDesc=" + statusDesc
+				+ ", statusId=" + statusId + "]";
 	}
+	
 
-	
-	
 }

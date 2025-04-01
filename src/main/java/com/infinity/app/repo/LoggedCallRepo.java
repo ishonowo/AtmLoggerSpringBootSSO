@@ -2,6 +2,7 @@ package com.infinity.app.repo;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -16,8 +17,17 @@ import com.infinity.app.model.LoggedCall;
 
 @Repository
 public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
+	
+    // Find calls by status ID
+    Optional<LoggedCall> findById(Long id);
+
+    // Custom query to update a logged call
+    @Query("UPDATE LoggedCall lc SET lc.statusId = :statusId, lc.dateCompleted = :dateCompleted WHERE lc.id = :id")
+    int updateLoggedCallStatus(@Param("id") Long id, @Param("statusId") Long statusId, @Param("dateCompleted") 
+    							Date dateCompleted);
 
 	public interface LoggedIssueProjection {
+		Long getLogId();
 		String getBranchName();
 		String getTerminalId();
 		String getTerminalName();
@@ -28,12 +38,13 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
 		String getLoggerPhone();
 		Date getStartingDate();
 		Date getDateCompleted();
-		String getStatus();
+		String getStatusDesc();
+		Long getStatusId();
 
 	}
 	
-	@Query(value = "SELECT bi.[branch_name],t.terminal_id, t.atm_name,v.vendor_name, m.issue_desc,lc.date_logged,"
-			+ "		m.branch_logger,m.logger_phone,lc.starting_date,lc.date_completed, ls.[status_desc]"
+	@Query(value = "SELECT lc.log_id,bi.[branch_name],t.terminal_id, t.atm_name,v.vendor_name, m.issue_desc,lc.date_logged,"
+			+ "		m.branch_logger,m.logger_phone,lc.starting_date,lc.date_completed, ls.status_desc, ls.id"
 			+ "		FROM [logged_calls] lc (nolock) JOIN [branch_info] bi (nolock)"
 			+ "		ON lc.branch_id=bi.id"
 			+ "		JOIN [terminals] t (nolock)"
@@ -65,5 +76,9 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
 	             @Param("dateCompleted") Date dateCompleted, 
 	             @Param("statusId") Long statusId);
 
-	
+    @Transactional
+    @Modifying
+    @Query("UPDATE LoggedCall lc SET lc.statusId = :statusId, lc.dateCompleted = :dateCompleted WHERE lc.id = :logId")
+    int updateStatusAndDateCompleted(Long logId, Long statusId, Date dateCompleted);
+
 }
