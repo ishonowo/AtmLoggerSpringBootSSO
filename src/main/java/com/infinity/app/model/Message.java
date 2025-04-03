@@ -135,6 +135,8 @@ public class Message {
 				+ ", vendorName=" + vendorName + ", issueDesc=" + issueDesc + ", branchLogger=" + branchLogger
 				+ ", loggerPhone=" + loggerPhone + ", dateLogged=" + dateLogged + "]";
 	}
+
+	public Message() {}
     
    
     

@@ -49,7 +49,7 @@ public class EmailIssueController {
             EmailIssue savedEmailIssue = emailIssueService.sendEmail(tranEmailIssue);
             logger.info("Email submitted successfully. "+ savedEmailIssue); 
             loggedService.saveObj(emailIssueMessage,tranEmailIssue.getMessage().getId());
-            logger.info("Email submitted successfully. ");
+            logger.info("Call logged successfully. ");
             return new ResponseEntity<>(savedEmailIssue, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(

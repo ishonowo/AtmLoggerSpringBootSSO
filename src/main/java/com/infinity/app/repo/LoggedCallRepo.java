@@ -26,7 +26,7 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
     int updateLoggedCallStatus(@Param("id") Long id, @Param("statusId") Long statusId, @Param("dateCompleted") 
     							Date dateCompleted);
 
-	public interface LoggedIssueProjection {
+	public interface LoggedCallProjection {
 		Long getLogId();
 		String getBranchName();
 		String getTerminalId();
@@ -43,9 +43,11 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
 
 	}
 	
-	@Query(value = "SELECT lc.log_id,bi.[branch_name],t.terminal_id, t.atm_name,v.vendor_name, m.issue_desc,lc.date_logged,"
-			+ "		m.branch_logger,m.logger_phone,lc.starting_date,lc.date_completed, ls.status_desc, ls.id"
-			+ "		FROM [logged_calls] lc (nolock) JOIN [branch_info] bi (nolock)"
+	@Query(value = "SELECT lc.id as logId,bi.branch_name as branchName,t.terminal_id as terminalId,"
+			+ " t.atm_name as terminalName,v.vendor_name as vendorName, m.issue_desc as issueDesc,lc.date_logged as dateLogged,"
+			+ "	m.branch_logger as branchLogger,m.logger_phone as loggerPhone,lc.starting_date as startingDate,"
+			+ " lc.date_completed as dateCompleted, ls.status_desc as statusDesc, ls.id as statusId"
+			+ "	FROM [logged_calls] lc (nolock) JOIN [branch_info] bi (nolock)"
 			+ "		ON lc.branch_id=bi.id"
 			+ "		JOIN [terminals] t (nolock)"
 			+ "		ON lc.t_id=t.id"
@@ -56,7 +58,7 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
 			+ "		JOIN [log_status] ls (nolock)"
 			+ "		ON lc.status_id=ls.id;",
        nativeQuery = true)
-	public List<LoggedCallDto> findAllLoggedIssueDtos();
+	public List<LoggedCallProjection> findAllLoggedIssueDtos();
 
 	@Modifying
 	@Transactional

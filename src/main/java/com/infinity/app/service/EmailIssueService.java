@@ -62,7 +62,7 @@ public class EmailIssueService {
             dto.getLoggerPhone(),
             dto.getDateLogged()
         );
-        Message tranMessage =messageRepo.save(message);
+        messageRepo.save(message);
         
         // Create EmailIssue object
         EmailIssue emailIssue = new EmailIssue(

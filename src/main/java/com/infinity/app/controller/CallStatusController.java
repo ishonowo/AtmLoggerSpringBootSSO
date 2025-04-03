@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.infinity.app.model.CallStatus;
 import com.infinity.app.service.CallStatusService;
-import com.infinity.app.service.LoggedCallService;
 
 @RestController
 @RequestMapping("/api/status")

@@ -18,9 +18,6 @@ public class CallStatusService {
 		this.repo=repo;
 	}
 
-	public Long getIdByDesc(String desc) {
-        return repo.findIdByDesc(desc);
-    }
 
 	public List<CallStatus> findAllLogStatus() {
 		

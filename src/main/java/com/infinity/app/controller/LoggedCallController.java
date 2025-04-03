@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.infinity.app.dto.BranchWithName;
-import com.infinity.app.dto.CallWithStatusDto;
 import com.infinity.app.dto.LoggedCallDto;
-import com.infinity.app.model.BranchInfo;
 import com.infinity.app.model.LoggedCall;
 import com.infinity.app.service.LoggedCallService;
 

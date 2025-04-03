@@ -154,7 +154,6 @@ public class LoggedCallDto {
 			@NotNull Date dateLogged, @NotNull String branchLogger, @NotNull String loggerPhone,
 			@NotNull Date startingDate, @NotNull Date dateCompleted, @NotNull String statusDesc,
 			@NotNull Long statusId) {
-		super();
 		this.logId = logId;
 		this.branchName = branchName;
 		this.terminalId = terminalId;
@@ -170,10 +169,7 @@ public class LoggedCallDto {
 		this.statusId = statusId;
 	}
 
-	public LoggedCallDto() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public LoggedCallDto() {}
 
 	@Override
 	public String toString() {
