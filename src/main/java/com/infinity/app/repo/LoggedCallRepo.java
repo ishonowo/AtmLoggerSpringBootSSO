@@ -56,7 +56,7 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
 			+ "		JOIN [message] m (nolock)"
 			+ "		ON lc.message_id=m.id"
 			+ "		JOIN [log_status] ls (nolock)"
-			+ "		ON lc.status_id=ls.id;",
+			+ "		ON lc.status_id=ls.id order by lc.id desc;",
        nativeQuery = true)
 	public List<LoggedCallProjection> findAllLoggedIssueDtos();
 
