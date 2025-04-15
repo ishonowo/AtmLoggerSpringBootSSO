@@ -54,6 +54,10 @@ spring:
  messages:
   basename: messages
   encoding: UTF-8
+ security:
+    user:
+      name: root
+      password: Ebank@12345$$
 
 atm:
  support:
