@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+//import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 //Java Entity (RegionEntity.java)
@@ -15,7 +15,7 @@ public class Region {
 	
  @Id
  @GeneratedValue(strategy = GenerationType.IDENTITY)
- @SequenceGenerator(name = "region", schema="dbo", sequenceName = "sq_region", allocationSize = 1)
+// @SequenceGenerator(name = "region", schema="dbo", sequenceName = "sq_region", allocationSize = 1)
  @Column(name = "id")
  private Long id;
  

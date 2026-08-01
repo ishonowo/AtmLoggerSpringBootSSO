@@ -5,7 +5,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import jakarta.validation.ValidationException;
+import jakarta.servlet.http.HttpServletRequest;
 
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+//import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +24,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.security.access.prepost.PreAuthorize;
 //import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -62,19 +68,36 @@ public class AtmIssueLoggerController {
 
 	@PostMapping("/issue")
 	public AtmIssue submitLoggedIssue(
-			@RequestBody IssueLogged issueLogged, BindingResult bindingResult
-			//,RedirectAttributes redirectAttributes
+			@RequestBody IssueLogged issueLogged, BindingResult bindingResult, HttpServletRequest request
 			) {
 		if(bindingResult.hasErrors()){
             throw new ValidationException("This issue log has errors and cannot be sent.");
         }
 		
-		atmDetail= atmService.getAtmDetail(issueLogged.getTerminalId());
-		/*List<String> strings = List.of("apple", "banana", "cherry");
+/*		String ip = request.getHeader("X-Forwarded-For");
+        if (ip == null || ip.isBlank()) {
+            ip = request.getRemoteAddr();
+        } else {
+            // X-Forwarded-For can be a comma-separated chain; first entry is the original client
+            ip = ip.split(",")[0].trim();
+        }
 
-        // Convert List to single String separated by ;
-        String result = strings.stream()
-                               .collect(Collectors.joining(";"));*/
+        
+        ip=ipv4(ip);
+        
+        
+        String userAgent = request.getHeader("User-Agent");
+        String browser = parseBrowser(userAgent);
+
+        String hostname;
+        try {
+            hostname = InetAddress.getByName(ip).getCanonicalHostName();
+        } catch (UnknownHostException e) {
+            hostname = "unknown";
+        }
+*/
+		
+		atmDetail= atmService.getAtmDetail(issueLogged.getTerminalId());
 		List<String> results=atmService.getActiveContacts(issueLogged.getTerminalId());
 		String atmContacts= results.stream().collect(Collectors.joining(";"));
 		
@@ -85,7 +108,7 @@ public class AtmIssueLoggerController {
 				atmContacts,
 				atmDetail.getBranchEmail(),
 				atmDetail.getBranchName(),atmDetail.getAtmName(),atmDetail.getPhysicalAddress(),
-				atmDetail.getVendorName(),issueLogged.getUserEmail());
+				atmDetail.getVendorName(),issueLogged.getUserEmail());//,ip,browser,hostname);
 		
 		AtmIssue atmIssue=issueService.save(atmIssueGen);
 		
@@ -100,6 +123,37 @@ public class AtmIssueLoggerController {
 		
 	}
 
+/*    private String parseBrowser(String userAgent) {
+        if (userAgent == null) return "unknown";
+        if (userAgent.contains("Edg/")) return "Edge";
+        if (userAgent.contains("Chrome/") && !userAgent.contains("Chromium")) return "Chrome";
+        if (userAgent.contains("Firefox/")) return "Firefox";
+        if (userAgent.contains("Safari/") && !userAgent.contains("Chrome")) return "Safari";
+        if (userAgent.contains("OPR/") || userAgent.contains("Opera")) return "Opera";
+        return "unknown";
+    }	
+    
+    private String ipv4(String ip)
+    {
+        // Normalize localhost IPv6 loopback to IPv4 loopback
+        if (ip.equals("0:0:0:0:0:0:0:1") || ip.equals("::1")) {
+            return "127.0.0.1";
+        }
 
+        try {
+            InetAddress addr = InetAddress.getByName(ip);
 
+            // If it's an IPv4-mapped IPv6 address (::ffff:192.168.1.1),
+            // getHostAddress() on the resolved Inet4Address form extracts the IPv4 part
+            if (addr instanceof Inet4Address) {
+                return addr.getHostAddress();
+            } else {
+                // True IPv6 address with no IPv4 mapping — can't be meaningfully converted
+                return ip; // or "unavailable", depending on what you want downstream
+            }
+        } catch (UnknownHostException e) {
+            return ip; // fallback to whatever raw value we had
+        }
+
+    }*/
 }

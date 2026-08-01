@@ -35,10 +35,10 @@ public class BranchController {
 		return ResponseEntity.ok(branches);
 	}
 	
-	@GetMapping("/sol/validate/{sol}")
+	@GetMapping("/sol/validate/{solId}")
 	public ResponseEntity<Boolean>
-	findSol(@PathVariable String sol){
-		Boolean solFound=branchService.findSol(sol);
+	findSol(@PathVariable String solId){
+		Boolean solFound=branchService.findSol(solId);
 		System.out.println("Sol was: "+solFound);
 		return ResponseEntity.ok(solFound);
 	}

@@ -4,6 +4,7 @@ import java.util.List;
 
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.infinity.app.model.AtmDetail;
 import com.infinity.app.repo.AtmDetailRepo;
@@ -17,10 +18,12 @@ public class AtmDetailService {
 		this.atmRepo=atmRepo;
 	}
 
+	@Transactional(readOnly = true)
 	public AtmDetail getAtmDetail(String terminalId) {
 		return atmRepo.getAtmDetail(terminalId);
 	}
 	
+	@Transactional(readOnly = true)
 	public List<String> getActiveContacts(String terminalId){
 		return atmRepo.getActiveContacts(terminalId);
 	}

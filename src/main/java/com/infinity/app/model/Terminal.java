@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+//import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
@@ -17,7 +17,7 @@ public class Terminal {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@SequenceGenerator(name = "terminal", schema="dbo", sequenceName = "sq_terminal", allocationSize = 1)
+	//@SequenceGenerator(name = "terminal", schema="dbo", sequenceName = "sq_terminal", allocationSize = 1)
 	private Long id;
 	
 	@NotNull

@@ -33,10 +33,15 @@ public class LoggedCallService {
                 projection.getVendorName(),
                 projection.getIssueDesc(),
                 projection.getDateLogged(),
+                //projection.getLoggerEmail(),
+                projection.getFromEmail(),
                 projection.getBranchLogger(),
                 projection.getLoggerPhone(),
                 projection.getStartingDate(),
                 projection.getDateCompleted(),
+                projection.getBrowserUsed(),
+                projection.getHostName(),
+                projection.getLoggerIP(),
                 projection.getStatusDesc(),
                 projection.getStatusId()
                 ))
@@ -47,12 +52,13 @@ public class LoggedCallService {
 		return loggedCallRepo.save(loggedCall);
 	}
 	
-	public void saveObj(EmailIssueMessageDto dto,Long messageId) {
+	public void saveObj(EmailIssueMessageDto dto,Long messageId,String ip,String browser,String hostname) {
 		loggedCallRepo.saveObj(dto.getSubject(),
 				  dto.getBranchName(),
 				  dto.getVendorName(),
-				  messageId,
-				  dto.getDateLogged(),null,1L);
+				  messageId,dto.getDateLogged(),dto.getFromEmail(),
+				  ip,browser,hostname,
+				  null,1L);
 		
 		//return savedLoggedCall;
 	}

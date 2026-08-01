@@ -13,26 +13,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 
-/*@SqlResultSetMappings(value = {
-	    @SqlResultSetMapping(name = "AtmDetailResult",
-	        classes = { @ConstructorResult(targetClass = com.infinity.app.dto.AtmDetail.class,
-	        columns = { @ColumnResult(name = "branch_email", type = String.class),
-	        		@ColumnResult(name = "branch_name", type = String.class),
-	        		@ColumnResult(name = "terminal_id", type = String.class),
-	        		@ColumnResult(name = "atm_name", type = String.class),
-	        		@ColumnResult(name = "physical_address", type = String.class),
-	        		@ColumnResult(name = "contact", type = String.class),
-                    @ColumnResult(name = "vendor_name", type = String.class) }) })
- })
-
-@NamedNativeQuery(name ="AtmDetail.getAtmDetail",
-	        query = "select a.branch_email, a.branch_name, c.terminal_id, c.atm_name, a.physical_address, b.contact, b.vendor_name "
-	    			+ " from branch_info a (nolock) join vendor_terminal c (nolock) on a.sol_id = SUBSTRING(c.terminal_id,5,3)"
-	    			+ " join vendor_contact b (nolock) on b.vendor_name = c.vendor_name "
-	    			+ " and c.terminal_id = ?1",
-	        resultSetMapping = "AtmDetailResult")
-
-*/
 
 
 @Entity
@@ -40,7 +20,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins="http://localhost:4200")
 public class AtmDetail {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@SequenceGenerator(name = "atmDetail", schema="dbo", sequenceName = "sq_atmDetail", allocationSize = 1)
 	private Long id;
 	

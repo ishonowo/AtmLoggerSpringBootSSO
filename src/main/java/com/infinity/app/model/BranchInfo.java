@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+//import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -23,7 +23,7 @@ public class BranchInfo {
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@SequenceGenerator(name = "branchInfo", schema="dbo", sequenceName = "sq_branchInfo", allocationSize = 1)
+	//@SequenceGenerator(name = "branchInfo", schema="dbo", sequenceName = "sq_branchInfo", allocationSize = 1)
 	private Long id;
 	
 	@NotNull
