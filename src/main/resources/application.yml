@@ -3,31 +3,33 @@ logging:
   path: logs
  level:
   root: info
+  org:
+   springframework:
+    ldap: DEBUG
+    security:
+     ldap: DEBUG
 
 
 server:
- port: 9442
  forward-headers-strategy: native
+ port: 9442
+ ssl:
+  enabled: true
+  key-alias: server
+  key-store: classpath:server-keystore.p12
+  key-store-password: changeitnow
 
+  
 
 spring:
  application:
-  name: AtmLoggerSpringBootSSO
+  name: SecureAtmLoggerSpringBootSSO
  banner:
   location: banner.txt
- #cloud:
-  #azure:
-   #active-directory:
-    #credential: 
-     #client-id: 76fc83f1-b464-451a-bb1e-a1b41a591380
-     #client-secret: dNU8Q~NNxaMVUMFJ~TqJGdbGVzxWzpq0DV~CyaAF
-    #enabled: true
-    #profile: 
-     #tenant-id: 8407c113-e5a4-4747-9ff1-6f8cde76dba7
  datasource:
   driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
   password: password
-  url: jdbc:sqlserver://localhost:1433;databaseName=AtmIssueLogger;encrypt=true;trustServerCertificate=true
+  url: jdbc:sqlserver://localhost:1433;databaseName=SecureAtmIssueLogger;encrypt=true;trustServerCertificate=true
   username: ikenna
  jpa:
    generate-ddl: true
@@ -39,6 +41,10 @@ spring:
      naming:
       physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImplnaming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl     
    show-sql: true
+ ldap:
+  password: secret
+  urls: ldaps://localhost:10636
+  username: uid=admin,ou=system
  mail:
   default-encoding: UTF-8
   host: smtp.mailtrap.io
@@ -59,6 +65,10 @@ spring:
       name: root
       password: Ebank@12345$$
 
+app:
+ jwt:
+  expiration-ms: 86400000
+  secret: your-ultra-secure-and-very-long-secret-key-32-bytes-minimum
 atm:
  support:
   email: ATMServices@fidelitybank.ng;Aderinsola.Adeyeye@fidelitybank.ng

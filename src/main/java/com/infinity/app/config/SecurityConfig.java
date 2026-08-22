@@ -4,49 +4,67 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
-import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
+//import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
+import com.infinity.app.config.JwtAuthenticationFilter;
+import com.infinity.app.config.JwtUtils;
 import java.util.Arrays;
+import java.util.List;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Bean
-    SecurityFilterChain filterChain(HttpSecurity http, HandlerMappingIntrospector introspector) throws Exception {
-        MvcRequestMatcher.Builder mvcMatcherBuilder = new MvcRequestMatcher.Builder(introspector);
-        
-        http
-            .csrf(csrf -> csrf.disable())
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .authorizeHttpRequests(auth -> auth
-            		.requestMatchers(mvcMatcherBuilder.pattern("/api/**")).permitAll()
-            		.requestMatchers(mvcMatcherBuilder.pattern("/atm/**")).permitAll()
-            		.requestMatchers(mvcMatcherBuilder.pattern("/email/**")).permitAll()
-                    .requestMatchers(mvcMatcherBuilder.pattern("/public/**")).permitAll()
-                .anyRequest().authenticated()
-            )
-            .httpBasic(Customizer.withDefaults());
-        
-        return http.build();
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    
+    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
+    	this.jwtAuthenticationFilter=jwtAuthenticationFilter;
     }
 
     @Bean
-    CorsConfigurationSource corsConfigurationSource() {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+        	.cors(cors -> cors.configurationSource(corsConfigurationSource())) // 👈 ADD THIS LINE HERE
+            .csrf(AbstractHttpConfigurer::disable)
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/auth/**").permitAll()
+                .anyRequest().authenticated()
+            );
+
+        http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        return http.build();
+    }
+    
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200")); // Angular default port
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowedOrigins(List.of("https://localhost:4200")); // 👈 Your Angular URL
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("Authorization", "Cache-Control", "Content-Type"));
+        configuration.setExposedHeaders(List.of("Authorization"));
         configuration.setAllowCredentials(true);
         
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
+    }
+
+
+    @Bean 
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception { 
+    	return config.getAuthenticationManager(); 
     }
 }

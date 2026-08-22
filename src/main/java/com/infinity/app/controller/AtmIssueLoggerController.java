@@ -36,12 +36,8 @@ import com.infinity.app.service.AtmIssueService;
 
 
 
-/*@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = {"Content-Type", "Authorization"}, 
-methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.OPTIONS},
-allowCredentials = "true")*/
 @RestController
 @RequestMapping("/atm")
-//@PreAuthorize("hasRole('ROLE_Logger')")
 public class AtmIssueLoggerController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AtmIssueLoggerController.class);
@@ -74,28 +70,7 @@ public class AtmIssueLoggerController {
             throw new ValidationException("This issue log has errors and cannot be sent.");
         }
 		
-/*		String ip = request.getHeader("X-Forwarded-For");
-        if (ip == null || ip.isBlank()) {
-            ip = request.getRemoteAddr();
-        } else {
-            // X-Forwarded-For can be a comma-separated chain; first entry is the original client
-            ip = ip.split(",")[0].trim();
-        }
 
-        
-        ip=ipv4(ip);
-        
-        
-        String userAgent = request.getHeader("User-Agent");
-        String browser = parseBrowser(userAgent);
-
-        String hostname;
-        try {
-            hostname = InetAddress.getByName(ip).getCanonicalHostName();
-        } catch (UnknownHostException e) {
-            hostname = "unknown";
-        }
-*/
 		
 		atmDetail= atmService.getAtmDetail(issueLogged.getTerminalId());
 		List<String> results=atmService.getActiveContacts(issueLogged.getTerminalId());
@@ -108,7 +83,7 @@ public class AtmIssueLoggerController {
 				atmContacts,
 				atmDetail.getBranchEmail(),
 				atmDetail.getBranchName(),atmDetail.getAtmName(),atmDetail.getPhysicalAddress(),
-				atmDetail.getVendorName(),issueLogged.getUserEmail());//,ip,browser,hostname);
+				atmDetail.getVendorName(),issueLogged.getUserEmail());
 		
 		AtmIssue atmIssue=issueService.save(atmIssueGen);
 		
@@ -123,37 +98,4 @@ public class AtmIssueLoggerController {
 		
 	}
 
-/*    private String parseBrowser(String userAgent) {
-        if (userAgent == null) return "unknown";
-        if (userAgent.contains("Edg/")) return "Edge";
-        if (userAgent.contains("Chrome/") && !userAgent.contains("Chromium")) return "Chrome";
-        if (userAgent.contains("Firefox/")) return "Firefox";
-        if (userAgent.contains("Safari/") && !userAgent.contains("Chrome")) return "Safari";
-        if (userAgent.contains("OPR/") || userAgent.contains("Opera")) return "Opera";
-        return "unknown";
-    }	
-    
-    private String ipv4(String ip)
-    {
-        // Normalize localhost IPv6 loopback to IPv4 loopback
-        if (ip.equals("0:0:0:0:0:0:0:1") || ip.equals("::1")) {
-            return "127.0.0.1";
-        }
-
-        try {
-            InetAddress addr = InetAddress.getByName(ip);
-
-            // If it's an IPv4-mapped IPv6 address (::ffff:192.168.1.1),
-            // getHostAddress() on the resolved Inet4Address form extracts the IPv4 part
-            if (addr instanceof Inet4Address) {
-                return addr.getHostAddress();
-            } else {
-                // True IPv6 address with no IPv4 mapping — can't be meaningfully converted
-                return ip; // or "unavailable", depending on what you want downstream
-            }
-        } catch (UnknownHostException e) {
-            return ip; // fallback to whatever raw value we had
-        }
-
-    }*/
 }

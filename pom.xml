@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.5</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<version>4.1.0</version>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.infinity.app</groupId>
-	<artifactId>ATMIssueResolver</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>ATMIssueResolver</name>
-	<description>Project for logging issue on ATMs</description>
+	<artifactId>ATMIssueLogger</artifactId>
+	<version>0.2.0-SNAPSHOT</version>
+	<name>ATMIssueLogger</name>
+	<description>Secure SSL Project for logging issues on ATMs using LDAPS</description>
 
 	<properties>
-		<java.version>17</java.version>
+		<java.version>25</java.version>
 		<!--<spring-cloud-azure.version>5.11.0</spring-cloud-azure.version>-->
 	</properties>
 
 	<dependencies>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-data-ldap</artifactId>
+	    </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -31,7 +38,20 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+	    <!-- Source: https://mvnrepository.com/artifact/org.springframework.security/spring-security-ldap -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-ldap</artifactId>
+		    <!--<version>7.1.0</version>-->
+		    <scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.json</groupId>
@@ -48,8 +68,8 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -71,33 +91,27 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+	    <!-- JWT Library (io.jsonwebtoken) -->
+	    <dependency>
+	        <groupId>io.jsonwebtoken</groupId>
+	        <artifactId>jjwt-api</artifactId>
+	        <version>0.12.6</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>io.jsonwebtoken</groupId>
+	        <artifactId>jjwt-impl</artifactId>
+	        <version>0.12.6</version>
+	        <scope>runtime</scope>
+	    </dependency>
+	    <dependency>
+	        <groupId>io.jsonwebtoken</groupId>
+	        <artifactId>jjwt-jackson</artifactId>
+	        <version>0.12.6</version>
+	        <scope>runtime</scope>
+	    </dependency>
 
-		<!--<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-oauth2-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.azure.spring</groupId>
-			<artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-		</dependency>-->
 	</dependencies>
 
-	<!--<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>com.azure.spring</groupId>
-				<artifactId>spring-cloud-azure-dependencies</artifactId>
-				<version>${spring-cloud-azure.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>-->
 
 	<build>
 		<plugins>

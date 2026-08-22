@@ -1,31 +1,932 @@
-2026-08-05T21:18:27.153+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 25.0.2 with PID 10660 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
-2026-08-05T21:18:27.165+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
-2026-08-05T21:18:27.244+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-08-05T21:18:27.245+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-08-05T21:18:28.000+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-08-05T21:18:28.098+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 87 ms. Found 11 JPA repository interfaces.
-2026-08-05T21:18:28.701+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9442 (http)
-2026-08-05T21:18:28.720+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-08-05T21:18:28.720+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2026-08-05T21:18:28.787+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-08-05T21:18:28.787+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1541 ms
-2026-08-05T21:18:28.892+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-08-05T21:18:29.318+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 81ed9fdb-b80b-4055-9234-00731252ec75
-2026-08-05T21:18:29.320+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-08-05T21:18:29.408+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-08-05T21:18:29.490+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2026-08-05T21:18:29.530+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-08-05T21:18:29.784+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-08-05T21:18:29.825+01:00  WARN 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-08-05T21:18:31.069+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-08-05T21:18:32.872+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-08-05T21:18:33.260+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-08-05T21:18:33.624+01:00  WARN 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-08-05T21:18:33.846+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@64395904, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75cdde8b, org.springframework.security.web.context.SecurityContextHolderFilter@148c5911, org.springframework.security.web.header.HeaderWriterFilter@75f9ca47, org.springframework.web.filter.CorsFilter@531422cb, org.springframework.security.web.authentication.logout.LogoutFilter@358075f2, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@792dee6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@743a4a93, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f99865a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@17391ff7, org.springframework.security.web.access.ExceptionTranslationFilter@d831650, org.springframework.security.web.access.intercept.AuthorizationFilter@27ea3732]
-2026-08-05T21:18:34.022+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-08-05T21:18:34.057+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9442 (http) with context path ''
-2026-08-05T21:18:34.065+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Started AtmIssueLoggerApplication in 7.405 seconds (process running for 8.472)
-2026-08-05T21:18:41.253+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2026-08-05T21:18:41.278+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-08-05T21:18:41.282+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-08-05T21:18:41.290+01:00  INFO 10660 --- [AtmLoggerSpringBootSSO] [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-22T12:25:57.381+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 25.0.2 with PID 34092 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
+2026-08-22T12:25:57.390+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-08-22T12:25:57.472+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-22T12:25:57.473+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-22T12:25:58.508+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-22T12:25:58.512+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-22T12:25:58.614+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 11 JPA repository interfaces.
+2026-08-22T12:25:58.630+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-22T12:25:58.631+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data LDAP repositories in DEFAULT mode.
+2026-08-22T12:25:58.641+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.AtmDetailRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:25:58.641+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.AtmIssueRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:25:58.642+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.BranchRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:25:58.643+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.CallStatusRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:25:58.644+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.EmailIssueRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:25:58.645+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.LoggedCallRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:25:58.645+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.MessageRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:25:58.645+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.RegionRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:25:58.646+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.TerminalRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:25:58.646+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.VendorContactRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:25:58.646+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.VendorRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:25:58.647+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 LDAP repository interfaces.
+2026-08-22T12:25:59.351+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9442 (https)
+2026-08-22T12:25:59.370+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-22T12:25:59.370+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-22T12:25:59.450+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1976 ms
+2026-08-22T12:25:59.654+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-22T12:26:00.040+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 5a4b8a9b-379c-453a-8982-0b540b8c2d0d
+2026-08-22T12:26:00.042+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-22T12:26:00.137+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-22T12:26:00.221+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-22T12:26:00.716+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-22T12:26:01.118+01:00  WARN 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-22T12:26:01.139+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:sqlserver://localhost:1433;concatNullYieldsNull=ON;quotedIdentifier=ON;connectRetryInterval=10;connectRetryCount=1;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;vectorTypeSupport=v1;cacheBulkCopyMetadata=false;bulkCopyForBatchInsertAllowEncryptedValueModifications=false;bulkCopyForBatchInsertTableLock=false;bulkCopyForBatchInsertKeepNulls=false;bulkCopyForBatchInsertKeepIdentity=false;bulkCopyForBatchInsertFireTriggers=false;bulkCopyForBatchInsertCheckConstraints=false;bulkCopyForBatchInsertBatchSize=0;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;calcBigDecimalPrecision=false;useDefaultJaasConfig=false;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;datetimeParameterType=datetime2;sendTimeAsDatetime=true;replication=false;trustStoreType=JKS;trustServerCertificate=true;TransparentNetworkIPResolution=true;iPAddressPreference=IPv4First;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=30;lockTimeout=-1;lastUpdateCount=true;useDefaultGSSCredential=false;prepareMethod=prepexec;encrypt=true;disableStatementPooling=true;databaseName=AtmIssueLogger;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite;]
+	Database driver: Microsoft JDBC Driver 13.4 for SQL Server
+	Database dialect: SQLServerDialect
+	Database version: 16.0
+	Default catalog/schema: AtmIssueLogger/dbo
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 128
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-22T12:26:02.636+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-22T12:26:04.643+01:00  WARN 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table branch_info alter column branch_name varchar(255)" via JDBC [The index 'IX_branch_info_branch_name' is dependent on column 'branch_name'.]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table branch_info alter column branch_name varchar(255)" via JDBC [The index 'IX_branch_info_branch_name' is dependent on column 'branch_name'.]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:91) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:566) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:506) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:324) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:269) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:458) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1452) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at com.infinity.app.AtmIssueLoggerApplication.main(AtmIssueLoggerApplication.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.1.0.jar:4.1.0]
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The index 'IX_branch_info_branch_name' is dependent on column 'branch_name'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:356) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1927) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:1086) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:964) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7832) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:5024) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:364) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:282) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:937) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:86) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	... 41 common frames omitted
+
+2026-08-22T12:26:04.657+01:00  WARN 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table message alter column logger_phone varchar(255)" via JDBC [The index 'IX_message_logger_phone' is dependent on column 'logger_phone'.]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table message alter column logger_phone varchar(255)" via JDBC [The index 'IX_message_logger_phone' is dependent on column 'logger_phone'.]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:91) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:566) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:506) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:324) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:269) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:458) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1452) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at com.infinity.app.AtmIssueLoggerApplication.main(AtmIssueLoggerApplication.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.1.0.jar:4.1.0]
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The index 'IX_message_logger_phone' is dependent on column 'logger_phone'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:356) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1927) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:1086) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:964) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7832) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:5024) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:364) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:282) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:937) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:86) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	... 41 common frames omitted
+
+2026-08-22T12:26:04.664+01:00  WARN 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table regions alter column region_name varchar(255)" via JDBC [The index 'IX_regions_region_name' is dependent on column 'region_name'.]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table regions alter column region_name varchar(255)" via JDBC [The index 'IX_regions_region_name' is dependent on column 'region_name'.]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:91) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:566) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:506) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:324) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:269) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:458) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1452) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at com.infinity.app.AtmIssueLoggerApplication.main(AtmIssueLoggerApplication.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.1.0.jar:4.1.0]
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The index 'IX_regions_region_name' is dependent on column 'region_name'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:356) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1927) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:1086) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:964) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7832) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:5024) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:364) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:282) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:937) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:86) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	... 41 common frames omitted
+
+2026-08-22T12:26:04.673+01:00  WARN 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table terminals alter column atm_name varchar(255)" via JDBC [The index 'IX_terminals_atm_name' is dependent on column 'atm_name'.]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table terminals alter column atm_name varchar(255)" via JDBC [The index 'IX_terminals_atm_name' is dependent on column 'atm_name'.]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:91) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:566) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:506) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:324) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:269) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:458) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1452) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at com.infinity.app.AtmIssueLoggerApplication.main(AtmIssueLoggerApplication.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.1.0.jar:4.1.0]
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The index 'IX_terminals_atm_name' is dependent on column 'atm_name'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:356) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1927) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:1086) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:964) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7832) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:5024) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:364) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:282) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:937) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:86) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	... 41 common frames omitted
+
+2026-08-22T12:26:04.677+01:00  WARN 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table terminals alter column terminal_id varchar(255)" via JDBC [The index 'IX_terminals_terminal_id' is dependent on column 'terminal_id'.]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table terminals alter column terminal_id varchar(255)" via JDBC [The index 'IX_terminals_terminal_id' is dependent on column 'terminal_id'.]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:91) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:566) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:506) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:324) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:269) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:458) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1452) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at com.infinity.app.AtmIssueLoggerApplication.main(AtmIssueLoggerApplication.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.1.0.jar:4.1.0]
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The index 'IX_terminals_terminal_id' is dependent on column 'terminal_id'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:356) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1927) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:1086) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:964) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7832) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:5024) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:364) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:282) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:937) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:86) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	... 41 common frames omitted
+
+2026-08-22T12:26:04.685+01:00  WARN 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table vendor_contacts alter column contact varchar(255)" via JDBC [The index 'IX_vendor_contacts_contact' is dependent on column 'contact'.]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table vendor_contacts alter column contact varchar(255)" via JDBC [The index 'IX_vendor_contacts_contact' is dependent on column 'contact'.]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:91) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:566) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:506) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:324) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:269) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:458) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1452) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at com.infinity.app.AtmIssueLoggerApplication.main(AtmIssueLoggerApplication.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.1.0.jar:4.1.0]
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The index 'IX_vendor_contacts_contact' is dependent on column 'contact'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:356) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1927) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:1086) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:964) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7832) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:5024) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:364) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:282) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:937) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:86) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	... 41 common frames omitted
+
+2026-08-22T12:26:04.693+01:00  WARN 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table vendors alter column short_name varchar(20)" via JDBC [The index 'IX_vendors_short_name' is dependent on column 'short_name'.]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table vendors alter column short_name varchar(20)" via JDBC [The index 'IX_vendors_short_name' is dependent on column 'short_name'.]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:91) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:566) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:506) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:324) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:269) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:458) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1452) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at com.infinity.app.AtmIssueLoggerApplication.main(AtmIssueLoggerApplication.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.1.0.jar:4.1.0]
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The index 'IX_vendors_short_name' is dependent on column 'short_name'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:356) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1927) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:1086) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:964) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7832) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:5024) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:364) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:282) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:937) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:86) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	... 41 common frames omitted
+
+2026-08-22T12:26:04.700+01:00  WARN 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table vendors alter column vendor_name varchar(100)" via JDBC [The index 'IX_vendors_vendor_name' is dependent on column 'vendor_name'.]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table vendors alter column vendor_name varchar(100)" via JDBC [The index 'IX_vendors_vendor_name' is dependent on column 'vendor_name'.]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:91) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:566) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:506) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:324) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:96) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:269) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1430) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:458) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1452) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419) ~[spring-orm-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at com.infinity.app.AtmIssueLoggerApplication.main(AtmIssueLoggerApplication.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.1.0.jar:4.1.0]
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The index 'IX_vendors_vendor_name' is dependent on column 'vendor_name'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:356) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1927) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.doExecuteStatement(SQLServerStatement.java:1086) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement$StmtExecCmd.doExecute(SQLServerStatement.java:964) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7832) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:5024) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:364) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:282) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.execute(SQLServerStatement.java:937) ~[mssql-jdbc-13.4.0.jre11.jar:na]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:86) ~[hibernate-core-7.4.1.Final.jar:7.4.1.Final]
+	... 41 common frames omitted
+
+2026-08-22T12:26:05.843+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-22T12:26:05.917+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-22T12:26:06.131+01:00  WARN 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'emailIssueController' defined in file [C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes\com\infinity\app\controller\EmailIssueController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'emailIssueService' defined in file [C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes\com\infinity\app\service\EmailIssueService.class]: Unsatisfied dependency expressed through constructor parameter 3: No qualifying bean of type 'freemarker.template.Configuration' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-08-22T12:26:06.131+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-22T12:26:06.135+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-22T12:26:06.140+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-22T12:26:06.143+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-08-22T12:26:06.158+01:00  INFO 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-08-22T12:26:06.178+01:00 ERROR 34092 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.infinity.app.service.EmailIssueService required a bean of type 'freemarker.template.Configuration' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'freemarker.template.Configuration' in your configuration.
+
+2026-08-22T12:28:14.296+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 25.0.2 with PID 15232 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
+2026-08-22T12:28:14.300+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-08-22T12:28:14.375+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-22T12:28:14.375+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-22T12:28:15.349+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-22T12:28:15.352+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-22T12:28:15.458+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 87 ms. Found 11 JPA repository interfaces.
+2026-08-22T12:28:15.474+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-22T12:28:15.475+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data LDAP repositories in DEFAULT mode.
+2026-08-22T12:28:15.485+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.AtmDetailRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:28:15.485+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.AtmIssueRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:28:15.487+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.BranchRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:28:15.487+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.CallStatusRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:28:15.488+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.EmailIssueRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:28:15.488+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.LoggedCallRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:28:15.488+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.MessageRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:28:15.488+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.RegionRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:28:15.489+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.TerminalRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:28:15.489+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.VendorContactRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:28:15.489+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.VendorRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:28:15.489+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 LDAP repository interfaces.
+2026-08-22T12:28:16.278+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9442 (https)
+2026-08-22T12:28:16.293+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-22T12:28:16.294+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-22T12:28:16.332+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1956 ms
+2026-08-22T12:28:16.471+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-22T12:28:16.831+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 34322e20-009f-42a3-ab05-15ab0ac30056
+2026-08-22T12:28:16.833+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-22T12:28:16.945+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-22T12:28:17.028+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-22T12:28:17.528+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-22T12:28:17.820+01:00  WARN 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-22T12:28:17.840+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:sqlserver://localhost:1433;concatNullYieldsNull=ON;quotedIdentifier=ON;connectRetryInterval=10;connectRetryCount=1;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;vectorTypeSupport=v1;cacheBulkCopyMetadata=false;bulkCopyForBatchInsertAllowEncryptedValueModifications=false;bulkCopyForBatchInsertTableLock=false;bulkCopyForBatchInsertKeepNulls=false;bulkCopyForBatchInsertKeepIdentity=false;bulkCopyForBatchInsertFireTriggers=false;bulkCopyForBatchInsertCheckConstraints=false;bulkCopyForBatchInsertBatchSize=0;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;calcBigDecimalPrecision=false;useDefaultJaasConfig=false;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;datetimeParameterType=datetime2;sendTimeAsDatetime=true;replication=false;trustStoreType=JKS;trustServerCertificate=true;TransparentNetworkIPResolution=true;iPAddressPreference=IPv4First;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=30;lockTimeout=-1;lastUpdateCount=true;useDefaultGSSCredential=false;prepareMethod=prepexec;encrypt=true;disableStatementPooling=true;databaseName=SecureAtmIssueLogger;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite;]
+	Database driver: Microsoft JDBC Driver 13.4 for SQL Server
+	Database dialect: SQLServerDialect
+	Database version: 16.0
+	Default catalog/schema: SecureAtmIssueLogger/dbo
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 128
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-22T12:28:19.142+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-22T12:28:20.857+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-22T12:28:20.927+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-22T12:28:21.183+01:00  WARN 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'emailIssueController' defined in file [C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes\com\infinity\app\controller\EmailIssueController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'emailIssueService' defined in file [C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes\com\infinity\app\service\EmailIssueService.class]: Unsatisfied dependency expressed through constructor parameter 3: No qualifying bean of type 'freemarker.template.Configuration' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-08-22T12:28:21.184+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-22T12:28:21.188+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-22T12:28:21.194+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-22T12:28:21.196+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-08-22T12:28:21.208+01:00  INFO 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-08-22T12:28:21.227+01:00 ERROR 15232 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.infinity.app.service.EmailIssueService required a bean of type 'freemarker.template.Configuration' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'freemarker.template.Configuration' in your configuration.
+
+2026-08-22T12:35:46.142+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 25.0.2 with PID 18844 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
+2026-08-22T12:35:46.146+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-08-22T12:35:46.258+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-22T12:35:46.258+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-22T12:35:47.238+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-22T12:35:47.241+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-22T12:35:47.332+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79 ms. Found 11 JPA repository interfaces.
+2026-08-22T12:35:47.344+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-22T12:35:47.345+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data LDAP repositories in DEFAULT mode.
+2026-08-22T12:35:47.355+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.AtmDetailRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:35:47.355+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.AtmIssueRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:35:47.357+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.BranchRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:35:47.358+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.CallStatusRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:35:47.358+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.EmailIssueRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:35:47.358+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.LoggedCallRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:35:47.359+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.MessageRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:35:47.359+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.RegionRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:35:47.360+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.TerminalRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:35:47.360+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.VendorContactRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:35:47.360+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.VendorRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:35:47.360+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 LDAP repository interfaces.
+2026-08-22T12:35:48.070+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9442 (https)
+2026-08-22T12:35:48.086+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-22T12:35:48.087+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-22T12:35:48.124+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1865 ms
+2026-08-22T12:35:48.247+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-22T12:35:48.696+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 6f219965-155a-4266-8ed7-b4c3a7db2e42
+2026-08-22T12:35:48.698+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-22T12:35:48.811+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-22T12:35:48.892+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-22T12:35:49.366+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-22T12:35:49.855+01:00  WARN 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-22T12:35:49.883+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:sqlserver://localhost:1433;concatNullYieldsNull=ON;quotedIdentifier=ON;connectRetryInterval=10;connectRetryCount=1;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;vectorTypeSupport=v1;cacheBulkCopyMetadata=false;bulkCopyForBatchInsertAllowEncryptedValueModifications=false;bulkCopyForBatchInsertTableLock=false;bulkCopyForBatchInsertKeepNulls=false;bulkCopyForBatchInsertKeepIdentity=false;bulkCopyForBatchInsertFireTriggers=false;bulkCopyForBatchInsertCheckConstraints=false;bulkCopyForBatchInsertBatchSize=0;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;calcBigDecimalPrecision=false;useDefaultJaasConfig=false;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;datetimeParameterType=datetime2;sendTimeAsDatetime=true;replication=false;trustStoreType=JKS;trustServerCertificate=true;TransparentNetworkIPResolution=true;iPAddressPreference=IPv4First;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=30;lockTimeout=-1;lastUpdateCount=true;useDefaultGSSCredential=false;prepareMethod=prepexec;encrypt=true;disableStatementPooling=true;databaseName=SecureAtmIssueLogger;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite;]
+	Database driver: Microsoft JDBC Driver 13.4 for SQL Server
+	Database dialect: SQLServerDialect
+	Database version: 16.0
+	Default catalog/schema: SecureAtmIssueLogger/dbo
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 128
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-22T12:35:52.061+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-22T12:35:55.448+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-22T12:35:55.562+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-22T12:35:56.683+01:00  WARN 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'loginController' defined in file [C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes\com\infinity\app\controller\LoginController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.springframework.security.authentication.AuthenticationManager' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-08-22T12:35:56.683+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-22T12:35:56.687+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-22T12:35:56.692+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-22T12:35:56.695+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-08-22T12:35:56.714+01:00  INFO 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-08-22T12:35:56.737+01:00 ERROR 18844 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.infinity.app.controller.LoginController required a bean of type 'org.springframework.security.authentication.AuthenticationManager' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.authentication.AuthenticationManager' in your configuration.
+
+2026-08-22T12:43:24.179+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 25.0.2 with PID 28980 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
+2026-08-22T12:43:24.182+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-08-22T12:43:24.246+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-22T12:43:24.246+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-22T12:43:25.260+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-22T12:43:25.264+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-22T12:43:25.373+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 11 JPA repository interfaces.
+2026-08-22T12:43:25.389+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-22T12:43:25.391+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data LDAP repositories in DEFAULT mode.
+2026-08-22T12:43:25.397+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.AtmDetailRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:43:25.398+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.AtmIssueRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:43:25.400+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.BranchRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:43:25.401+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.CallStatusRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:43:25.401+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.EmailIssueRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:43:25.401+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.LoggedCallRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:43:25.402+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.MessageRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:43:25.403+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.RegionRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:43:25.403+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.TerminalRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:43:25.404+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.VendorContactRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:43:25.404+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.VendorRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:43:25.405+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 LDAP repository interfaces.
+2026-08-22T12:43:26.177+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9442 (https)
+2026-08-22T12:43:26.198+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-22T12:43:26.198+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-22T12:43:26.246+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2000 ms
+2026-08-22T12:43:26.379+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-22T12:43:26.764+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: da959493-4913-4a05-adc5-1eb69bc7f23b
+2026-08-22T12:43:26.767+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-22T12:43:26.860+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-22T12:43:26.931+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-22T12:43:27.398+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-22T12:43:27.653+01:00  WARN 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-22T12:43:27.681+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:sqlserver://localhost:1433;concatNullYieldsNull=ON;quotedIdentifier=ON;connectRetryInterval=10;connectRetryCount=1;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;vectorTypeSupport=v1;cacheBulkCopyMetadata=false;bulkCopyForBatchInsertAllowEncryptedValueModifications=false;bulkCopyForBatchInsertTableLock=false;bulkCopyForBatchInsertKeepNulls=false;bulkCopyForBatchInsertKeepIdentity=false;bulkCopyForBatchInsertFireTriggers=false;bulkCopyForBatchInsertCheckConstraints=false;bulkCopyForBatchInsertBatchSize=0;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;calcBigDecimalPrecision=false;useDefaultJaasConfig=false;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;datetimeParameterType=datetime2;sendTimeAsDatetime=true;replication=false;trustStoreType=JKS;trustServerCertificate=true;TransparentNetworkIPResolution=true;iPAddressPreference=IPv4First;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=30;lockTimeout=-1;lastUpdateCount=true;useDefaultGSSCredential=false;prepareMethod=prepexec;encrypt=true;disableStatementPooling=true;databaseName=SecureAtmIssueLogger;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite;]
+	Database driver: Microsoft JDBC Driver 13.4 for SQL Server
+	Database dialect: SQLServerDialect
+	Database version: 16.0
+	Default catalog/schema: SecureAtmIssueLogger/dbo
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 128
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-22T12:43:28.996+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-22T12:43:30.384+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-22T12:43:30.469+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-22T12:43:31.310+01:00  WARN 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'loginController' defined in file [C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes\com\infinity\app\controller\LoginController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.springframework.security.authentication.AuthenticationManager' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-08-22T12:43:31.311+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-22T12:43:31.315+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-22T12:43:31.321+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-22T12:43:31.323+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-08-22T12:43:31.337+01:00  INFO 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-08-22T12:43:31.362+01:00 ERROR 28980 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.infinity.app.controller.LoginController required a bean of type 'org.springframework.security.authentication.AuthenticationManager' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.authentication.AuthenticationManager' in your configuration.
+
+2026-08-22T12:50:50.187+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 25.0.2 with PID 8468 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
+2026-08-22T12:50:50.190+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-08-22T12:50:50.254+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-22T12:50:50.255+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-22T12:50:51.299+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-22T12:50:51.303+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-22T12:50:51.394+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 11 JPA repository interfaces.
+2026-08-22T12:50:51.406+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-22T12:50:51.407+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data LDAP repositories in DEFAULT mode.
+2026-08-22T12:50:51.414+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.AtmDetailRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:50:51.414+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.AtmIssueRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:50:51.415+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.BranchRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:50:51.416+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.CallStatusRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:50:51.417+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.EmailIssueRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:50:51.418+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.LoggedCallRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:50:51.418+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.MessageRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:50:51.419+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.RegionRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:50:51.419+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.TerminalRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:50:51.419+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.VendorContactRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:50:51.419+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.VendorRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:50:51.420+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 LDAP repository interfaces.
+2026-08-22T12:50:52.125+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9442 (https)
+2026-08-22T12:50:52.144+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-22T12:50:52.144+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-22T12:50:52.189+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1934 ms
+2026-08-22T12:50:52.296+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-22T12:50:52.665+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 162c12e9-a81f-4a86-ad4b-f9b3052a91cf
+2026-08-22T12:50:52.670+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-22T12:50:52.774+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-22T12:50:52.858+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-22T12:50:53.341+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-22T12:50:53.789+01:00  WARN 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-22T12:50:53.822+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:sqlserver://localhost:1433;concatNullYieldsNull=ON;quotedIdentifier=ON;connectRetryInterval=10;connectRetryCount=1;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;vectorTypeSupport=v1;cacheBulkCopyMetadata=false;bulkCopyForBatchInsertAllowEncryptedValueModifications=false;bulkCopyForBatchInsertTableLock=false;bulkCopyForBatchInsertKeepNulls=false;bulkCopyForBatchInsertKeepIdentity=false;bulkCopyForBatchInsertFireTriggers=false;bulkCopyForBatchInsertCheckConstraints=false;bulkCopyForBatchInsertBatchSize=0;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;calcBigDecimalPrecision=false;useDefaultJaasConfig=false;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;datetimeParameterType=datetime2;sendTimeAsDatetime=true;replication=false;trustStoreType=JKS;trustServerCertificate=true;TransparentNetworkIPResolution=true;iPAddressPreference=IPv4First;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=30;lockTimeout=-1;lastUpdateCount=true;useDefaultGSSCredential=false;prepareMethod=prepexec;encrypt=true;disableStatementPooling=true;databaseName=SecureAtmIssueLogger;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite;]
+	Database driver: Microsoft JDBC Driver 13.4 for SQL Server
+	Database dialect: SQLServerDialect
+	Database version: 16.0
+	Default catalog/schema: SecureAtmIssueLogger/dbo
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 128
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-22T12:50:55.146+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-22T12:50:58.225+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-22T12:50:58.312+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-22T12:50:59.399+01:00 DEBUG 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.l.c.support.AbstractContextSource    : AuthenticationSource not set - using default implementation
+2026-08-22T12:50:59.399+01:00 DEBUG 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.l.c.support.AbstractContextSource    : Not using LDAP pooling
+2026-08-22T12:50:59.402+01:00 DEBUG 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.l.c.support.AbstractContextSource    : Trying provider Urls: ldaps://localhost:10636/ou=users,ou=system
+2026-08-22T12:50:59.444+01:00  WARN 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-22T12:51:00.169+01:00  WARN 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-08-22T12:51:00.172+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-22T12:51:00.176+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-22T12:51:00.181+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-08-22T12:51:00.201+01:00  INFO 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-08-22T12:51:00.217+01:00 ERROR 8468 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:423) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:409) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:613) ~[spring-context-7.0.8.jar:7.0.8]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:379) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:306) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:1013) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-7.0.8.jar:7.0.8]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.1.0.jar:4.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.1.0.jar:4.1.0]
+	at com.infinity.app.AtmIssueLoggerApplication.main(AtmIssueLoggerApplication.java:18) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.1.0.jar:4.1.0]
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
+	at org.springframework.boot.tomcat.TomcatWebServer.start(TomcatWebServer.java:248) ~[spring-boot-tomcat-4.1.0.jar:4.1.0]
+	at org.springframework.boot.web.server.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:44) ~[spring-boot-web-server-4.1.0.jar:4.1.0]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:420) ~[spring-context-7.0.8.jar:7.0.8]
+	... 17 common frames omitted
+Caused by: java.lang.IllegalArgumentException: standardService.connector.startFailed
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:220) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.springframework.boot.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:307) ~[spring-boot-tomcat-4.1.0.jar:4.1.0]
+	at org.springframework.boot.tomcat.TomcatWebServer.start(TomcatWebServer.java:233) ~[spring-boot-tomcat-4.1.0.jar:4.1.0]
+	... 19 common frames omitted
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1119) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:217) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	... 21 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Error creating SSLContext
+	at org.apache.tomcat.util.net.AbstractEndpoint.createSSLContext(AbstractEndpoint.java:439) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.net.AbstractEndpoint.initialiseSsl(AbstractEndpoint.java:656) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:225) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1642) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1725) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:948) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1116) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	... 23 common frames omitted
+Caused by: java.io.FileNotFoundException: C:\Users\Ikenna Shonowo\AppData\Local\Temp\tomcat.9442.10697887357979611171\src\main\resources\ldap-truststore2.jks (The system cannot find the path specified)
+	at java.base/java.io.FileInputStream.open0(Native Method) ~[na:na]
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:185) ~[na:na]
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:139) ~[na:na]
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:109) ~[na:na]
+	at java.base/sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:86) ~[na:na]
+	at java.base/sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:183) ~[na:na]
+	at org.apache.catalina.startup.CatalinaBaseConfigurationSource.getResource(CatalinaBaseConfigurationSource.java:121) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.net.SSLUtilBase.getStore(SSLUtilBase.java:208) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.net.SSLHostConfig.getTruststore(SSLHostConfig.java:891) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.net.SSLUtilBase.getTrustManagers(SSLUtilBase.java:451) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.net.SSLUtilBase.createSSLContext(SSLUtilBase.java:264) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	at org.apache.tomcat.util.net.AbstractEndpoint.createSSLContext(AbstractEndpoint.java:437) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
+	... 29 common frames omitted
+
+2026-08-22T12:56:26.341+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Starting AtmIssueLoggerApplication using Java 25.0.2 with PID 28064 (C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO\target\classes started by Ikenna Shonowo in C:\Users\Ikenna Shonowo\Documents\Projects\SpringBoot\AtmLoggerSpringBootSSO)
+2026-08-22T12:56:26.345+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-08-22T12:56:26.416+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-22T12:56:26.417+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-22T12:56:27.318+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-22T12:56:27.320+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-22T12:56:27.404+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 11 JPA repository interfaces.
+2026-08-22T12:56:27.417+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-22T12:56:27.418+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data LDAP repositories in DEFAULT mode.
+2026-08-22T12:56:27.428+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.AtmDetailRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:56:27.428+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.AtmIssueRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:56:27.429+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.BranchRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:56:27.430+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.CallStatusRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:56:27.430+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.EmailIssueRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:56:27.430+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.LoggedCallRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:56:27.431+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.MessageRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:56:27.431+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.RegionRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:56:27.431+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.TerminalRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:56:27.432+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.VendorContactRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:56:27.432+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data LDAP - Could not safely identify store assignment for repository candidate interface com.infinity.app.repo.VendorRepo; If you want this repository to be a LDAP repository, consider annotating your entities with one of these annotations: org.springframework.ldap.odm.annotations.Entry (preferred), or consider extending one of the following types with your repository: org.springframework.data.ldap.repository.LdapRepository
+2026-08-22T12:56:27.432+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 LDAP repository interfaces.
+2026-08-22T12:56:28.193+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9442 (https)
+2026-08-22T12:56:28.217+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-22T12:56:28.218+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-08-22T12:56:28.278+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1861 ms
+2026-08-22T12:56:28.426+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-22T12:56:28.790+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 1ce78c7c-9d36-49a2-970d-d6c20dfa57c7
+2026-08-22T12:56:28.793+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-22T12:56:28.889+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-22T12:56:28.965+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-08-22T12:56:29.442+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-22T12:56:29.674+01:00  WARN 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-22T12:56:29.696+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:sqlserver://localhost:1433;concatNullYieldsNull=ON;quotedIdentifier=ON;connectRetryInterval=10;connectRetryCount=1;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;vectorTypeSupport=v1;cacheBulkCopyMetadata=false;bulkCopyForBatchInsertAllowEncryptedValueModifications=false;bulkCopyForBatchInsertTableLock=false;bulkCopyForBatchInsertKeepNulls=false;bulkCopyForBatchInsertKeepIdentity=false;bulkCopyForBatchInsertFireTriggers=false;bulkCopyForBatchInsertCheckConstraints=false;bulkCopyForBatchInsertBatchSize=0;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;calcBigDecimalPrecision=false;useDefaultJaasConfig=false;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;datetimeParameterType=datetime2;sendTimeAsDatetime=true;replication=false;trustStoreType=JKS;trustServerCertificate=true;TransparentNetworkIPResolution=true;iPAddressPreference=IPv4First;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=30;lockTimeout=-1;lastUpdateCount=true;useDefaultGSSCredential=false;prepareMethod=prepexec;encrypt=true;disableStatementPooling=true;databaseName=SecureAtmIssueLogger;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite;]
+	Database driver: Microsoft JDBC Driver 13.4 for SQL Server
+	Database dialect: SQLServerDialect
+	Database version: 16.0
+	Default catalog/schema: SecureAtmIssueLogger/dbo
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 128
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-22T12:56:31.108+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-22T12:56:33.787+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-22T12:56:33.884+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-22T12:56:35.119+01:00 DEBUG 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.l.c.support.AbstractContextSource    : AuthenticationSource not set - using default implementation
+2026-08-22T12:56:35.120+01:00 DEBUG 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.l.c.support.AbstractContextSource    : Not using LDAP pooling
+2026-08-22T12:56:35.125+01:00 DEBUG 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.l.c.support.AbstractContextSource    : Trying provider Urls: ldaps://localhost:10636/ou=users,ou=system
+2026-08-22T12:56:35.190+01:00  WARN 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-22T12:56:35.898+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-9442], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [Set directly - location unknown] using alias [server] with trust store [classpath:ldap-truststore2.jks]
+2026-08-22T12:56:35.967+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 9442 (https) with context path '/'
+2026-08-22T12:56:35.977+01:00  INFO 28064 --- [SecureAtmLoggerSpringBootSSO] [restartedMain] c.i.app.AtmIssueLoggerApplication        : Started AtmIssueLoggerApplication in 10.124 seconds (process running for 10.991)
