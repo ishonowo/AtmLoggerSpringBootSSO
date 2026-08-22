@@ -13,7 +13,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/atm/login")
-//@CrossOrigin(origins = "http://localhost:4200") // Angular server default
 public class LoginController {
 
     private final AuthenticationManager authenticationManager;
