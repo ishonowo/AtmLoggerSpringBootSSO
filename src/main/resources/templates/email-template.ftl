@@ -77,11 +77,31 @@
                 <div class="value">${vendorName}</div>
             </div>
             
+						<!-- Updated: Iterates over atmFaults list; the "Others" fault shows
+			     otherFaultDesc (the user's free-text detail) instead of the
+			     generic canned description, when it's present. -->
             <div class="detail-row">
                 <div class="label">ISSUE(S):</div>
-                <div class="value"><#if issueDesc?contains("urgent") || issueDesc?contains("Urgent")><span class="urgent">${issueDesc}</span><#else>${issueDesc}</#if></div>
+                <div class="value">
+                    <#if atmFaults?? && (atmFaults?size > 0)>
+                        <ul class="fault-list">
+                            <#list atmFaults as fault>
+                                <#assign faultDesc = (fault.natureOfFault == "Others" && otherFaultDesc??)?then(otherFaultDesc, fault.description)>
+                                <li class="fault-item">
+                                    <#assign isUrgent = (fault.natureOfFault?lower_case?contains("urgent")) || (faultDesc?lower_case?contains("urgent"))>
+                                    <span class="${isUrgent?string('urgent', '')}">
+                                        <strong>${fault.natureOfFault}</strong> (${fault.faultType}):- ${faultDesc}
+                                    </span>
+                                </li>
+                            </#list>
+                        </ul>
+                    </#if>
+                    
+
+                </div>
             </div>
-            
+
+                        
             <div class="detail-row">
                 <div class="label">BRANCH CONTACT:</div>
                 <div class="value">${branchLogger}</div>
@@ -102,7 +122,7 @@
     </div>
     
     <div class="footer">
-        <p>This is an automated notification. Please do not reply directly to this email.</p>
+        <p>This is an official email from Fidelity Bank Plc. Kindly gSive it priority.</p>
     </div>
 </body>
 </html>

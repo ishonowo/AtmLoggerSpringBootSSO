@@ -45,10 +45,6 @@ public class BranchService {
 				.collect(Collectors.toList());
 	}
 
-	/*@Transactional(readOnly = true)
-	public Boolean findSol(String sol) {
-		return branchRepo.existsBySolId(sol);
-	}*/
 	
 	@Transactional(readOnly = true)
     public Boolean findSol(String solId) {

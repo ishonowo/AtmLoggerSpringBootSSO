@@ -1,87 +1,96 @@
 package com.infinity.app.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-//import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-//import org.springframework.beans.factory.annotation.Value;
-//import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
-//@Bean
-@CrossOrigin(origins="http://localhost:4200")
 @Entity
 @Lazy(false)
 public class AtmIssue {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotNull
 	@Size(min = 8, max = 8)
 	private String terminalId;
+
+	// AtmIssue gets its OWN join table here - it must not reuse Message's
+	// "message_atm_fault" table, since that table's join column is a foreign
+	// key against dbo.message(id), not dbo.atm_issue(id). Reusing it causes
+	// an FK violation when Hibernate tries to insert an AtmIssue id into a
+	// column that's constrained to reference Message rows.
+	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
+	@JoinTable(
+		name = "atm_issue_atm_fault",
+		joinColumns = @JoinColumn(name = "atm_issue_id"),
+		inverseJoinColumns = @JoinColumn(name = "atm_fault_id")
+	)
+	private List<AtmFault> atmFaults = new ArrayList<>();
+
+	// Free-text used only when "Others" is among the selected faults.
+	// Not @NotNull at the entity level since it's conditionally required -
+	// that check is enforced in the controller/service layer.
 	
-	@NotNull
-	@Size(min = 10)
-	private String issueDesc;
-	
+	@Size(min=5)
+	private String otherFaultDesc;
+
 	@NotNull
 	private String branchLogger;
-	
+
 	@NotNull
 	@Email
 	private String loggerEmail;
-	
+
 	@Size(min = 11, max = 14)
 	@NotNull
 	private String loggerPhoneNo;
-	
+
 	@NotNull
 	private Date logDate;
-	
+
 	@NotNull
-	//@Email
 	private String supportEmail;
-	
-	
+
 	@NotNull
 	private String contact;
-	
+
 	@Email
 	@NotNull
 	private String branchEmail;
-	
+
 	@NotNull
 	private String branchName;
-	
+
 	@NotNull
 	private String atmName;
-	
+
 	private String physicalAddress;
-	
+
 	@NotNull
 	private String vendorName;
-	
+
 	@NotNull
 	@Email
 	private String userEmail;
-	
-/*	private String ip;
-	
-	private String browser;
-	
-	private String hostname;
-*/
+
 	public Long getId() {
 		return id;
 	}
@@ -98,12 +107,20 @@ public class AtmIssue {
 		this.terminalId = terminalId;
 	}
 
-	public String getIssueDesc() {
-		return issueDesc;
+	public List<AtmFault> getAtmFaults() {
+		return atmFaults;
 	}
 
-	public void setIssueDesc(String issueDesc) {
-		this.issueDesc = issueDesc;
+	public void setAtmFaults(List<AtmFault> atmFaults) {
+		this.atmFaults = atmFaults;
+	}
+
+	public String getOtherFaultDesc() {
+		return otherFaultDesc;
+	}
+
+	public void setOtherFaultDesc(String otherFaultDesc) {
+		this.otherFaultDesc = otherFaultDesc;
 	}
 
 	public String getBranchLogger() {
@@ -202,47 +219,21 @@ public class AtmIssue {
 		this.userEmail = userEmail;
 	}
 
-/*	public String getIp() {
-		return ip;
-	}
-
-	public void setIp(String ip) {
-		this.ip = ip;
-	}
-
-	public String getBrowser() {
-		return browser;
-	}
-
-	public void setBrowser(String browser) {
-		this.browser = browser;
-	}
-
-	public String getHostname() {
-		return hostname;
-	}
-
-	public void setHostname(String hostname) {
-		this.hostname = hostname;
-	}*/
-
 	public AtmIssue() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public AtmIssue(Long id, @NotNull @Size(min = 8, max = 8) String terminalId,
-			@NotNull @Size(min = 10) String issueDesc, @NotNull String branchLogger, @NotNull @Email String loggerEmail,
+	public AtmIssue(Long id, @NotNull @Size(min = 8, max = 8) String terminalId, @NotEmpty List<AtmFault> atmFaults,
+			String otherFaultDesc, @NotNull String branchLogger, @NotNull @Email String loggerEmail,
 			@Size(min = 11, max = 14) @NotNull String loggerPhoneNo, @NotNull Date logDate,
 			@NotNull String supportEmail, @NotNull String contact, @Email @NotNull String branchEmail,
 			@NotNull String branchName, @NotNull String atmName, String physicalAddress, @NotNull String vendorName,
 			@NotNull @Email String userEmail) {
-
-//			, String ip, String browser, String hostname) {
 		super();
 		this.id = id;
 		this.terminalId = terminalId;
-		this.issueDesc = issueDesc;
+		this.atmFaults = atmFaults;
+		this.otherFaultDesc = otherFaultDesc;
 		this.branchLogger = branchLogger;
 		this.loggerEmail = loggerEmail;
 		this.loggerPhoneNo = loggerPhoneNo;
@@ -255,21 +246,18 @@ public class AtmIssue {
 		this.physicalAddress = physicalAddress;
 		this.vendorName = vendorName;
 		this.userEmail = userEmail;
-		/*this.ip = ip;
-		this.browser = browser;
-		this.hostname = hostname;*/
 	}
 
-	public AtmIssue(@NotNull @Size(min = 8, max = 8) String terminalId, @NotNull @Size(min = 10) String issueDesc,
-			@NotNull String branchLogger, @NotNull @Email String loggerEmail,
+	public AtmIssue(@NotNull @Size(min = 8, max = 8) String terminalId, @NotEmpty List<AtmFault> atmFaults,
+			String otherFaultDesc, @NotNull String branchLogger, @NotNull @Email String loggerEmail,
 			@Size(min = 11, max = 14) @NotNull String loggerPhoneNo, @NotNull Date logDate,
 			@NotNull String supportEmail, @NotNull String contact, @Email @NotNull String branchEmail,
 			@NotNull String branchName, @NotNull String atmName, String physicalAddress, @NotNull String vendorName,
 			@NotNull @Email String userEmail) {
-			//, String ip, String browser, String hostname) {
 		super();
 		this.terminalId = terminalId;
-		this.issueDesc = issueDesc;
+		this.atmFaults = atmFaults;
+		this.otherFaultDesc = otherFaultDesc;
 		this.branchLogger = branchLogger;
 		this.loggerEmail = loggerEmail;
 		this.loggerPhoneNo = loggerPhoneNo;
@@ -282,50 +270,22 @@ public class AtmIssue {
 		this.physicalAddress = physicalAddress;
 		this.vendorName = vendorName;
 		this.userEmail = userEmail;
-		/*this.ip = ip;
-		this.browser = browser;
-		this.hostname = hostname;*/
 	}
 
 	@Override
 	public String toString() {
-		return "AtmIssue [id=" + id + ", terminalId=" + terminalId + ", issueDesc=" + issueDesc + ", branchLogger="
-				+ branchLogger + ", loggerEmail=" + loggerEmail + ", loggerPhoneNo=" + loggerPhoneNo + ", logDate="
-				+ logDate + ", supportEmail=" + supportEmail + ", contact=" + contact + ", branchEmail=" + branchEmail
-				+ ", branchName=" + branchName + ", atmName=" + atmName + ", physicalAddress=" + physicalAddress
-				+ ", vendorName=" + vendorName + ", userEmail=" + userEmail +"]";/*+ ", ip=" + ip + ", browser=" + browser
-				+ ", hostname=" + hostname + "]"*/
+		return "AtmIssue [id=" + id + ", terminalId=" + terminalId + ", atmFaults=" + atmFaults + ", otherFaultDesc="
+				+ otherFaultDesc + ", branchLogger=" + branchLogger + ", loggerEmail=" + loggerEmail
+				+ ", loggerPhoneNo=" + loggerPhoneNo + ", logDate=" + logDate + ", supportEmail=" + supportEmail
+				+ ", contact=" + contact + ", branchEmail=" + branchEmail + ", branchName=" + branchName + ", atmName="
+				+ atmName + ", physicalAddress=" + physicalAddress + ", vendorName=" + vendorName + ", userEmail="
+				+ userEmail + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(atmName, branchEmail, branchLogger, branchName, contact, id, issueDesc, logDate,
-				loggerEmail, loggerPhoneNo, physicalAddress, supportEmail, terminalId,  vendorName,userEmail);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		AtmIssue other = (AtmIssue) obj;
-		return Objects.equals(atmName, other.atmName) && Objects.equals(branchEmail, other.branchEmail)
-				&& Objects.equals(branchLogger, other.branchLogger) && Objects.equals(branchName, other.branchName)
-				&& Objects.equals(contact, other.contact) && Objects.equals(id, other.id)
-				&& Objects.equals(issueDesc, other.issueDesc) && Objects.equals(logDate, other.logDate)
-				&& Objects.equals(loggerEmail, other.loggerEmail) && Objects.equals(loggerPhoneNo, other.loggerPhoneNo)
-				&& Objects.equals(physicalAddress, other.physicalAddress)
-				&& Objects.equals(supportEmail, other.supportEmail) && Objects.equals(terminalId, other.terminalId)
-				&& Objects.equals(vendorName, other.vendorName) && Objects.equals(userEmail, other.userEmail) ;
-	}
-
-/*	@Override
-	public int hashCode() {
-		return Objects.hash(atmName, branchEmail, branchLogger, branchName, browser, contact, hostname, id, ip,
-				issueDesc, logDate, loggerEmail, loggerPhoneNo, physicalAddress, supportEmail, terminalId, userEmail,
+		return Objects.hash(atmFaults, atmName, branchEmail, branchLogger, branchName, contact, id, logDate,
+				loggerEmail, loggerPhoneNo, otherFaultDesc, physicalAddress, supportEmail, terminalId, userEmail,
 				vendorName);
 	}
 
@@ -338,21 +298,15 @@ public class AtmIssue {
 		if (getClass() != obj.getClass())
 			return false;
 		AtmIssue other = (AtmIssue) obj;
-		return Objects.equals(atmName, other.atmName) && Objects.equals(branchEmail, other.branchEmail)
-				&& Objects.equals(branchLogger, other.branchLogger) && Objects.equals(branchName, other.branchName)
-				&& Objects.equals(browser, other.browser) && Objects.equals(contact, other.contact)
-				&& Objects.equals(hostname, other.hostname) && Objects.equals(id, other.id)
-				&& Objects.equals(ip, other.ip) && Objects.equals(issueDesc, other.issueDesc)
-				&& Objects.equals(logDate, other.logDate) && Objects.equals(loggerEmail, other.loggerEmail)
-				&& Objects.equals(loggerPhoneNo, other.loggerPhoneNo)
+		return Objects.equals(atmFaults, other.atmFaults) && Objects.equals(atmName, other.atmName)
+				&& Objects.equals(branchEmail, other.branchEmail) && Objects.equals(branchLogger, other.branchLogger)
+				&& Objects.equals(branchName, other.branchName) && Objects.equals(contact, other.contact)
+				&& Objects.equals(id, other.id) && Objects.equals(logDate, other.logDate)
+				&& Objects.equals(loggerEmail, other.loggerEmail) && Objects.equals(loggerPhoneNo, other.loggerPhoneNo)
+				&& Objects.equals(otherFaultDesc, other.otherFaultDesc)
 				&& Objects.equals(physicalAddress, other.physicalAddress)
 				&& Objects.equals(supportEmail, other.supportEmail) && Objects.equals(terminalId, other.terminalId)
 				&& Objects.equals(userEmail, other.userEmail) && Objects.equals(vendorName, other.vendorName);
 	}
-	*/
-
 
 }
-
-
-

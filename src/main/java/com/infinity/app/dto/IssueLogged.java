@@ -1,13 +1,15 @@
 package com.infinity.app.dto;
 
-//import org.springframework.beans.factory.annotation.Value;
+import java.util.List;
+import java.util.Objects;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class IssueLogged {
-	
+
 	@NotNull
 	@Email
 	private String userEmail;
@@ -18,22 +20,30 @@ public class IssueLogged {
 
 	@NotNull
 	@Size(min = 8, max = 8)
-    private String terminalId;
+	private String terminalId;
+
+	// ids of the AtmFault rows the user selected in the UI.
+	@NotEmpty
+	private List<Long> atmFaultIds;
+
+	// Free-text used only when "Others" is among the selected faults. Not
+	// @NotNull here since it's conditionally required - enforced in the
+	// controller/service layer. Left null in the JSON when Others wasn't
+	// selected, since the frontend omits the key entirely in that case.
 	
+	@Size(min=10)
+	private String otherFaultDesc;
+
 	@NotNull
-	@Size(min = 10)
-    private String issueDesc;
-	
-	@NotNull
-    private String branchLogger;
-	
+	private String branchLogger;
+
 	@NotNull
 	@Email
-    private String loggerEmail;
-	
+	private String loggerEmail;
+
 	@Size(min = 11, max = 14)
 	@NotNull
-    private String loggerPhoneNo;
+	private String loggerPhoneNo;
 
 	public String getUserEmail() {
 		return userEmail;
@@ -41,6 +51,14 @@ public class IssueLogged {
 
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
+	}
+
+	public String getSupportEmail() {
+		return supportEmail;
+	}
+
+	public void setSupportEmail(String supportEmail) {
+		this.supportEmail = supportEmail;
 	}
 
 	public String getTerminalId() {
@@ -51,12 +69,20 @@ public class IssueLogged {
 		this.terminalId = terminalId;
 	}
 
-	public String getIssueDesc() {
-		return issueDesc;
+	public List<Long> getAtmFaultIds() {
+		return atmFaultIds;
 	}
 
-	public void setIssueDesc(String issueDesc) {
-		this.issueDesc = issueDesc;
+	public void setAtmFaultIds(List<Long> atmFaultIds) {
+		this.atmFaultIds = atmFaultIds;
+	}
+
+	public String getOtherFaultDesc() {
+		return otherFaultDesc;
+	}
+
+	public void setOtherFaultDesc(String otherFaultDesc) {
+		this.otherFaultDesc = otherFaultDesc;
 	}
 
 	public String getBranchLogger() {
@@ -83,38 +109,37 @@ public class IssueLogged {
 		this.loggerPhoneNo = loggerPhoneNo;
 	}
 
-	public String getSupportEmail() {
-		return supportEmail;
-	}
-
-	public void setSupportEmail(String supportEmail) {
-		this.supportEmail = supportEmail;
-	}
-
-	
-	public IssueLogged(@NotNull String userEmail, @NotNull String supportEmail, @NotNull @Size(min = 8, max = 8) String terminalId, 
-			@NotNull String issueDesc,
-			@NotNull String branchLogger, @NotNull String loggerEmail, @NotNull @Size(min = 11, max = 14) String loggerPhoneNo) {
-		super();
-		this.userEmail= userEmail;
-		this.terminalId = terminalId;
-		this.issueDesc = issueDesc;
-		this.branchLogger = branchLogger;
-		this.loggerEmail = loggerEmail;
-		this.loggerPhoneNo = loggerPhoneNo;
-		this.supportEmail=supportEmail;
-	}
-
 	public IssueLogged() {
 		super();
 	}
 
 	@Override
 	public String toString() {
-		return "IssueLogged [supportEmail="+ supportEmail + "IssueLogged [userEmail="+ userEmail + ", terminalId=" + terminalId
-				+ ", issueDesc=" + issueDesc + ", branchLogger=" + branchLogger
+		return "IssueLogged [userEmail=" + userEmail + ", supportEmail=" + supportEmail + ", terminalId=" + terminalId
+				+ ", atmFaultIds=" + atmFaultIds + ", otherFaultDesc=" + otherFaultDesc + ", branchLogger=" + branchLogger
 				+ ", loggerEmail=" + loggerEmail + ", loggerPhoneNo=" + loggerPhoneNo + "]";
 	}
 
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(atmFaultIds, branchLogger, loggerEmail, loggerPhoneNo, otherFaultDesc, supportEmail,
+				terminalId, userEmail);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		IssueLogged other = (IssueLogged) obj;
+		return Objects.equals(atmFaultIds, other.atmFaultIds) && Objects.equals(branchLogger, other.branchLogger)
+				&& Objects.equals(loggerEmail, other.loggerEmail) && Objects.equals(loggerPhoneNo, other.loggerPhoneNo)
+				&& Objects.equals(otherFaultDesc, other.otherFaultDesc)
+				&& Objects.equals(supportEmail, other.supportEmail) && Objects.equals(terminalId, other.terminalId)
+				&& Objects.equals(userEmail, other.userEmail);
+	}
+
 }
