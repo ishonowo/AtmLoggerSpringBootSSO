@@ -41,7 +41,7 @@ public class LoggedCallDto {
 	@NotNull
 	private Date startingDate;
 	
-	@NotNull
+	//@NotNull
 	private Date dateCompleted;
 	
 	@NotNull
@@ -207,7 +207,8 @@ public class LoggedCallDto {
 			@NotNull String terminalName, @NotNull String vendorName, @NotNull String issueDesc,
 			@NotNull Date dateLogged,@NotNull String fromEmail,// @NotNull String loggerEmail,
 			@NotNull String branchLogger,
-			@NotNull String loggerPhone, @NotNull Date startingDate, @NotNull Date dateCompleted,
+			@NotNull String loggerPhone, @NotNull Date startingDate, //@NotNull 
+			Date dateCompleted,
 			 String browserUsed, String hostName, String loggerIP, @NotNull String statusDesc,
 			@NotNull Long statusId) {
 		super();
@@ -235,7 +236,8 @@ public class LoggedCallDto {
 			@NotNull String vendorName, @NotNull String issueDesc, @NotNull Date dateLogged,
 			//@NotNull String loggerEmail,
 			@NotNull String branchLogger, @NotNull String loggerPhone,
-			@NotNull Date startingDate, @NotNull Date dateCompleted, @NotNull String fromEmail, String browserUsed,
+			@NotNull Date startingDate, //@NotNull 
+			Date dateCompleted, @NotNull String fromEmail, String browserUsed,
 			String hostName, String loggerIP, @NotNull String statusDesc, @NotNull Long statusId) {
 		super();
 		this.branchName = branchName;

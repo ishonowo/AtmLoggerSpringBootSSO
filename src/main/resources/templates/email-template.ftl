@@ -122,7 +122,7 @@
     </div>
     
     <div class="footer">
-        <p>This is an official email from Fidelity Bank Plc. Kindly gSive it priority.</p>
+        <p>This is an official email from Fidelity Bank Plc. Kindly give it priority.</p>
     </div>
 </body>
 </html>

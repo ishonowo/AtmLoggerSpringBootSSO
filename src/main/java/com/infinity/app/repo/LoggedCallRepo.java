@@ -49,27 +49,27 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
 
 	}
 	
-	@Query(value = "SELECT lc.id as logId,bi.branch_name as branchName,t.terminal_id as terminalId,"
-			+ " t.atm_name as terminalName,v.vendor_name as vendorName, m.issue_desc as issueDesc,lc.date_logged as dateLogged,"
-			+ "	lc.from_email as fromEmail,m.branch_logger as branchLogger,m.logger_phone as loggerPhone,lc.starting_date as startingDate,"
-			+ " lc.date_completed as dateCompleted,"
-			+ " lc.browser as [browserUsed],lc.hostname as loggerHostName,lc.[ip] as loggerIP,"
-			+ "	ls.status_desc as statusDesc,ls.id as statusId"
-			+ "	FROM [logged_calls] lc (NOLOCK) JOIN [branch_info] bi (NOLOCK)"
-			+ "		ON lc.branch_id=bi.id"
-			+ "		JOIN [terminals] t (NOLOCK)"
-			+ "		ON lc.t_id=t.id"
-			+ "		JOIN [vendors] v (NOLOCK)"
-			+ "		ON lc.vendor_id=v.id"
-			+ "		JOIN [dbo].[message] m (NOLOCK)"
-			+ "		ON lc.message_id=m.id"	 		
-			+ "		JOIN [log_status] ls (NOLOCK)"
-			+ "		ON lc.status_id=ls.id "
-			+ "		JOIN [email_issue] ei (NOLOCK)"
-			+ "		ON m.id=ei.message_id"
-			+ "		order by lc.id desc;",
-       nativeQuery = true)
-	public List<LoggedCallProjection> findAllLoggedIssueDtos();
+	@Query(value = "SELECT lc.id as logId, bi.branch_name as branchName, t.terminal_id as terminalId, "
+			+ "t.atm_name as terminalName, v.vendor_name as vendorName, "
+			+ "STRING_AGG(CONCAT(af.[nature_of_fault], ':- ', af.[description]), ', ') as issueDesc, "
+			+ "lc.date_logged as dateLogged, lc.from_email as fromEmail, m.branch_logger as branchLogger, "
+			+ "m.logger_phone as loggerPhone, lc.starting_date as startingDate, lc.date_completed as dateCompleted, "
+			+ "lc.browser as [browserUsed], lc.hostname as loggerHostName, lc.[ip] as loggerIP, "
+			+ "ls.status_desc as statusDesc, ls.id as statusId "
+			+ "FROM [logged_calls] lc (NOLOCK) "
+			+ "JOIN [branch_info] bi (NOLOCK) ON lc.branch_id = bi.id "
+			+ "JOIN [terminals] t (NOLOCK) ON lc.t_id = t.id "
+			+ "JOIN [vendors] v (NOLOCK) ON lc.vendor_id = v.id "
+			+ "JOIN [dbo].[message] m (NOLOCK) ON lc.message_id = m.id "
+			+ "JOIN [dbo].[message_atm_fault] maf (NOLOCK) ON m.id = maf.message_id "
+			+ "JOIN [dbo].[atm_faults] af (NOLOCK) ON af.id = maf.atm_fault_id "
+			+ "JOIN [log_status] ls (NOLOCK) ON lc.status_id = ls.id "
+			+ "JOIN [email_issue] ei (NOLOCK) ON m.id = ei.message_id "
+			+ "GROUP BY lc.id, bi.branch_name, t.terminal_id, t.atm_name, v.vendor_name, "
+			+ "lc.date_logged, lc.from_email, m.branch_logger, m.logger_phone, lc.starting_date, "
+			+ "lc.date_completed, lc.browser, lc.hostname, lc.[ip], ls.status_desc, ls.id "
+			+ "ORDER BY lc.id DESC;",
+		nativeQuery = true)	public List<LoggedCallProjection> findAllLoggedIssueDtos();
 
 	@Modifying
 	@Transactional
@@ -99,7 +99,6 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
     @Query("UPDATE LoggedCall lc SET lc.statusId = :statusId, lc.dateCompleted = :dateCompleted WHERE lc.id = :logId")
     int updateStatusAndDateCompleted(Long logId, Long statusId, Date dateCompleted);
 
-	//void saveObj(String subject, String branchName, String vendorName, Long messageId, String ip, String browser,
-		//	String hostname, Date dateLogged, Object object, long l);
+    //List<LoggedCall> findAllByOrderByLoggedAtDesc();
 
 }

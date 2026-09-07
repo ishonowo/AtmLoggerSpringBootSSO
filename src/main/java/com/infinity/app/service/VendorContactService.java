@@ -46,7 +46,7 @@ public class VendorContactService {
 		VendorContact vendorContact = vendorContactRepo.findById(updatedVendorContact.getId())
 	            .orElseThrow(() -> new EntityNotFoundException("Vendor not found with id: " + updatedVendorContact.getId()));
 	        
-	        vendorContact.setVendorId(updatedVendorContact.getVendorId());
+	        //vendorContact.setVendorId(updatedVendorContact.getVendorId());
 	        vendorContact.setContact(updatedVendorContact.getContact());
 	        vendorContact.setStatus(updatedVendorContact.getStatus());
 		return vendorContactRepo.save(vendorContact);

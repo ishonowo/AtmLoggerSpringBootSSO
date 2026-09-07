@@ -7,6 +7,9 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,10 +23,22 @@ public class AtmFaultController {
         this.atmFaultService = atmFaultService;
     }
 
-    // GET /atm/atm-faults -> list of nature_of_fault options for the buttons
     @GetMapping("/atm-faults")
     public ResponseEntity<List<AtmFault>> getAtmFaults() {
     	System.out.println(atmFaultService.getAllFaults());
         return ResponseEntity.ok(atmFaultService.getAllFaults());
     }
+    
+    // Insert a new vendor
+    @PostMapping("/atm-faults")
+    public ResponseEntity<AtmFault> insertFault(@RequestBody AtmFault fault) {
+    	AtmFault savedFault = atmFaultService.insertFault(fault);
+        return ResponseEntity.ok(savedFault);
+    }
+    
+    @PutMapping("/atm-faults")
+    public ResponseEntity<AtmFault> updateFault(@RequestBody AtmFault updatedFault) {
+        return ResponseEntity.ok((AtmFault)atmFaultService.updateFault(updatedFault));
+    }
+
 }

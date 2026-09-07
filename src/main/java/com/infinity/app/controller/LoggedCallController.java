@@ -1,8 +1,17 @@
 package com.infinity.app.controller;
 
+import java.io.IOException;
+//import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import java.io.ByteArrayInputStream;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.ContentDisposition;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,12 +43,6 @@ public class LoggedCallController {
         return ResponseEntity.ok(loggedIssueDto);
     }
 	
-	/*@GetMapping("/path")
-	public ResponseEntity<List<CallWithStatusDto>> getAllCallWithStatusDtos() {
-        List<CallWithStatusDto> callWithStatusDtos = loggedService.findAllCallWithStatusDtos();
-        System.out.println(callWithStatusDtos);
-        return ResponseEntity.ok(callWithStatusDtos);
-    }*/
 	
     @PostMapping
     public ResponseEntity<LoggedCall> createLoggedIssue(@Valid @RequestBody LoggedCall loggedCall) {
@@ -52,5 +55,27 @@ public class LoggedCallController {
         loggedService.updateCall(updatedCall);
         return ResponseEntity.noContent().build();
     }
+	
+	@GetMapping("/export")
+	public ResponseEntity<InputStreamResource> exportLoggedCalls() throws IOException {
+	    ByteArrayInputStream stream = loggedService.exportToExcel();
+
+	    String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
+	    String filename = "logged-calls-" + timestamp + ".xlsx";
+
+	    ContentDisposition disposition = ContentDisposition.attachment()
+	            .filename(filename)
+	            .build();
+
+	    HttpHeaders headers = new HttpHeaders();
+	    headers.setContentDisposition(disposition);
+	    headers.setCacheControl("no-store, no-cache, must-revalidate, max-age=0");
+	    headers.setPragma("no-cache");
+
+	    return ResponseEntity.ok()
+	            .headers(headers)
+	            .contentType(MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"))
+	            .body(new InputStreamResource(stream));
+	}
 
 }

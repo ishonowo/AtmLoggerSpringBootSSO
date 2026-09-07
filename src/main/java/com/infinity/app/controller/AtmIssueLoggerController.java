@@ -24,6 +24,7 @@ import com.infinity.app.model.AtmIssue;
 import com.infinity.app.repo.AtmFaultRepo;
 import com.infinity.app.service.AtmDetailService;
 import com.infinity.app.service.AtmIssueService;
+import com.infinity.app.service.AtmFaultService;
 
 @RestController
 @RequestMapping("/atm")
@@ -35,7 +36,7 @@ public class AtmIssueLoggerController {
 
 	private final AtmIssueService issueService;
 
-	private final AtmFaultRepo atmFaultRepo;
+	private final AtmFaultService faultService;
 
 	private AtmDetail atmDetail;
 
@@ -43,10 +44,10 @@ public class AtmIssueLoggerController {
 	private String supportEmail;
 
 	public AtmIssueLoggerController(AtmDetailService atmService, AtmIssueService issueService,
-			AtmFaultRepo atmFaultRepo) {
+			AtmFaultService faultService) {
 		this.atmService = atmService;
 		this.issueService = issueService;
-		this.atmFaultRepo = atmFaultRepo;
+		this.faultService = faultService;
 	}
 
 	@GetMapping("/")
@@ -66,7 +67,8 @@ public class AtmIssueLoggerController {
 		String atmContacts = issueService.getContacts(issueLogged.getTerminalId());
 
 		// Resolve the selected fault ids into their actual AtmFault rows.
-		List<AtmFault> selectedFaults = atmFaultRepo.findAllById(issueLogged.getAtmFaultIds());
+		List<AtmFault> selectedFaults = faultService.findAllById(issueLogged.getAtmFaultIds());
+		
 
 		if (selectedFaults.isEmpty()) {
 			throw new ValidationException("No valid faults were selected for this issue.");
