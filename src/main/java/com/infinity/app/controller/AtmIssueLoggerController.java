@@ -1,4 +1,6 @@
 package com.infinity.app.controller;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -63,16 +65,16 @@ public class AtmIssueLoggerController {
 			throw new ValidationException("This issue log has errors and cannot be sent.");
 		}
 
-		atmDetail = atmService.getAtmDetail(issueLogged.getTerminalId());
-		String atmContacts = issueService.getContacts(issueLogged.getTerminalId());
-
 		// Resolve the selected fault ids into their actual AtmFault rows.
 		List<AtmFault> selectedFaults = faultService.findAllById(issueLogged.getAtmFaultIds());
 		
+		atmDetail = atmService.getAtmDetail(issueLogged.getTerminalId());
+		String atmContacts = issueService.getContacts(issueLogged.getTerminalId());
 
 		if (selectedFaults.isEmpty()) {
 			throw new ValidationException("No valid faults were selected for this issue.");
 		}
+		
 
 		boolean othersSelected = selectedFaults.stream()
 				.anyMatch(f -> "Others".equals(f.getNatureOfFault()));
@@ -81,6 +83,8 @@ public class AtmIssueLoggerController {
 				&& (issueLogged.getOtherFaultDesc() == null || issueLogged.getOtherFaultDesc().trim().length() < 10)) {
 			throw new ValidationException("A description of at least 10 characters is required when 'Others' is selected.");
 		}
+		
+		
 
 		AtmIssue atmIssueGen = new AtmIssue(issueLogged.getTerminalId(), selectedFaults,
 				issueLogged.getOtherFaultDesc(),

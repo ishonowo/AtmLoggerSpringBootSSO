@@ -9,15 +9,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
+//import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "atm_faults", schema = "dbo")
 public class AtmFault {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@SequenceGenerator(name = "atmFaults", schema="dbo", sequenceName = "sq_atmFaults", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "atmFaults")
+	@SequenceGenerator(name = "atmFaults", schema="dbo", sequenceName = "sq_atm_faults", allocationSize = 1)
 	private Long id;
 	
 	@Column(name = "nature_of_fault", nullable = false)
@@ -77,7 +77,6 @@ public class AtmFault {
 	}
 
 	public AtmFault(Long id, String natureOfFault, String description, String faultType) {//, String otherFaultDesc) {
-		super();
 		this.id = id;
 		this.natureOfFault = natureOfFault;
 		this.description = description;
@@ -86,7 +85,6 @@ public class AtmFault {
 	}
 
 	public AtmFault(String natureOfFault, String description, String faultType) {//, String otherFaultDesc) {
-		super();
 		this.natureOfFault = natureOfFault;
 		this.description = description;
 		this.faultType = faultType;

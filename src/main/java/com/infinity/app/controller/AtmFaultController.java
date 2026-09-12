@@ -1,5 +1,6 @@
 package com.infinity.app.controller;
 
+import com.infinity.app.dto.AtmFaultObj;
 import com.infinity.app.model.AtmFault;
 import com.infinity.app.service.AtmFaultService;
 
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/atm")
+@RequestMapping("/atm-fault")
 public class AtmFaultController {
 
     private final AtmFaultService atmFaultService;
@@ -23,20 +24,20 @@ public class AtmFaultController {
         this.atmFaultService = atmFaultService;
     }
 
-    @GetMapping("/atm-faults")
+    @GetMapping()
     public ResponseEntity<List<AtmFault>> getAtmFaults() {
     	System.out.println(atmFaultService.getAllFaults());
         return ResponseEntity.ok(atmFaultService.getAllFaults());
     }
     
-    // Insert a new vendor
-    @PostMapping("/atm-faults")
-    public ResponseEntity<AtmFault> insertFault(@RequestBody AtmFault fault) {
-    	AtmFault savedFault = atmFaultService.insertFault(fault);
+    @PostMapping()
+    public ResponseEntity<AtmFault> insertFault(@RequestBody AtmFaultObj fault) {
+    	AtmFault updatedFault=new AtmFault(fault.getNatureOfFault(),fault.getDescription(),fault.getFaultType());
+    	AtmFault savedFault= atmFaultService.insertFault(updatedFault);
         return ResponseEntity.ok(savedFault);
     }
     
-    @PutMapping("/atm-faults")
+    @PutMapping()
     public ResponseEntity<AtmFault> updateFault(@RequestBody AtmFault updatedFault) {
         return ResponseEntity.ok((AtmFault)atmFaultService.updateFault(updatedFault));
     }
