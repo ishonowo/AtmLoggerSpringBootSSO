@@ -52,6 +52,10 @@ public class LoggedCall {
 	private String hostname;
 	
 	private Date dateCompleted;
+	
+	private Date holdStart;
+	
+	private Date holdEnd;
 
 	public Long getId() {
 		return id;
@@ -113,7 +117,7 @@ public class LoggedCall {
 		return statusId;
 	}
 
-	public void setStatus_id(Long statusId) {
+	public void setStatusId(Long statusId) {
 		this.statusId = statusId;
 	}
 
@@ -157,9 +161,30 @@ public class LoggedCall {
 		this.dateCompleted = dateCompleted;
 	}
 
+	public Date getHoldStart() {
+		return holdStart;
+	}
+
+	public void setHoldStart(Date holdStart) {
+		this.holdStart = holdStart;
+	}
+
+	public Date getHoldEnd() {
+		return holdEnd;
+	}
+
+	public void setHoldEnd(Date holdEnd) {
+		this.holdEnd = holdEnd;
+	}
+
+	public LoggedCall() {
+		super();
+	}
+
 	public LoggedCall(Long id, @NotNull Long branchId, @NotNull Long tId, @NotNull Long vendorId,
 			@NotNull Long messageId, @NotNull Date dateLogged, @NotNull Date startingDate, @NotNull Long statusId,
-			@Email String fromEmail, String ip, String browser, String hostname, Date dateCompleted) {
+			@Email String fromEmail, String ip, String browser, String hostname, Date dateCompleted, Date holdStart,
+			Date holdEnd) {
 		super();
 		this.id = id;
 		this.branchId = branchId;
@@ -174,16 +199,13 @@ public class LoggedCall {
 		this.browser = browser;
 		this.hostname = hostname;
 		this.dateCompleted = dateCompleted;
-	}
-
-	public LoggedCall() {
-		super();
-		// TODO Auto-generated constructor stub
+		this.holdStart = holdStart;
+		this.holdEnd = holdEnd;
 	}
 
 	public LoggedCall(@NotNull Long branchId, @NotNull Long tId, @NotNull Long vendorId, @NotNull Long messageId,
 			@NotNull Date dateLogged, @NotNull Date startingDate, @NotNull Long statusId, @Email String fromEmail,
-			String ip, String browser, String hostname, Date dateCompleted) {
+			String ip, String browser, String hostname, Date dateCompleted, Date holdStart, Date holdEnd) {
 		super();
 		this.branchId = branchId;
 		this.tId = tId;
@@ -197,6 +219,8 @@ public class LoggedCall {
 		this.browser = browser;
 		this.hostname = hostname;
 		this.dateCompleted = dateCompleted;
+		this.holdStart = holdStart;
+		this.holdEnd = holdEnd;
 	}
 
 	@Override
@@ -204,13 +228,14 @@ public class LoggedCall {
 		return "LoggedCall [id=" + id + ", branchId=" + branchId + ", tId=" + tId + ", vendorId=" + vendorId
 				+ ", messageId=" + messageId + ", dateLogged=" + dateLogged + ", startingDate=" + startingDate
 				+ ", statusId=" + statusId + ", fromEmail=" + fromEmail + ", ip=" + ip + ", browser=" + browser
-				+ ", hostname=" + hostname + ", dateCompleted=" + dateCompleted + "]";
+				+ ", hostname=" + hostname + ", dateCompleted=" + dateCompleted + ", holdStart=" + holdStart
+				+ ", holdEnd=" + holdEnd + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(branchId, browser, dateCompleted, dateLogged, fromEmail, hostname, id, ip, messageId,
-				startingDate, statusId, tId, vendorId);
+		return Objects.hash(branchId, browser, dateCompleted, dateLogged, fromEmail, holdEnd, holdStart, hostname, id,
+				ip, messageId, startingDate, statusId, tId, vendorId);
 	}
 
 	@Override
@@ -224,12 +249,14 @@ public class LoggedCall {
 		LoggedCall other = (LoggedCall) obj;
 		return Objects.equals(branchId, other.branchId) && Objects.equals(browser, other.browser)
 				&& Objects.equals(dateCompleted, other.dateCompleted) && Objects.equals(dateLogged, other.dateLogged)
-				&& Objects.equals(fromEmail, other.fromEmail) && Objects.equals(hostname, other.hostname)
+				&& Objects.equals(fromEmail, other.fromEmail) && Objects.equals(holdEnd, other.holdEnd)
+				&& Objects.equals(holdStart, other.holdStart) && Objects.equals(hostname, other.hostname)
 				&& Objects.equals(id, other.id) && Objects.equals(ip, other.ip)
 				&& Objects.equals(messageId, other.messageId) && Objects.equals(startingDate, other.startingDate)
 				&& Objects.equals(statusId, other.statusId) && Objects.equals(tId, other.tId)
 				&& Objects.equals(vendorId, other.vendorId);
 	}
+
 
 	
 }
