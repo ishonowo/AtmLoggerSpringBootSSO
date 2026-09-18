@@ -59,6 +59,20 @@ public class LoggedCallDto {
 	@NotNull
 	private Long statusId;
 
+	// --- SLA fields (not @NotNull: this DTO is also used as the PUT/update
+	// request body via LoggedCallController.updateLoggedCall, and those
+	// callers don't supply these — they're populated server-side on GET) ---
+
+	private Date holdStart;
+
+	private Date holdEnd;
+
+	private Integer allowedHours;
+
+	private Date slaDeadline;
+
+	private boolean slaBreached;
+
 	public Long getLogId() {
 		return logId;
 	}
@@ -203,6 +217,46 @@ public class LoggedCallDto {
 		this.statusId = statusId;
 	}
 
+	public Date getHoldStart() {
+		return holdStart;
+	}
+
+	public void setHoldStart(Date holdStart) {
+		this.holdStart = holdStart;
+	}
+
+	public Date getHoldEnd() {
+		return holdEnd;
+	}
+
+	public void setHoldEnd(Date holdEnd) {
+		this.holdEnd = holdEnd;
+	}
+
+	public Integer getAllowedHours() {
+		return allowedHours;
+	}
+
+	public void setAllowedHours(Integer allowedHours) {
+		this.allowedHours = allowedHours;
+	}
+
+	public Date getSlaDeadline() {
+		return slaDeadline;
+	}
+
+	public void setSlaDeadline(Date slaDeadline) {
+		this.slaDeadline = slaDeadline;
+	}
+
+	public boolean isSlaBreached() {
+		return slaBreached;
+	}
+
+	public void setSlaBreached(boolean slaBreached) {
+		this.slaBreached = slaBreached;
+	}
+
 	public LoggedCallDto(@NotNull Long logId, @NotNull String branchName, @NotNull String terminalId,
 			@NotNull String terminalName, @NotNull String vendorName, @NotNull String issueDesc,
 			@NotNull Date dateLogged,@NotNull String fromEmail,// @NotNull String loggerEmail,
@@ -276,9 +330,14 @@ public class LoggedCallDto {
 				+ ", branchLogger=" + branchLogger
 				+ ", loggerPhone=" + loggerPhone + ", startingDate=" + startingDate + ", dateCompleted=" + dateCompleted
 				+ ", fromEmail=" + fromEmail + ", browserUsed=" + browserUsed + ", hostName=" + hostName + ", loggerIP="
-				+ loggerIP + ", statusDesc=" + statusDesc + ", statusId=" + statusId + "]";
+				+ loggerIP + ", statusDesc=" + statusDesc + ", statusId=" + statusId
+				+ ", holdStart=" + holdStart + ", holdEnd=" + holdEnd + ", allowedHours=" + allowedHours
+				+ ", slaDeadline=" + slaDeadline + ", slaBreached=" + slaBreached + "]";
 	}
 
+	// NOTE: hashCode/equals intentionally left unchanged (based on the
+	// original required fields only) so existing equality checks elsewhere
+	// in the codebase aren't affected by the newly added SLA fields.
 	@Override
 	public int hashCode() {
 		return Objects.hash(branchLogger, branchName, browserUsed, dateCompleted, dateLogged, fromEmail, hostName,

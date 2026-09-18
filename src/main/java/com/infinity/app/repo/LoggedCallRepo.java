@@ -47,15 +47,29 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
 		String getStatusDesc();
 		Long getStatusId();
 
+		// --- SLA additions ---
+		Date getHoldStart();
+		Date getHoldEnd();
+		Integer getAllowedHours();
+
 	}
 	
+	// SLA note: allowedHours is derived per-message rather than per-fault
+	// because EmailIssueService.convertToEmailIssue() splits Power faults
+	// into their own Message/EmailIssue before a LoggedCall is ever created
+	// for them (see the "Power" split logic there) — so every fault row
+	// joined here for a single lc.id is guaranteed to share the same type.
+	// MAX(...) is only needed to satisfy SQL Server's GROUP BY rules, not
+	// because the value actually varies within a group.
 	@Query(value = "SELECT lc.id as logId, bi.branch_name as branchName, t.terminal_id as terminalId, "
-			+ "t.atm_name as terminalName, v.vendor_name as vendorName, "
+			+ "t.atm_name as terminalName, v.vendor_name as vendorName,"
 			+ "STRING_AGG(CONCAT(af.[nature_of_fault], ':- ', af.[description]), ', ') as issueDesc, "
 			+ "lc.date_logged as dateLogged, lc.from_email as fromEmail, m.branch_logger as branchLogger, "
 			+ "m.logger_phone as loggerPhone, lc.starting_date as startingDate, lc.date_completed as dateCompleted, "
 			+ "lc.browser as [browserUsed], lc.hostname as loggerHostName, lc.[ip] as loggerIP, "
-			+ "ls.status_desc as statusDesc, ls.id as statusId "
+			+ "ls.status_desc as statusDesc, ls.id as statusId, "
+			+ "lc.hold_start as holdStart, lc.hold_end as holdEnd, "
+			+ "MAX(CASE WHEN rs.region_name = 'Lagos and South West' THEN 48 ELSE 72 END) as allowedHours "
 			+ "FROM [logged_calls] lc (NOLOCK) "
 			+ "JOIN [branch_info] bi (NOLOCK) ON lc.branch_id = bi.id "
 			+ "JOIN [terminals] t (NOLOCK) ON lc.t_id = t.id "
@@ -65,9 +79,11 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
 			+ "JOIN [dbo].[atm_faults] af (NOLOCK) ON af.id = maf.atm_fault_id "
 			+ "JOIN [log_status] ls (NOLOCK) ON lc.status_id = ls.id "
 			+ "JOIN [email_issue] ei (NOLOCK) ON m.id = ei.message_id "
+			+ "JOIN [regions] rs (NOLOCK) ON bi.region_id=rs.id "
 			+ "GROUP BY lc.id, bi.branch_name, t.terminal_id, t.atm_name, v.vendor_name, "
 			+ "lc.date_logged, lc.from_email, m.branch_logger, m.logger_phone, lc.starting_date, "
-			+ "lc.date_completed, lc.browser, lc.hostname, lc.[ip], ls.status_desc, ls.id "
+			+ "lc.date_completed, lc.browser, lc.hostname, lc.[ip], ls.status_desc, ls.id, "
+			+ "lc.hold_start, lc.hold_end "
 			+ "ORDER BY lc.id DESC;",
 		nativeQuery = true)	public List<LoggedCallProjection> findAllLoggedIssueDtos();
 
@@ -98,6 +114,20 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
     @Modifying
     @Query("UPDATE LoggedCall lc SET lc.statusId = :statusId, lc.dateCompleted = :dateCompleted WHERE lc.id = :logId")
     int updateStatusAndDateCompleted(Long logId, Long statusId, Date dateCompleted);
+
+    // --- SLA additions: put on hold / resume, mirroring the hold logic
+    // discussed for sla_log, but applied directly to logged_calls since
+    // hold_start/hold_end already live there. ---
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE LoggedCall lc SET lc.holdStart = :holdStart WHERE lc.id = :logId")
+    int putOnHold(@Param("logId") Long logId, @Param("holdStart") Date holdStart);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE LoggedCall lc SET lc.holdEnd = :holdEnd WHERE lc.id = :logId")
+    int resumeFromHold(@Param("logId") Long logId, @Param("holdEnd") Date holdEnd);
 
     //List<LoggedCall> findAllByOrderByLoggedAtDesc();
 
