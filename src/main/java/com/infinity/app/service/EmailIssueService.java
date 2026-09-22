@@ -66,7 +66,7 @@ public class EmailIssueService {
 		mailSender.setPassword(environment.getProperty("spring.mail.password"));
 	}
 
-	public List<EmailIssue> convertToEmailIssue(EmailIssueMessageDto dto) {
+	public EmailIssue convertToEmailIssue(EmailIssueMessageDto dto) {
 
 		// IMPORTANT: never pass dto.getAtmFaults() straight through to
 		// Message's @ManyToMany(cascade = MERGE) association. Those objects
@@ -85,18 +85,18 @@ public class EmailIssueService {
 				: dto.getAtmFaults().stream().map(AtmFault::getId).toList();
 
 		List<AtmFault> canonicalFaults = atmFaultRepo.findAllById(faultIds);
-		List<AtmFault>powerFaults = new ArrayList<>(); 
+		//List<AtmFault> powerFaults = new ArrayList<>(); 
 
-		Iterator<AtmFault> iterator = canonicalFaults.iterator();
+		/*Iterator<AtmFault> iterator = canonicalFaults.iterator();
 		while (iterator.hasNext()) {
 			AtmFault fault = iterator.next();
 			if ("POWER".equals(fault.getFaultType().toUpperCase())) {
 				powerFaults.add(fault);
 				iterator.remove();
 			}
-		}
+		}*/
 		// Create Message object using the canonical (untouched) faults.
-		EmailIssue tranEmailIssue = null, powerEmailIssue = null;
+		EmailIssue tranEmailIssue = null;//, powerEmailIssue = null;
 
 		if (!canonicalFaults.isEmpty()) {
 			Message message = new Message(dto.getPhysicalAddress(), dto.getBranchName(), dto.getVendorName(),
@@ -111,23 +111,8 @@ public class EmailIssueService {
 			tranEmailIssue = emailIssueRepo.save(emailIssue);
 		}
 
-		if (!powerFaults.isEmpty()) {
-			Message message = new Message(dto.getPhysicalAddress(), dto.getBranchName(), dto.getVendorName(),
-					powerFaults, dto.getOtherFaultDesc(), dto.getBranchLogger(), dto.getLoggerPhone(),
-					dto.getDateLogged());
-			messageRepo.save(message);
-
-			// Create EmailIssue object
-			EmailIssue emailIssue = new EmailIssue(dto.getFromEmail(), powerContactEmail, dto.getCc(), dto.getSubject(),
-					dto.getmIntro(), message, dto.getmEnd());
-
-			powerEmailIssue = emailIssueRepo.save(emailIssue);
-		}
-
-		List<EmailIssue>emailIssues = new ArrayList<>();
-		if(tranEmailIssue!=null) emailIssues.add(tranEmailIssue);
-		if(powerEmailIssue!=null) emailIssues.add(powerEmailIssue);
-		return emailIssues;
+		
+		return tranEmailIssue;
 	}
 
 	@Transactional

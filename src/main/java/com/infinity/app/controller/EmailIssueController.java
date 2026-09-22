@@ -50,9 +50,9 @@ public class EmailIssueController {
 		logger.info("Received emailIssueMessage "+emailIssueMessage);
 		try {
 			// Convert request DTO to EmailIssue domain object
-            List<EmailIssue> tranEmailIssue = emailIssueService.convertToEmailIssue(emailIssueMessage);
+            EmailIssue tranEmailIssue = emailIssueService.convertToEmailIssue(emailIssueMessage);
             // Save and send the email
-            Iterator<EmailIssue> iterator=tranEmailIssue.iterator();
+            /*Iterator<EmailIssue> iterator=tranEmailIssue.iterator();
             while (iterator.hasNext()) {
             	EmailIssue emailIssue= iterator.next();
             	emailIssue=emailIssueService.sendEmail(emailIssue);
@@ -60,11 +60,11 @@ public class EmailIssueController {
             	emailIssueService.saveloggedCall(emailIssueMessage,emailIssue.getMessage().getId(),request);
             	//loggedService.saveObj(emailIssueMessage,emailIssue.getMessage().getId(),ip,browser,hostname);
             	logger.info("Call logged successfully. ");
-            }
-            /*EmailIssue savedEmailIssue = emailIssueService.sendEmail(tranEmailIssue);
+            }*/
+            EmailIssue savedEmailIssue = emailIssueService.sendEmail(tranEmailIssue);
             logger.info("Email submitted successfully. "+ savedEmailIssue); 
-            loggedService.saveObj(emailIssueMessage,tranEmailIssue.getMessage().getId(),ip,browser,hostname);
-            logger.info("Call logged successfully. ");*/
+            emailIssueService.saveloggedCall(emailIssueMessage,tranEmailIssue.getMessage().getId(),request);
+            logger.info("Call logged successfully. ");
             return new ResponseEntity<>(tranEmailIssue, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(

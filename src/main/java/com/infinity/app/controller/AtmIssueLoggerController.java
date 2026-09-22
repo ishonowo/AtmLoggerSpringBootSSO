@@ -1,7 +1,9 @@
 package com.infinity.app.controller;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import jakarta.validation.ValidationException;
@@ -44,6 +46,9 @@ public class AtmIssueLoggerController {
 
 	@Value("${atm.support.email}")
 	private String supportEmail;
+	
+	@Value("${power.contact}")
+	private String powerContactEmail;
 
 	public AtmIssueLoggerController(AtmDetailService atmService, AtmIssueService issueService,
 			AtmFaultService faultService) {
@@ -58,7 +63,7 @@ public class AtmIssueLoggerController {
 	}
 
 	@PostMapping("/issue")
-	public AtmIssue submitLoggedIssue(
+	public List<AtmIssue> submitLoggedIssue(
 			@RequestBody IssueLogged issueLogged, BindingResult bindingResult, HttpServletRequest request
 			) {
 		if (bindingResult.hasErrors()) {
@@ -67,11 +72,22 @@ public class AtmIssueLoggerController {
 
 		// Resolve the selected fault ids into their actual AtmFault rows.
 		List<AtmFault> selectedFaults = faultService.findAllById(issueLogged.getAtmFaultIds());
+		List<AtmFault> powerFaults = new ArrayList<>(); 
+
+		Iterator<AtmFault> iterator = selectedFaults.iterator();
+		while (iterator.hasNext()) {
+			AtmFault fault = iterator.next();
+			if ("POWER".equals(fault.getFaultType().toUpperCase())) {
+				powerFaults.add(fault);
+				iterator.remove();
+			}
+		}
+
 		
 		atmDetail = atmService.getAtmDetail(issueLogged.getTerminalId());
 		String atmContacts = issueService.getContacts(issueLogged.getTerminalId());
-
-		if (selectedFaults.isEmpty()) {
+		
+		if (selectedFaults.isEmpty() && powerFaults.isEmpty()) {
 			throw new ValidationException("No valid faults were selected for this issue.");
 		}
 		
@@ -84,18 +100,37 @@ public class AtmIssueLoggerController {
 			throw new ValidationException("A description of at least 10 characters is required when 'Others' is selected.");
 		}
 		
+		AtmIssue atmIssueGenSelected= null, atmIssueGenPower= null;
 		
-
-		AtmIssue atmIssueGen = new AtmIssue(issueLogged.getTerminalId(), selectedFaults,
-				issueLogged.getOtherFaultDesc(),
-				issueLogged.getBranchLogger(), issueLogged.getLoggerEmail(), issueLogged.getLoggerPhoneNo(),
-				new Date(), supportEmail,
-				atmContacts,
-				atmDetail.getBranchEmail(),
-				atmDetail.getBranchName(), atmDetail.getAtmName(), atmDetail.getPhysicalAddress(),
-				atmDetail.getVendorName(), issueLogged.getUserEmail());
-
-		AtmIssue atmIssue = issueService.save(atmIssueGen);
+		if(!selectedFaults.isEmpty()) {
+			atmIssueGenSelected = new AtmIssue(issueLogged.getTerminalId(), selectedFaults,
+					issueLogged.getOtherFaultDesc(),
+					issueLogged.getBranchLogger(), issueLogged.getLoggerEmail(), issueLogged.getLoggerPhoneNo(),
+					new Date(), supportEmail,
+					atmContacts,
+					atmDetail.getBranchEmail(),
+					atmDetail.getBranchName(), atmDetail.getAtmName(), atmDetail.getPhysicalAddress(),
+					atmDetail.getVendorName(), issueLogged.getUserEmail());
+			atmIssueGenSelected = issueService.save(atmIssueGenSelected);
+			}
+		
+		if(!powerFaults.isEmpty()) {
+			atmIssueGenPower = new AtmIssue(issueLogged.getTerminalId(), powerFaults,
+					issueLogged.getOtherFaultDesc(),
+					issueLogged.getBranchLogger(), issueLogged.getLoggerEmail(), issueLogged.getLoggerPhoneNo(),
+					new Date(), supportEmail,
+					powerContactEmail,
+					atmDetail.getBranchEmail(),
+					atmDetail.getBranchName(), atmDetail.getAtmName(), atmDetail.getPhysicalAddress(),
+					atmDetail.getVendorName(), issueLogged.getUserEmail());
+			atmIssueGenPower= issueService.save(atmIssueGenPower);
+		}
+			
+		
+		List<AtmIssue> atmIssue = new ArrayList<>();
+		if(atmIssueGenSelected!=null) atmIssue.add(atmIssueGenSelected);
+		if(atmIssueGenPower!=null) atmIssue.add(atmIssueGenPower);
+		
 
 		logger.info("Form submitted successfully. " + atmIssue);
 
