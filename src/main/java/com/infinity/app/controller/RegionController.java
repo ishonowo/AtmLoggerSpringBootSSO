@@ -20,7 +20,7 @@ import com.infinity.app.service.RegionService;
 methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.OPTIONS},
 allowCredentials = "true")*/
 @RestController
-@RequestMapping("/api/regions")
+@RequestMapping("/atm/database/api/regions")
 public class RegionController {
     private final RegionService regionService;
     

@@ -1,5 +1,5 @@
 package com.infinity.app.controller;
-
+/*
 import org.springframework.http.ResponseEntity;
 import org.springframework.ldap.core.AttributesMapper;
 import org.springframework.ldap.core.LdapTemplate;
@@ -71,3 +71,4 @@ public class LoginController {
     }
 
 }
+*/

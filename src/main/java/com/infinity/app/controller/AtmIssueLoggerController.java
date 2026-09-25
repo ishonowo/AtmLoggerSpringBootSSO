@@ -31,7 +31,7 @@ import com.infinity.app.service.AtmIssueService;
 import com.infinity.app.service.AtmFaultService;
 
 @RestController
-@RequestMapping("/atm")
+@RequestMapping("/atm/issue")
 public class AtmIssueLoggerController {
 
 	private static final Logger logger = LoggerFactory.getLogger(AtmIssueLoggerController.class);
@@ -57,12 +57,12 @@ public class AtmIssueLoggerController {
 		this.faultService = faultService;
 	}
 
-	@GetMapping("/")
+	@GetMapping
 	public String hello() {
 		return "ATM issue app is available";
 	}
 
-	@PostMapping("/issue")
+	@PostMapping
 	public List<AtmIssue> submitLoggedIssue(
 			@RequestBody IssueLogged issueLogged, BindingResult bindingResult, HttpServletRequest request
 			) {

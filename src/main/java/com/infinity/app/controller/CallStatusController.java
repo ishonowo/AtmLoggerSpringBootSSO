@@ -11,7 +11,7 @@ import com.infinity.app.model.CallStatus;
 import com.infinity.app.service.CallStatusService;
 
 @RestController
-@RequestMapping("/api/status")
+@RequestMapping("/atm/database/api/status")
 public class CallStatusController {
 
 private final CallStatusService logService;

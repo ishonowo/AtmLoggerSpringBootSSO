@@ -31,7 +31,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RestController
-@RequestMapping("/email")
+@RequestMapping("/atm/email")
 public class EmailIssueController {
 
 	private static final Logger logger = LoggerFactory.getLogger(EmailIssueController.class);

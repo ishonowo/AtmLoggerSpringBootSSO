@@ -18,7 +18,7 @@ import com.infinity.app.model.Terminal;
 import com.infinity.app.service.BranchService;
 
 @RestController
-@RequestMapping("api/branches")
+@RequestMapping("/atm/database/api/branches")
 public class BranchController {
 	
 	private final BranchService branchService;

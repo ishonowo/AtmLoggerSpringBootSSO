@@ -15,7 +15,7 @@ import com.infinity.app.model.VendorContact;
 import com.infinity.app.service.VendorContactService;
 
 @RestController
-@RequestMapping("/api/contacts")
+@RequestMapping("/atm/database/api/contacts")
 public class VendorContactController {
 	
 	private final VendorContactService vendorContactService;

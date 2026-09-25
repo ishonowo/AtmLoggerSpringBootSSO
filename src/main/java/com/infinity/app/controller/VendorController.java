@@ -22,7 +22,7 @@ import com.infinity.app.service.VendorService;
 
 
 @RestController
-@RequestMapping("/api/vendors")
+@RequestMapping("/atm/database/api/vendors")
 public class VendorController {
 
     private final VendorService vendorService;

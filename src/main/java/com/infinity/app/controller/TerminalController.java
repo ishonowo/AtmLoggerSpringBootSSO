@@ -21,7 +21,7 @@ import com.infinity.app.service.TerminalService;
 
 
 @RestController
-@RequestMapping("/api/terminals")
+@RequestMapping("/atm/database/api/terminals")
 public class TerminalController {
 
     private final TerminalService terminalService;

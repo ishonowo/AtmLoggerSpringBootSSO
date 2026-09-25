@@ -24,7 +24,7 @@ import com.infinity.app.model.LoggedCall;
 import com.infinity.app.service.LoggedCallService;
 import jakarta.validation.Valid;
 @RestController
-@RequestMapping("/api/calls")
+@RequestMapping("/atm/logged-calls")
 public class LoggedCallController {
 	
 	private final LoggedCallService loggedService;

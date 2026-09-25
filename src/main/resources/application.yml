@@ -19,7 +19,7 @@ server:
   key-store: classpath:server-keystore.p12
   key-store-password: changeitnow
 
-  
+
 
 spring:
  application:
@@ -39,7 +39,7 @@ spring:
      dialect: org.hibernate.dialect.SQLServerDialect
      format-sql: true
      naming:
-      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImplnaming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl     
+      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
    show-sql: true
  ldap:
   password: secret
@@ -60,29 +60,33 @@ spring:
  messages:
   basename: messages
   encoding: UTF-8
- security:
-    user:
-      name: root
-      password: Ebank@12345$$
+ # spring.security.user (the built-in Basic Auth account) has been removed.
+ # Authentication is fully replaced by ApacheDS + the custom SecurityConfig/
+ # AuthController below, so the default in-memory user is unused and only
+ # confusing to leave in place.
 
 app:
  jwt:
   expiration-ms: 86400000
   secret: your-ultra-secure-and-very-long-secret-key-32-bytes-minimum
+  # ^ move this to an environment variable or a secrets manager for anything
+  #   beyond local development - it should never sit in a committed file.
+  #
+  # Roles themselves are NOT configured here. They live in two places:
+  #   1. app_role / app_user_role tables (SQL Server) - the source of truth.
+  #      Adding a role or changing who has it is a data change, not a
+  #      redeploy, and an admin can manage it through ordinary SQL or the
+  #      "Use Application Backend > Insert/Update" screens.
+  #   2. The JWT's "roles" claim - a signed snapshot of a user's roles at
+  #      login time, so every later request is authorized without hitting
+  #      the database again. A short expiration-ms keeps that snapshot from
+  #      staying stale for long if a role is changed mid-session.
+  #   Static YAML was deliberately avoided for per-user role data: it's
+  #   per-deployment and requires a restart to change, which doesn't fit
+  #   data that changes as often as who-has-what-role does.
+
 atm:
  support:
   email: ATMTechnicalSupport@fidelitybank.ng;Adamma.Ezimora@fidelitybank.ng
 power:
  contact: PowerandPlants@fidelitybank.ng;PlatformPowerInfrastructuremanagement@fidelitybank.ng
-
-
-
-
-
-
-
-
-
-
-
-
