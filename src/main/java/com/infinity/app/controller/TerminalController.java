@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.infinity.app.dto.TerminalWithNames;
 import com.infinity.app.model.Terminal;
-import com.infinity.app.model.Vendor;
+//import com.infinity.app.model.Vendor;
 import com.infinity.app.service.TerminalService;
 
 

@@ -20,7 +20,7 @@ public class AtmFaultService {
     }
 
     public List<AtmFault> getAllFaults() {
-        return atmFaultRepo.findAllOrdered();
+        return atmFaultRepo.findAllFaultsOrdered();
     }
 
 	public List<AtmFault> findAllById(List<Long> atmFaultIds) {

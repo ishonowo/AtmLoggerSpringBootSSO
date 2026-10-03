@@ -49,7 +49,7 @@ public class LoggedCallService {
 	}
 	
 	public void saveObj(EmailIssueMessageDto dto,Long messageId,String ip,String browser,String hostname) {
-		loggedCallRepo.saveObj(dto.getSubject(),
+		loggedCallRepo.insertLoggedCall(dto.getSubject(),
 				  dto.getBranchName(),
 				  dto.getVendorName(),
 				  messageId,dto.getDateLogged(),dto.getFromEmail(),

@@ -1,8 +1,8 @@
 package com.infinity.app.model;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
+//import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin(origins="http://localhost:4200")
+//@CrossOrigin(origins="http://localhost:4200")
 public class AuthenticationBean {
 
 	private String message;

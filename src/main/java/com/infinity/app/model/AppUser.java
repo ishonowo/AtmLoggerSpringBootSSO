@@ -106,6 +106,19 @@ public class AppUser {
 				&& Objects.equals(id, other.id) && Objects.equals(lastLoginAt, other.lastLoginAt)
 				&& Objects.equals(ldapCn, other.ldapCn);
 	}
-    
+
+	public AppUser(Long id, String ldapCn, String email, String fullName, boolean active, Instant createdAt,
+			Instant lastLoginAt, Set<AppRole> roles) {
+		this.id = id;
+		this.ldapCn = ldapCn;
+		this.email = email;
+		this.fullName = fullName;
+		this.active = active;
+		this.createdAt = createdAt;
+		this.lastLoginAt = lastLoginAt;
+		this.roles = roles;
+	}
+
+	
     
 }

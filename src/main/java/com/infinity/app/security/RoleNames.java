@@ -13,6 +13,7 @@ public final class RoleNames {
     public static final String INSERT       = "INSERT";        // Use Application Backend > Insert
     public static final String UPDATE       = "UPDATE";        // Use Application Backend > Update
     public static final String LOGGED_CALLS = "LOGGED_CALLS";  // Logged Calls
+    public static final String ADMIN		= "ADMIN";			//Creates users
 
     private RoleNames() {}
 }

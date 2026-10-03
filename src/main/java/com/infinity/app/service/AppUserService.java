@@ -2,6 +2,8 @@ package com.infinity.app.service;
 
 import com.infinity.app.model.AppUser;
 import com.infinity.app.repo.AppUserRepository;
+
+import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,4 +30,8 @@ public class AppUserService {
         user.setLastLoginAt(Instant.now());
         appUserRepository.save(user);
     }
+
+	public AppUser save(AppUser createdAppUser) {
+		return appUserRepository.save(createdAppUser);
+	}
 }

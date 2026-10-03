@@ -10,5 +10,5 @@ import com.infinity.app.model.AtmFault;
 public interface AtmFaultRepo extends JpaRepository<AtmFault,Long>{
 	   
     @Query("SELECT f FROM AtmFault f ORDER BY  f.natureOfFault ASC")
-    List<AtmFault> findAllOrdered();
+    List<AtmFault> findAllFaultsOrdered();
 }

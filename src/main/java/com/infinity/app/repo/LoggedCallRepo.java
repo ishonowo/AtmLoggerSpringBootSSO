@@ -11,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 //import com.infinity.app.dto.LoggedCallDto;
 //import com.infinity.app.dto.LoggedInfo;
 import com.infinity.app.model.LoggedCall;
@@ -61,44 +62,16 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
 	// joined here for a single lc.id is guaranteed to share the same type.
 	// MAX(...) is only needed to satisfy SQL Server's GROUP BY rules, not
 	// because the value actually varies within a group.
-	@Query(value = "SELECT lc.id as logId, bi.branch_name as branchName, t.terminal_id as terminalId, "
-			+ "t.atm_name as terminalName, v.vendor_name as vendorName,"
-			+ "STRING_AGG(CONCAT(af.[nature_of_fault], ':- ', af.[description]), ', ') as issueDesc, "
-			+ "lc.date_logged as dateLogged, lc.from_email as fromEmail, m.branch_logger as branchLogger, "
-			+ "m.logger_phone as loggerPhone, lc.starting_date as startingDate, lc.date_completed as dateCompleted, "
-			+ "lc.browser as [browserUsed], lc.hostname as loggerHostName, lc.[ip] as loggerIP, "
-			+ "ls.status_desc as statusDesc, ls.id as statusId, "
-			+ "lc.hold_start as holdStart, lc.hold_end as holdEnd, "
-			+ "MAX(CASE WHEN rs.region_name = 'Lagos and South West' THEN 48 ELSE 72 END) as allowedHours "
-			+ "FROM [logged_calls] lc (NOLOCK) "
-			+ "JOIN [branch_info] bi (NOLOCK) ON lc.branch_id = bi.id "
-			+ "JOIN [terminals] t (NOLOCK) ON lc.t_id = t.id "
-			+ "JOIN [vendors] v (NOLOCK) ON lc.vendor_id = v.id "
-			+ "JOIN [dbo].[message] m (NOLOCK) ON lc.message_id = m.id "
-			+ "JOIN [dbo].[message_atm_fault] maf (NOLOCK) ON m.id = maf.message_id "
-			+ "JOIN [dbo].[atm_faults] af (NOLOCK) ON af.id = maf.atm_fault_id "
-			+ "JOIN [log_status] ls (NOLOCK) ON lc.status_id = ls.id "
-			+ "JOIN [email_issue] ei (NOLOCK) ON m.id = ei.message_id "
-			+ "JOIN [regions] rs (NOLOCK) ON bi.region_id=rs.id "
-			+ "GROUP BY lc.id, bi.branch_name, t.terminal_id, t.atm_name, v.vendor_name, "
-			+ "lc.date_logged, lc.from_email, m.branch_logger, m.logger_phone, lc.starting_date, "
-			+ "lc.date_completed, lc.browser, lc.hostname, lc.[ip], ls.status_desc, ls.id, "
-			+ "lc.hold_start, lc.hold_end "
-			+ "ORDER BY lc.id DESC;",
+	@Query(value = "EXEC dbo.GetLoggedCallInformation",
 		nativeQuery = true)	public List<LoggedCallProjection> findAllLoggedIssueDtos();
 
 	@Modifying
 	@Transactional
-	@Query(value = "INSERT INTO logged_calls (branch_id, t_id, vendor_id, message_id, date_logged, starting_date,from_email,"
-				 + " ip,browser,hostname,date_completed, status_id) " +
-	               "VALUES ((SELECT id FROM branch_info WHERE branch_name=:branchName), " +
-	               "(SELECT id FROM terminals WHERE terminal_id=SUBSTRING(:subject,16,8)), " +
-	               "(SELECT id FROM vendors WHERE vendor_name=:vendorName), " +
-	               ":messageId, :dateLogged, " +
-	               "CASE WHEN CAST(:dateLogged AS TIME) <= '17:00:00.000000' THEN CAST(:dateLogged AS DATE) ELSE CAST(DATEADD(DAY,1,:dateLogged) AS DATE) END, " +
-	               " :fromEmail,:ip, :browser, :hostname, :dateCompleted, :statusId)", 
-	       nativeQuery = true)
-	void saveObj(@Param("subject") String subject, 
+	@Query(value = "EXEC dbo.InsertLoggedCall " +
+            ":branchName, :subject, :vendorName, :messageId, :dateLogged, " +
+            ":fromEmail, :ip, :browser, :hostname, :dateCompleted, :statusId",
+    nativeQuery = true)
+	void insertLoggedCall(@Param("subject") String subject, 
 	             @Param("branchName") String branchName, 
 	             @Param("vendorName") String vendorName, 
 	             @Param("messageId") Long messageId, 
