@@ -36,14 +36,21 @@ public class LoggedCallService {
 	}
 	
 	
-	public List<LoggedCallDto> findAllLoggedIssueDtos() {
-        return 
-        	loggedCallRepo.findAllLoggedIssueDtos()
-            .stream()
-            .map(this::toDto)
-            .collect(Collectors.toList());
+	public List<LoggedCallDto> findAllLoggedIssueDtos(String terminalId) {
+		return 	fetchCalls(terminalId);
     }
 
+	private List<LoggedCallDto> fetchCalls(String terminalId) {
+	    final String term = terminalId == null ? "" : terminalId.trim();
+
+	    return loggedCallRepo.findAllLoggedIssueDtos().stream()
+	            .filter(p -> term.isEmpty()
+	                    || (p.getTerminalId() != null
+	                        && p.getTerminalId().contains(term)))
+	            .map(this::toDto)
+	            .collect(Collectors.toList());
+	}
+	
 	public LoggedCall save(LoggedCall loggedCall) {
 		return loggedCallRepo.save(loggedCall);
 	}
@@ -129,10 +136,8 @@ public class LoggedCallService {
 	}
 
 
-	public ByteArrayInputStream exportToExcel()  throws IOException {
-        List<LoggedCallDto> calls = loggedCallRepo.findAllLoggedIssueDtos().stream()
-        		.map(this::toDto)
-                .collect(Collectors.toList());
+	public ByteArrayInputStream exportToExcel(String terminalId)  throws IOException {
+		List<LoggedCallDto> calls = fetchCalls(terminalId);
 
         try (Workbook workbook = new XSSFWorkbook();
              ByteArrayOutputStream out = new ByteArrayOutputStream()) {

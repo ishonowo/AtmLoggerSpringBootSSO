@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.infinity.app.dto.LoggedCallDto;
 import com.infinity.app.model.LoggedCall;
@@ -34,8 +35,8 @@ public class LoggedCallController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<LoggedCallDto>> getAllLoggedIssueDtos() {
-        List<LoggedCallDto> loggedIssueDto = loggedService.findAllLoggedIssueDtos();
+	public ResponseEntity<List<LoggedCallDto>> getAllLoggedIssueDtos(@RequestParam(required = false) String terminalId) {
+        List<LoggedCallDto> loggedIssueDto = loggedService.findAllLoggedIssueDtos(terminalId);
         System.out.println(loggedIssueDto);
         return ResponseEntity.ok(loggedIssueDto);
     }
@@ -73,8 +74,9 @@ public class LoggedCallController {
 	public record ResumeRequest(Date holdEnd) {}
 
 	@GetMapping("/export")
-	public ResponseEntity<InputStreamResource> exportLoggedCalls() throws IOException {
-	    ByteArrayInputStream stream = loggedService.exportToExcel();
+	public ResponseEntity<InputStreamResource> exportLoggedCalls(
+			@RequestParam(required = false) String terminalId) throws IOException {
+	    ByteArrayInputStream stream = loggedService.exportToExcel(terminalId);
 	    String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
 	    String filename = "logged-calls-" + timestamp + ".xlsx";
 	    ContentDisposition disposition = ContentDisposition.attachment()
