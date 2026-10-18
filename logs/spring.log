@@ -1,0 +1,10 @@
+2026-10-18T09:58:27.879+01:00  WARN 14740 --- [SecureAtmLoggerSpringBootSSO] [HikariPool-15:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-15 - Thread starvation or clock leap detected (housekeeper delta=13h20m59s252ms858µs800ns).
+2026-10-18T23:14:22.570+01:00  WARN 14740 --- [SecureAtmLoggerSpringBootSSO] [HikariPool-15:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-15 - Thread starvation or clock leap detected (housekeeper delta=13h15m24s445ms768µs700ns).
+2026-10-18T23:15:10.176+01:00 DEBUG 14740 --- [SecureAtmLoggerSpringBootSSO] [https-jsse-nio-9442-exec-5] o.s.s.l.a.BindAuthenticator              : Failed to bind with any user DNs []
+2026-10-18T23:15:10.571+01:00 DEBUG 14740 --- [SecureAtmLoggerSpringBootSSO] [https-jsse-nio-9442-exec-5] o.s.l.c.support.AbstractContextSource    : Got Ldap context on server 'ldaps://localhost:10636/ou=system'
+2026-10-18T23:15:10.755+01:00 DEBUG 14740 --- [SecureAtmLoggerSpringBootSSO] [https-jsse-nio-9442-exec-5] o.s.s.ldap.SpringSecurityLdapTemplate    : Found DN: cn=ikenna,ou=users
+2026-10-18T23:15:10.755+01:00 DEBUG 14740 --- [SecureAtmLoggerSpringBootSSO] [https-jsse-nio-9442-exec-5] o.s.s.l.s.FilterBasedLdapUserSearch      : Found user 'ikenna', with FilterBasedLdapUserSearch [searchFilter=(cn={0}); searchBase=ou=users; scope=subtree; searchTimeLimit=0; derefLinkFlag=false ]
+2026-10-18T23:15:10.777+01:00 DEBUG 14740 --- [SecureAtmLoggerSpringBootSSO] [https-jsse-nio-9442-exec-5] o.s.l.c.support.AbstractContextSource    : Got Ldap context on server 'ldaps://localhost:10636/ou=system'
+2026-10-18T23:15:10.777+01:00 DEBUG 14740 --- [SecureAtmLoggerSpringBootSSO] [https-jsse-nio-9442-exec-5] o.s.s.l.a.BindAuthenticator              : Bound cn=ikenna,ou=users,ou=system
+2026-10-18T23:15:10.777+01:00 DEBUG 14740 --- [SecureAtmLoggerSpringBootSSO] [https-jsse-nio-9442-exec-5] o.s.s.l.u.LdapUserDetailsMapper          : Mapping user details from context with DN cn=ikenna,ou=users,ou=system
+2026-10-18T23:15:10.777+01:00 DEBUG 14740 --- [SecureAtmLoggerSpringBootSSO] [https-jsse-nio-9442-exec-5] o.s.s.l.a.LdapAuthenticationProvider     : Authenticated user

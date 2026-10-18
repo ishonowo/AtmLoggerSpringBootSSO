@@ -3,10 +3,12 @@ import java.io.IOException;
 //import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 import java.io.ByteArrayInputStream;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -24,6 +26,8 @@ import com.infinity.app.dto.LoggedCallDto;
 import com.infinity.app.model.LoggedCall;
 import com.infinity.app.service.LoggedCallService;
 import jakarta.validation.Valid;
+
+
 @RestController
 @RequestMapping("/atm/logged-calls")
 public class LoggedCallController {
@@ -35,12 +39,28 @@ public class LoggedCallController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<LoggedCallDto>> getAllLoggedIssueDtos(@RequestParam(required = false) String terminalId) {
-        List<LoggedCallDto> loggedIssueDto = loggedService.findAllLoggedIssueDtos(terminalId);
+	public ResponseEntity<List<LoggedCallDto>> getAllLoggedIssueDtos(
+			@RequestParam(required = false) String terminalId,
+	        @RequestParam(required = false)
+	        @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime startDateTimeLogged,
+	        @RequestParam(required = false)
+	        @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime endDateTimeLogged,
+	        @RequestParam(required = false)
+	        @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime startDateTimeCompleted,
+	        @RequestParam(required = false)
+	        @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime endDateTimeCompleted)  {
+		
+		
+        List<LoggedCallDto> loggedIssueDto = loggedService.findAllLoggedIssueDtos(
+        		terminalId,toDate(startDateTimeLogged),toDate(endDateTimeLogged),
+        		toDate(startDateTimeCompleted),toDate(endDateTimeCompleted));
         System.out.println(loggedIssueDto);
         return ResponseEntity.ok(loggedIssueDto);
     }
 	
+	private Date toDate(LocalDateTime dateValue) {
+		return dateValue== null ? null : Date.from(dateValue.atZone(ZoneId.of("Africa/Lagos")).toInstant());
+	}
 	
     @PostMapping
     public ResponseEntity<LoggedCall> createLoggedIssue(@Valid @RequestBody LoggedCall loggedCall) {
@@ -75,8 +95,19 @@ public class LoggedCallController {
 
 	@GetMapping("/export")
 	public ResponseEntity<InputStreamResource> exportLoggedCalls(
-			@RequestParam(required = false) String terminalId) throws IOException {
-	    ByteArrayInputStream stream = loggedService.exportToExcel(terminalId);
+			@RequestParam(required = false) String terminalId,
+	        @RequestParam(required = false)
+	        @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime startDateTimeLogged,
+	        @RequestParam(required = false)
+	        @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime endDateTimeLogged,
+	        @RequestParam(required = false)
+	        @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime startDateTimeCompleted,
+	        @RequestParam(required = false)
+	        @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime endDateTimeCompleted) throws IOException {
+	    ByteArrayInputStream stream = loggedService.exportToExcel(
+	    		terminalId,
+	    		toDate(startDateTimeLogged),toDate(endDateTimeLogged),
+        		toDate(startDateTimeCompleted),toDate(endDateTimeCompleted));
 	    String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
 	    String filename = "logged-calls-" + timestamp + ".xlsx";
 	    ContentDisposition disposition = ContentDisposition.attachment()

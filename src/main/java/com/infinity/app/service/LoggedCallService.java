@@ -15,9 +15,9 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.http.HttpStatus;
+//import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
+//import org.springframework.web.server.ResponseStatusException;
 
 import com.infinity.app.dto.EmailIssueMessageDto;
 import com.infinity.app.dto.LoggedCallDto;
@@ -36,17 +36,44 @@ public class LoggedCallService {
 	}
 	
 	
-	public List<LoggedCallDto> findAllLoggedIssueDtos(String terminalId) {
-		return 	fetchCalls(terminalId);
+	public List<LoggedCallDto> findAllLoggedIssueDtos(
+			String terminalId, 
+			Date startDateTimeLogged, Date endDateTimeLogged,
+			Date startDateTimeCompleted, Date endDateTimeCompleted) {
+		return 	fetchCalls(terminalId,startDateTimeLogged,endDateTimeLogged,startDateTimeCompleted,endDateTimeCompleted);
     }
 
-	private List<LoggedCallDto> fetchCalls(String terminalId) {
+	private List<LoggedCallDto> fetchCalls(
+			String terminalId,
+			Date startDateTimeLogged, Date endDateTimeLogged,
+			Date startDateTimeCompleted, Date endDateTimeCompleted) {
 	    final String term = terminalId == null ? "" : terminalId.trim();
+	    final Date sLDate= startDateTimeLogged == null ? null : startDateTimeLogged;
+	    final Date eLDate= endDateTimeLogged == null ? null : endDateTimeLogged;
+	    final Date sCDate= startDateTimeCompleted == null ? null : startDateTimeCompleted;
+	    final Date eCDate= endDateTimeCompleted == null ? null : endDateTimeCompleted;
 
 	    return loggedCallRepo.findAllLoggedIssueDtos().stream()
+	            // Terminal ID filter (skipped when empty)
 	            .filter(p -> term.isEmpty()
 	                    || (p.getTerminalId() != null
 	                        && p.getTerminalId().contains(term)))
+	            // Start filter: dateLogged >= sDate (skipped when sDate is null)
+	            .filter(p -> sLDate == null
+	                    || (p.getDateLogged() != null
+	                        && !p.getDateLogged().before(sLDate)))
+	            // End filter: dateLogged <= eDate (skipped when eDate is null)
+	            .filter(p -> eLDate == null
+	                    || (p.getDateLogged() != null
+	                        && !p.getDateLogged().after(eLDate)))
+	            // Start filter: dateLogged >= sDate (skipped when sDate is null)
+	            .filter(p -> sCDate == null
+	                    || (p.getDateCompleted() != null
+	                        && !p.getDateCompleted().before(sCDate)))
+	            // End filter: dateLogged <= eDate (skipped when eDate is null)
+	            .filter(p -> eCDate == null
+	                    || (p.getDateCompleted() != null
+	                        && !p.getDateCompleted().after(eCDate)))
 	            .map(this::toDto)
 	            .collect(Collectors.toList());
 	}
@@ -136,8 +163,11 @@ public class LoggedCallService {
 	}
 
 
-	public ByteArrayInputStream exportToExcel(String terminalId)  throws IOException {
-		List<LoggedCallDto> calls = fetchCalls(terminalId);
+	public ByteArrayInputStream exportToExcel(
+			String terminalId,
+			Date startDateTimeLogged, Date endDateTimeLogged,
+			Date startDateTimeCompleted, Date endDateTimeCompleted)  throws IOException {
+		List<LoggedCallDto> calls = fetchCalls(terminalId,startDateTimeLogged,endDateTimeLogged,startDateTimeCompleted,endDateTimeCompleted);
 
         try (Workbook workbook = new XSSFWorkbook();
              ByteArrayOutputStream out = new ByteArrayOutputStream()) {
