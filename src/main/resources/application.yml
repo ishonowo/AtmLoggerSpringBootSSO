@@ -60,6 +60,9 @@ spring:
  messages:
   basename: messages
   encoding: UTF-8
+ web:
+    error:
+      include-binding-errors: always
  # spring.security.user (the built-in Basic Auth account) has been removed.
  # Authentication is fully replaced by ApacheDS + the custom SecurityConfig/
  # AuthController below, so the default in-memory user is unused and only

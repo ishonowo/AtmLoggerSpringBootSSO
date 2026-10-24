@@ -50,8 +50,11 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/atm/database/fault/**").hasRole(RoleNames.LOG_ISSUE)
                 
                 //------Create a user-----------
-                .requestMatchers(HttpMethod.GET,"/atm/user/**").hasRole(RoleNames.ADMIN)
-                .requestMatchers(HttpMethod.POST,"/atm/user/**").hasRole(RoleNames.ADMIN)
+                // ---- Manage users, their roles, and the audit trail (CHANGED) ----
+                .requestMatchers(HttpMethod.GET,    "/atm/user/**").hasRole(RoleNames.ADMIN)
+                .requestMatchers(HttpMethod.POST,   "/atm/user/**").hasRole(RoleNames.ADMIN)
+                .requestMatchers(HttpMethod.PUT,    "/atm/user/**").hasRole(RoleNames.ADMIN)
+                .requestMatchers(HttpMethod.DELETE, "/atm/user/**").hasRole(RoleNames.ADMIN)
 
                 // ---- Use Application Backend > Display / Insert / Update ----
                 // These paths are illustrative, based on your menu labels.
