@@ -25,6 +25,8 @@ import com.infinity.app.model.LoggedCall;
 import com.infinity.app.repo.LoggedCallRepo;
 import com.infinity.app.repo.LoggedCallRepo.LoggedCallProjection;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 
 @Service
 public class LoggedCallService {
@@ -82,20 +84,37 @@ public class LoggedCallService {
 		return loggedCallRepo.save(loggedCall);
 	}
 	
-	public void saveObj(EmailIssueMessageDto dto,Long messageId,String ip,String browser,String hostname) {
+	public void saveObj(EmailIssueMessageDto dto,Long messageId,String loggerIp,String loggerBrowser,String loggerHostname) {
 		loggedCallRepo.insertLoggedCall(dto.getSubject(),
 				  dto.getBranchName(),
 				  dto.getVendorName(),
 				  messageId,dto.getDateLogged(),dto.getFromEmail(),
-				  ip,browser,hostname,
+				  loggerIp,loggerBrowser,loggerHostname,
 				  null,1L);
 		
 		//return savedLoggedCall;
 	}
 
-	public void updateCall(LoggedCallDto updatedCall) {
-        loggedCallRepo.updateStatusAndDateCompleted(updatedCall.getLogId(), updatedCall.getStatusId(),
-        											updatedCall.getDateCompleted());
+	public void updateCall(LoggedCallDto updatedCall, String email, HttpServletRequest request) {
+		ClientInfoExtractor info = new ClientInfoExtractor(request);
+		String ip      = info.getIpAddress();
+		String hostname    = info.getHostname();
+		String browser = info.getBrowser();
+		if("RESOLVED".equalsIgnoreCase(updatedCall.getStatusDesc())) {
+			loggedCallRepo.updateCloserStatusAndDateCompleted(updatedCall.getLogId(), updatedCall.getStatusId(),
+					updatedCall.getDateCompleted(),email,ip,hostname,browser);
+			return;
+		}
+		else if("REOPENED".equalsIgnoreCase(updatedCall.getStatusDesc())) {
+			loggedCallRepo.updateReopenerStatusAndDateCompleted(updatedCall.getLogId(), updatedCall.getStatusId(),
+					updatedCall.getDateCompleted(),email,ip,hostname,browser);
+			return;
+		}
+		else {
+			loggedCallRepo.updateStatusAndDateCompleted(updatedCall.getLogId(), updatedCall.getStatusId(),
+					updatedCall.getDateCompleted());
+			return;
+		}
     }
 
 	// --- SLA additions ---
@@ -126,16 +145,29 @@ public class LoggedCallService {
 				p.getVendorName(),
 				p.getIssueDesc(),
 				p.getDateLogged(),
-				p.getFromEmail(),
 				p.getBranchLogger(),
 				p.getLoggerPhone(),
 				p.getStartingDate(),
 				p.getDateCompleted(),
-				p.getBrowserUsed(),
-				p.getHostName(),
+				
+				p.getLoggerEmail(),
+				p.getLoggerBrowserUsed(),
+				p.getLoggerHostName(),
 				p.getLoggerIP(),
+				
+				p.getCloserEmail(),
+				p.getCloserBrowserUsed(),
+				p.getCloserHostName(),
+				p.getCloserIP(),
+				
+				p.getReopenerEmail(),
+				p.getReopenerBrowserUsed(),
+				p.getReopenerHostName(),
+				p.getReopenerIP(),
+				
+				
 				p.getStatusDesc(),
-				p.getStatusId());
+				p.getStatusId(), null, null, null, null, false);
 
 		dto.setHoldStart(p.getHoldStart());
 		dto.setHoldEnd(p.getHoldEnd());
@@ -215,9 +247,9 @@ public class LoggedCallService {
                 row.createCell(10).setCellValue(
                 		call.getSlaDeadline() != null ? fmtTime.format(call.getSlaDeadline()) : "");
                 row.createCell(11).setCellValue(call.isSlaBreached() ? "Yes" : "No");
-                row.createCell(12).setCellValue(call.getFromEmail());
-                row.createCell(13).setCellValue(call.getBrowserUsed());
-                row.createCell(14).setCellValue(call.getHostName());
+                row.createCell(12).setCellValue(call.getLoggerEmail());
+                row.createCell(13).setCellValue(call.getLoggerBrowserUsed());
+                row.createCell(14).setCellValue(call.getLoggerHostName());
                 row.createCell(15).setCellValue(call.getLoggerIP());
                 
                 rowIdx++;
@@ -232,6 +264,9 @@ public class LoggedCallService {
             return new ByteArrayInputStream(out.toByteArray());
         }
 	}
+
+
+
 	
 
 }

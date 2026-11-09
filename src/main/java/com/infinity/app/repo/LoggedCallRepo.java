@@ -37,14 +37,28 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
 		String getVendorName();
 		String getIssueDesc();
 		Date getDateLogged();
-		String getFromEmail();
 		String getBranchLogger();
 		String getLoggerPhone();
 		Date getStartingDate();
 		Date getDateCompleted();
-		String getBrowserUsed();
-		String getHostName();
+		
+		
+		String getLoggerEmail();
+		String getLoggerBrowserUsed();
+		String getLoggerHostName();
 		String getLoggerIP();
+		
+		String getCloserEmail();
+		String getCloserBrowserUsed();
+		String getCloserHostName();
+		String getCloserIP();
+
+		String getReopenerEmail();
+		String getReopenerBrowserUsed();
+		String getReopenerHostName();
+		String getReopenerIP();
+		
+		
 		String getStatusDesc();
 		Long getStatusId();
 
@@ -69,17 +83,17 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
 	@Transactional
 	@Query(value = "EXEC dbo.InsertLoggedCall " +
             ":branchName, :subject, :vendorName, :messageId, :dateLogged, " +
-            ":fromEmail, :ip, :browser, :hostname, :dateCompleted, :statusId",
+            ":loggerEmail, :loggerIp, :loggerBrowser, :loggerHostname, :dateCompleted, :statusId",
     nativeQuery = true)
 	void insertLoggedCall(@Param("subject") String subject, 
 	             @Param("branchName") String branchName, 
 	             @Param("vendorName") String vendorName, 
 	             @Param("messageId") Long messageId, 
 	             @Param("dateLogged") Date dateLogged, 
-	             @Param("fromEmail") String fromEmail,
-	             @Param("ip") String ip,
-	             @Param("browser") String browser,
-	             @Param("hostname") String hostname,
+	             @Param("loggerEmail") String loggerEmail,
+	             @Param("loggerIp") String loggerIp,
+	             @Param("loggerBrowser") String loggerBrowser,
+	             @Param("loggerHostname") String loggerHostname,
 	             @Param("dateCompleted") Date dateCompleted, 
 	             @Param("statusId") Long statusId);
 
@@ -87,6 +101,23 @@ public interface LoggedCallRepo extends JpaRepository<LoggedCall, Long>{
     @Modifying
     @Query("UPDATE LoggedCall lc SET lc.statusId = :statusId, lc.dateCompleted = :dateCompleted WHERE lc.id = :logId")
     int updateStatusAndDateCompleted(Long logId, Long statusId, Date dateCompleted);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE LoggedCall lc SET lc.statusId = :statusId, lc.dateCompleted = :dateCompleted, "
+    	+ " lc.closerEmail= :email, lc.closerIp= :ip, lc.closerHostname= :hostname, lc.closerBrowser= :browser "
+    		+ " WHERE lc.id = :logId")
+    int updateCloserStatusAndDateCompleted(Long logId, Long statusId, Date dateCompleted, String email, String ip,
+    		String hostname, String browser);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE LoggedCall lc SET lc.statusId = :statusId, lc.dateCompleted = :dateCompleted, "
+    		+ " lc.reopenerEmail= :email, lc.reopenerIp= :ip, lc.reopenerHostname= :hostname, lc.reopenerBrowser= :browser "
+    		+ " WHERE lc.id = :logId")
+    int updateReopenerStatusAndDateCompleted(Long logId, Long statusId, Date dateCompleted, String email, String ip,
+    		String hostname, String browser);
+
 
     // --- SLA additions: put on hold / resume, mirroring the hold logic
     // discussed for sla_log, but applied directly to logged_calls since

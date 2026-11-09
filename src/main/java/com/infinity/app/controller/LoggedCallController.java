@@ -1,4 +1,5 @@
 package com.infinity.app.controller;
+
 import java.io.IOException;
 //import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,6 +15,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.infinity.app.dto.LoggedCallDto;
 import com.infinity.app.model.LoggedCall;
 import com.infinity.app.service.LoggedCallService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 
@@ -48,9 +51,7 @@ public class LoggedCallController {
 	        @RequestParam(required = false)
 	        @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime startDateTimeCompleted,
 	        @RequestParam(required = false)
-	        @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime endDateTimeCompleted)  {
-		
-		
+	        @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime endDateTimeCompleted)  {	
         List<LoggedCallDto> loggedIssueDto = loggedService.findAllLoggedIssueDtos(
         		terminalId,toDate(startDateTimeLogged),toDate(endDateTimeLogged),
         		toDate(startDateTimeCompleted),toDate(endDateTimeCompleted));
@@ -69,8 +70,9 @@ public class LoggedCallController {
     }
 	
 	@PutMapping
-    public ResponseEntity<Void> updateLoggedCall(@RequestBody LoggedCallDto updatedCall) {
-        loggedService.updateCall(updatedCall);
+    public ResponseEntity<Void> updateLoggedCall(@RequestBody LoggedCallDto updatedCall,Authentication authentication,HttpServletRequest request) {
+		String email = authentication.getName();
+		loggedService.updateCall(updatedCall,email, request);
         return ResponseEntity.noContent().build();
     }
 

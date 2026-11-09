@@ -43,19 +43,75 @@ public class LoggedCall {
 	private Long statusId;
 	
 	@Email
-	private String fromEmail;
+	private String loggerEmail;
 	
-	private String ip;
+	private String loggerIp;
 	
-	private String browser;
+	private String loggerBrowser;
 	
-	private String hostname;
+	private String loggerHostname;
 	
+	
+	@Email
+	private String closerEmail;
+	
+	private String closerIp;
+	
+	private String closerBrowser;
+	
+	private String closerHostname;
+	
+	
+	@Email
+	private String reopenerEmail;
+	
+	private String reopenerIp;
+	
+	private String reopenerBrowser;
+	
+	private String reopenerHostname;
+	
+
 	private Date dateCompleted;
 	
 	private Date holdStart;
 	
 	private Date holdEnd;
+
+	public LoggedCall() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public LoggedCall(@NotNull Long branchId, @NotNull Long tId, @NotNull Long vendorId, @NotNull Long messageId,
+			@NotNull Date dateLogged, @NotNull Date startingDate, @NotNull Long statusId, @Email String loggerEmail,
+			String loggerIp, String loggerBrowser, String loggerHostname, @Email String closerEmail, String closerIp,
+			String closerBrowser, String closerHostname, @Email String reopenerEmail, String reopenerIp,
+			String reopenerBrowser, String reopenerHostname, Date dateCompleted, Date holdStart, Date holdEnd) {
+		super();
+		this.branchId = branchId;
+		this.tId = tId;
+		this.vendorId = vendorId;
+		this.messageId = messageId;
+		this.dateLogged = dateLogged;
+		this.startingDate = startingDate;
+		this.statusId = statusId;
+		this.loggerEmail = loggerEmail;
+		this.loggerIp = loggerIp;
+		this.loggerBrowser = loggerBrowser;
+		this.loggerHostname = loggerHostname;
+		this.closerEmail = closerEmail;
+		this.closerIp = closerIp;
+		this.closerBrowser = closerBrowser;
+		this.closerHostname = closerHostname;
+		this.reopenerEmail = reopenerEmail;
+		this.reopenerIp = reopenerIp;
+		this.reopenerBrowser = reopenerBrowser;
+		this.reopenerHostname = reopenerHostname;
+		this.dateCompleted = dateCompleted;
+		this.holdStart = holdStart;
+		this.holdEnd = holdEnd;
+	}
 
 	public Long getId() {
 		return id;
@@ -121,36 +177,100 @@ public class LoggedCall {
 		this.statusId = statusId;
 	}
 
-	public String getFromEmail() {
-		return fromEmail;
+	public String getLoggerEmail() {
+		return loggerEmail;
 	}
 
-	public void setFromEmail(String fromEmail) {
-		this.fromEmail = fromEmail;
+	public void setLoggerEmail(String loggerEmail) {
+		this.loggerEmail = loggerEmail;
 	}
 
-	public String getIp() {
-		return ip;
+	public String getLoggerIp() {
+		return loggerIp;
 	}
 
-	public void setIp(String ip) {
-		this.ip = ip;
+	public void setLoggerIp(String loggerIp) {
+		this.loggerIp = loggerIp;
 	}
 
-	public String getBrowser() {
-		return browser;
+	public String getLoggerBrowser() {
+		return loggerBrowser;
 	}
 
-	public void setBrowser(String browser) {
-		this.browser = browser;
+	public void setLoggerBrowser(String loggerBrowser) {
+		this.loggerBrowser = loggerBrowser;
 	}
 
-	public String getHostname() {
-		return hostname;
+	public String getLoggerHostname() {
+		return loggerHostname;
 	}
 
-	public void setHostname(String hostname) {
-		this.hostname = hostname;
+	public void setLoggerHostname(String loggerHostname) {
+		this.loggerHostname = loggerHostname;
+	}
+
+	public String getCloserEmail() {
+		return closerEmail;
+	}
+
+	public void setCloserEmail(String closerEmail) {
+		this.closerEmail = closerEmail;
+	}
+
+	public String getCloserIp() {
+		return closerIp;
+	}
+
+	public void setCloserIp(String closerIp) {
+		this.closerIp = closerIp;
+	}
+
+	public String getCloserBrowser() {
+		return closerBrowser;
+	}
+
+	public void setCloserBrowser(String closerBrowser) {
+		this.closerBrowser = closerBrowser;
+	}
+
+	public String getCloserHostname() {
+		return closerHostname;
+	}
+
+	public void setCloserHostname(String closerHostname) {
+		this.closerHostname = closerHostname;
+	}
+
+	public String getReopenerEmail() {
+		return reopenerEmail;
+	}
+
+	public void setReopenerEmail(String reopenerEmail) {
+		this.reopenerEmail = reopenerEmail;
+	}
+
+	public String getReopenerIp() {
+		return reopenerIp;
+	}
+
+	public void setReopenerIp(String reopenerIp) {
+		this.reopenerIp = reopenerIp;
+	}
+
+	public String getReopenerBrowser() {
+		return reopenerBrowser;
+	}
+
+	public void setReopenerBrowser(String reopenerBrowser) {
+		this.reopenerBrowser = reopenerBrowser;
+	}
+
+	public String getReopenerHostname() {
+		return reopenerHostname;
+	}
+
+	public void setReopenerHostname(String reopenerHostname) {
+		this.reopenerHostname = reopenerHostname;
 	}
 
 	public Date getDateCompleted() {
@@ -177,65 +297,23 @@ public class LoggedCall {
 		this.holdEnd = holdEnd;
 	}
 
-	public LoggedCall() {
-		super();
-	}
-
-	public LoggedCall(Long id, @NotNull Long branchId, @NotNull Long tId, @NotNull Long vendorId,
-			@NotNull Long messageId, @NotNull Date dateLogged, @NotNull Date startingDate, @NotNull Long statusId,
-			@Email String fromEmail, String ip, String browser, String hostname, Date dateCompleted, Date holdStart,
-			Date holdEnd) {
-		super();
-		this.id = id;
-		this.branchId = branchId;
-		this.tId = tId;
-		this.vendorId = vendorId;
-		this.messageId = messageId;
-		this.dateLogged = dateLogged;
-		this.startingDate = startingDate;
-		this.statusId = statusId;
-		this.fromEmail = fromEmail;
-		this.ip = ip;
-		this.browser = browser;
-		this.hostname = hostname;
-		this.dateCompleted = dateCompleted;
-		this.holdStart = holdStart;
-		this.holdEnd = holdEnd;
-	}
-
-	public LoggedCall(@NotNull Long branchId, @NotNull Long tId, @NotNull Long vendorId, @NotNull Long messageId,
-			@NotNull Date dateLogged, @NotNull Date startingDate, @NotNull Long statusId, @Email String fromEmail,
-			String ip, String browser, String hostname, Date dateCompleted, Date holdStart, Date holdEnd) {
-		super();
-		this.branchId = branchId;
-		this.tId = tId;
-		this.vendorId = vendorId;
-		this.messageId = messageId;
-		this.dateLogged = dateLogged;
-		this.startingDate = startingDate;
-		this.statusId = statusId;
-		this.fromEmail = fromEmail;
-		this.ip = ip;
-		this.browser = browser;
-		this.hostname = hostname;
-		this.dateCompleted = dateCompleted;
-		this.holdStart = holdStart;
-		this.holdEnd = holdEnd;
-	}
-
 	@Override
 	public String toString() {
 		return "LoggedCall [id=" + id + ", branchId=" + branchId + ", tId=" + tId + ", vendorId=" + vendorId
 				+ ", messageId=" + messageId + ", dateLogged=" + dateLogged + ", startingDate=" + startingDate
-				+ ", statusId=" + statusId + ", fromEmail=" + fromEmail + ", ip=" + ip + ", browser=" + browser
-				+ ", hostname=" + hostname + ", dateCompleted=" + dateCompleted + ", holdStart=" + holdStart
-				+ ", holdEnd=" + holdEnd + "]";
+				+ ", statusId=" + statusId + ", loggerEmail=" + loggerEmail + ", loggerIp=" + loggerIp
+				+ ", loggerBrowser=" + loggerBrowser + ", loggerHostname=" + loggerHostname + ", closerEmail="
+				+ closerEmail + ", closerIp=" + closerIp + ", closerBrowser=" + closerBrowser + ", closerHostname="
+				+ closerHostname + ", reopenerEmail=" + reopenerEmail + ", reopenerIp=" + reopenerIp
+				+ ", reopenerBrowser=" + reopenerBrowser + ", reopenerHostname=" + reopenerHostname + ", dateCompleted="
+				+ dateCompleted + ", holdStart=" + holdStart + ", holdEnd=" + holdEnd + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(branchId, browser, dateCompleted, dateLogged, fromEmail, holdEnd, holdStart, hostname, id,
-				ip, messageId, startingDate, statusId, tId, vendorId);
+		return Objects.hash(branchId, closerBrowser, closerEmail, closerHostname, closerIp, dateCompleted, dateLogged,
+				holdEnd, holdStart, id, loggerBrowser, loggerEmail, loggerHostname, loggerIp, messageId,
+				reopenerBrowser, reopenerEmail, reopenerHostname, reopenerIp, startingDate, statusId, tId, vendorId);
 	}
 
 	@Override
@@ -247,16 +325,22 @@ public class LoggedCall {
 		if (getClass() != obj.getClass())
 			return false;
 		LoggedCall other = (LoggedCall) obj;
-		return Objects.equals(branchId, other.branchId) && Objects.equals(browser, other.browser)
+		return Objects.equals(branchId, other.branchId) && Objects.equals(closerBrowser, other.closerBrowser)
+				&& Objects.equals(closerEmail, other.closerEmail)
+				&& Objects.equals(closerHostname, other.closerHostname) && Objects.equals(closerIp, other.closerIp)
 				&& Objects.equals(dateCompleted, other.dateCompleted) && Objects.equals(dateLogged, other.dateLogged)
-				&& Objects.equals(fromEmail, other.fromEmail) && Objects.equals(holdEnd, other.holdEnd)
-				&& Objects.equals(holdStart, other.holdStart) && Objects.equals(hostname, other.hostname)
-				&& Objects.equals(id, other.id) && Objects.equals(ip, other.ip)
-				&& Objects.equals(messageId, other.messageId) && Objects.equals(startingDate, other.startingDate)
+				&& Objects.equals(holdEnd, other.holdEnd) && Objects.equals(holdStart, other.holdStart)
+				&& Objects.equals(id, other.id) && Objects.equals(loggerBrowser, other.loggerBrowser)
+				&& Objects.equals(loggerEmail, other.loggerEmail)
+				&& Objects.equals(loggerHostname, other.loggerHostname) && Objects.equals(loggerIp, other.loggerIp)
+				&& Objects.equals(messageId, other.messageId) && Objects.equals(reopenerBrowser, other.reopenerBrowser)
+				&& Objects.equals(reopenerEmail, other.reopenerEmail)
+				&& Objects.equals(reopenerHostname, other.reopenerHostname)
+				&& Objects.equals(reopenerIp, other.reopenerIp) && Objects.equals(startingDate, other.startingDate)
 				&& Objects.equals(statusId, other.statusId) && Objects.equals(tId, other.tId)
 				&& Objects.equals(vendorId, other.vendorId);
 	}
 
-
 	
+
 }

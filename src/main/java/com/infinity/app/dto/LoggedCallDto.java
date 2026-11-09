@@ -29,9 +29,6 @@ public class LoggedCallDto {
 	@NotNull
 	private Date dateLogged;
 	
-	//@NotNull
-	//private String loggerEmail;
-	
 	@NotNull
 	private String branchLogger;
 	
@@ -45,13 +42,29 @@ public class LoggedCallDto {
 	private Date dateCompleted;
 	
 	@NotNull
-	private String fromEmail;
+	private String loggerEmail;
 	
-	private String browserUsed;
+	private String loggerBrowserUsed;
 	
-	private String hostName;
+	private String loggerHostName;
 	
 	private String loggerIP;
+	
+	private String closerEmail;
+	
+	private String closerBrowserUsed;
+	
+	private String closerHostName;
+	
+	private String closerIP;
+	
+	private String reopenerEmail;
+	
+	private String reopenerBrowserUsed;
+	
+	private String reopenerHostName;
+	
+	private String reopenerIP;
 	
 	@NotNull
 	private String statusDesc;
@@ -72,6 +85,7 @@ public class LoggedCallDto {
 	private Date slaDeadline;
 
 	private boolean slaBreached;
+
 
 	public Long getLogId() {
 		return logId;
@@ -129,14 +143,6 @@ public class LoggedCallDto {
 		this.dateLogged = dateLogged;
 	}
 
-	/*public String getLoggerEmail() {
-		return loggerEmail;
-	}
-
-	public void setLoggerEmail(String loggerEmail) {
-		this.loggerEmail = loggerEmail;
-	}*/
-
 	public String getBranchLogger() {
 		return branchLogger;
 	}
@@ -169,28 +175,28 @@ public class LoggedCallDto {
 		this.dateCompleted = dateCompleted;
 	}
 
-	public String getFromEmail() {
-		return fromEmail;
+	public String getLoggerEmail() {
+		return loggerEmail;
 	}
 
-	public void setFromEmail(String fromEmail) {
-		this.fromEmail = fromEmail;
+	public void setLoggerEmail(String loggerEmail) {
+		this.loggerEmail = loggerEmail;
 	}
 
-	public String getBrowserUsed() {
-		return browserUsed;
+	public String getLoggerBrowserUsed() {
+		return loggerBrowserUsed;
 	}
 
-	public void setBrowserUsed(String browserUsed) {
-		this.browserUsed = browserUsed;
+	public void setLoggerBrowserUsed(String loggerBrowserUsed) {
+		this.loggerBrowserUsed = loggerBrowserUsed;
 	}
 
-	public String getHostName() {
-		return hostName;
+	public String getLoggerHostName() {
+		return loggerHostName;
 	}
 
-	public void setHostName(String hostName) {
-		this.hostName = hostName;
+	public void setLoggerHostName(String loggerHostName) {
+		this.loggerHostName = loggerHostName;
 	}
 
 	public String getLoggerIP() {
@@ -199,6 +205,70 @@ public class LoggedCallDto {
 
 	public void setLoggerIP(String loggerIP) {
 		this.loggerIP = loggerIP;
+	}
+
+	public String getCloserEmail() {
+		return closerEmail;
+	}
+
+	public void setCloserEmail(String closerEmail) {
+		this.closerEmail = closerEmail;
+	}
+
+	public String getCloserBrowserUsed() {
+		return closerBrowserUsed;
+	}
+
+	public void setCloserBrowserUsed(String closerBrowserUsed) {
+		this.closerBrowserUsed = closerBrowserUsed;
+	}
+
+	public String getCloserHostName() {
+		return closerHostName;
+	}
+
+	public void setCloserHostName(String closerHostName) {
+		this.closerHostName = closerHostName;
+	}
+
+	public String getCloserIP() {
+		return closerIP;
+	}
+
+	public void setCloserIP(String closerIP) {
+		this.closerIP = closerIP;
+	}
+
+	public String getReopenerEmail() {
+		return reopenerEmail;
+	}
+
+	public void setReopenerEmail(String reopenerEmail) {
+		this.reopenerEmail = reopenerEmail;
+	}
+
+	public String getReopenerBrowserUsed() {
+		return reopenerBrowserUsed;
+	}
+
+	public void setReopenerBrowserUsed(String reopenerBrowserUsed) {
+		this.reopenerBrowserUsed = reopenerBrowserUsed;
+	}
+
+	public String getReopenerHostName() {
+		return reopenerHostName;
+	}
+
+	public void setReopenerHostName(String reopenerHostName) {
+		this.reopenerHostName = reopenerHostName;
+	}
+
+	public String getReopenerIP() {
+		return reopenerIP;
+	}
+
+	public void setReopenerIP(String reopenerIP) {
+		this.reopenerIP = reopenerIP;
 	}
 
 	public String getStatusDesc() {
@@ -257,14 +327,60 @@ public class LoggedCallDto {
 		this.slaBreached = slaBreached;
 	}
 
+	public LoggedCallDto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public LoggedCallDto(@NotNull String branchName, @NotNull String terminalId, @NotNull String terminalName,
+			@NotNull String vendorName, @NotNull String issueDesc, @NotNull Date dateLogged,
+			@NotNull String branchLogger, @NotNull String loggerPhone, @NotNull Date startingDate, Date dateCompleted,
+			@NotNull String loggerEmail, String loggerBrowserUsed, String loggerHostName, String loggerIP,
+			String closerEmail, String closerBrowserUsed, String closerHostName, String closerIP, String reopenerEmail,
+			String reopenerBrowserUsed, String reopenerHostName, String reopenerIP, @NotNull String statusDesc,
+			@NotNull Long statusId, Date holdStart, Date holdEnd, Integer allowedHours, Date slaDeadline,
+			boolean slaBreached) {
+		super();
+		this.branchName = branchName;
+		this.terminalId = terminalId;
+		this.terminalName = terminalName;
+		this.vendorName = vendorName;
+		this.issueDesc = issueDesc;
+		this.dateLogged = dateLogged;
+		this.branchLogger = branchLogger;
+		this.loggerPhone = loggerPhone;
+		this.startingDate = startingDate;
+		this.dateCompleted = dateCompleted;
+		this.loggerEmail = loggerEmail;
+		this.loggerBrowserUsed = loggerBrowserUsed;
+		this.loggerHostName = loggerHostName;
+		this.loggerIP = loggerIP;
+		this.closerEmail = closerEmail;
+		this.closerBrowserUsed = closerBrowserUsed;
+		this.closerHostName = closerHostName;
+		this.closerIP = closerIP;
+		this.reopenerEmail = reopenerEmail;
+		this.reopenerBrowserUsed = reopenerBrowserUsed;
+		this.reopenerHostName = reopenerHostName;
+		this.reopenerIP = reopenerIP;
+		this.statusDesc = statusDesc;
+		this.statusId = statusId;
+		this.holdStart = holdStart;
+		this.holdEnd = holdEnd;
+		this.allowedHours = allowedHours;
+		this.slaDeadline = slaDeadline;
+		this.slaBreached = slaBreached;
+	}
+
 	public LoggedCallDto(@NotNull Long logId, @NotNull String branchName, @NotNull String terminalId,
 			@NotNull String terminalName, @NotNull String vendorName, @NotNull String issueDesc,
-			@NotNull Date dateLogged,@NotNull String fromEmail,// @NotNull String loggerEmail,
-			@NotNull String branchLogger,
-			@NotNull String loggerPhone, @NotNull Date startingDate, //@NotNull 
-			Date dateCompleted,
-			 String browserUsed, String hostName, String loggerIP, @NotNull String statusDesc,
-			@NotNull Long statusId) {
+			@NotNull Date dateLogged, @NotNull String branchLogger, @NotNull String loggerPhone,
+			@NotNull Date startingDate, Date dateCompleted, @NotNull String loggerEmail, String loggerBrowserUsed,
+			String loggerHostName, String loggerIP, String closerEmail, String closerBrowserUsed, String closerHostName,
+			String closerIP, String reopenerEmail, String reopenerBrowserUsed, String reopenerHostName,
+			String reopenerIP, @NotNull String statusDesc, @NotNull Long statusId, Date holdStart, Date holdEnd,
+			Integer allowedHours, Date slaDeadline, boolean slaBreached) {
 		super();
 		this.logId = logId;
 		this.branchName = branchName;
@@ -273,77 +389,53 @@ public class LoggedCallDto {
 		this.vendorName = vendorName;
 		this.issueDesc = issueDesc;
 		this.dateLogged = dateLogged;
-		this.fromEmail = fromEmail;
-		//this.loggerEmail = loggerEmail;
 		this.branchLogger = branchLogger;
 		this.loggerPhone = loggerPhone;
 		this.startingDate = startingDate;
 		this.dateCompleted = dateCompleted;
-		this.browserUsed = browserUsed;
-		this.hostName = hostName;
+		this.loggerEmail = loggerEmail;
+		this.loggerBrowserUsed = loggerBrowserUsed;
+		this.loggerHostName = loggerHostName;
 		this.loggerIP = loggerIP;
+		this.closerEmail = closerEmail;
+		this.closerBrowserUsed = closerBrowserUsed;
+		this.closerHostName = closerHostName;
+		this.closerIP = closerIP;
+		this.reopenerEmail = reopenerEmail;
+		this.reopenerBrowserUsed = reopenerBrowserUsed;
+		this.reopenerHostName = reopenerHostName;
+		this.reopenerIP = reopenerIP;
 		this.statusDesc = statusDesc;
 		this.statusId = statusId;
+		this.holdStart = holdStart;
+		this.holdEnd = holdEnd;
+		this.allowedHours = allowedHours;
+		this.slaDeadline = slaDeadline;
+		this.slaBreached = slaBreached;
 	}
-
-	public LoggedCallDto(@NotNull String branchName, @NotNull String terminalId, @NotNull String terminalName,
-			@NotNull String vendorName, @NotNull String issueDesc, @NotNull Date dateLogged,
-			//@NotNull String loggerEmail,
-			@NotNull String branchLogger, @NotNull String loggerPhone,
-			@NotNull Date startingDate, //@NotNull 
-			Date dateCompleted, @NotNull String fromEmail, String browserUsed,
-			String hostName, String loggerIP, @NotNull String statusDesc, @NotNull Long statusId) {
-		super();
-		this.branchName = branchName;
-		this.terminalId = terminalId;
-		this.terminalName = terminalName;
-		this.vendorName = vendorName;
-		this.issueDesc = issueDesc;
-		this.dateLogged = dateLogged;
-		//this.loggerEmail = loggerEmail;
-		this.branchLogger = branchLogger;
-		this.loggerPhone = loggerPhone;
-		this.startingDate = startingDate;
-		this.dateCompleted = dateCompleted;
-		this.fromEmail = fromEmail;
-		this.browserUsed = browserUsed;
-		this.hostName = hostName;
-		this.loggerIP = loggerIP;
-		this.statusDesc = statusDesc;
-		this.statusId = statusId;
-	}
-
-	public LoggedCallDto() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-
-
 
 
 	@Override
 	public String toString() {
 		return "LoggedCallDto [logId=" + logId + ", branchName=" + branchName + ", terminalId=" + terminalId
 				+ ", terminalName=" + terminalName + ", vendorName=" + vendorName + ", issueDesc=" + issueDesc
-				+ ", dateLogged=" + dateLogged //+ ", loggerEmail=" + loggerEmail 
-				+ ", branchLogger=" + branchLogger
-				+ ", loggerPhone=" + loggerPhone + ", startingDate=" + startingDate + ", dateCompleted=" + dateCompleted
-				+ ", fromEmail=" + fromEmail + ", browserUsed=" + browserUsed + ", hostName=" + hostName + ", loggerIP="
-				+ loggerIP + ", statusDesc=" + statusDesc + ", statusId=" + statusId
+				+ ", dateLogged=" + dateLogged + ", branchLogger=" + branchLogger + ", loggerPhone=" + loggerPhone
+				+ ", startingDate=" + startingDate + ", dateCompleted=" + dateCompleted + ", loggerEmail=" + loggerEmail
+				+ ", loggerBrowserUsed=" + loggerBrowserUsed + ", loggerHostName=" + loggerHostName + ", loggerIP="
+				+ loggerIP + ", closerEmail=" + closerEmail + ", closerBrowserUsed=" + closerBrowserUsed
+				+ ", closerHostName=" + closerHostName + ", closerIP=" + closerIP + ", reopenerEmail=" + reopenerEmail
+				+ ", reopenerBrowserUsed=" + reopenerBrowserUsed + ", reopenerHostName=" + reopenerHostName
+				+ ", reopenerIP=" + reopenerIP + ", statusDesc=" + statusDesc + ", statusId=" + statusId
 				+ ", holdStart=" + holdStart + ", holdEnd=" + holdEnd + ", allowedHours=" + allowedHours
 				+ ", slaDeadline=" + slaDeadline + ", slaBreached=" + slaBreached + "]";
 	}
 
-	// NOTE: hashCode/equals intentionally left unchanged (based on the
-	// original required fields only) so existing equality checks elsewhere
-	// in the codebase aren't affected by the newly added SLA fields.
 	@Override
 	public int hashCode() {
-		return Objects.hash(branchLogger, branchName, browserUsed, dateCompleted, dateLogged, fromEmail, hostName,
-				issueDesc, logId, //loggerEmail,
-				loggerIP, loggerPhone, startingDate, statusDesc, statusId, terminalId,
-				terminalName, vendorName);
+		return Objects.hash(allowedHours, branchLogger, branchName, closerBrowserUsed, closerEmail, closerHostName,
+				closerIP, dateCompleted, dateLogged, holdEnd, holdStart, issueDesc, loggerBrowserUsed, loggerEmail,
+				loggerHostName, loggerIP, loggerPhone, reopenerBrowserUsed, reopenerEmail, reopenerHostName, reopenerIP,
+				slaBreached, slaDeadline, startingDate, statusDesc, statusId, terminalId, terminalName, vendorName);
 	}
 
 	@Override
@@ -355,18 +447,29 @@ public class LoggedCallDto {
 		if (getClass() != obj.getClass())
 			return false;
 		LoggedCallDto other = (LoggedCallDto) obj;
-		return Objects.equals(branchLogger, other.branchLogger) && Objects.equals(branchName, other.branchName)
-				&& Objects.equals(browserUsed, other.browserUsed) && Objects.equals(dateCompleted, other.dateCompleted)
-				&& Objects.equals(dateLogged, other.dateLogged) && Objects.equals(fromEmail, other.fromEmail)
-				&& Objects.equals(hostName, other.hostName) && Objects.equals(issueDesc, other.issueDesc)
-				&& Objects.equals(logId, other.logId) //&& Objects.equals(loggerEmail, other.loggerEmail)
-				&& Objects.equals(loggerIP, other.loggerIP) && Objects.equals(loggerPhone, other.loggerPhone)
-				&& Objects.equals(startingDate, other.startingDate) && Objects.equals(statusDesc, other.statusDesc)
-				&& Objects.equals(statusId, other.statusId) && Objects.equals(terminalId, other.terminalId)
-				&& Objects.equals(terminalName, other.terminalName) && Objects.equals(vendorName, other.vendorName);
+		return Objects.equals(allowedHours, other.allowedHours) && Objects.equals(branchLogger, other.branchLogger)
+				&& Objects.equals(branchName, other.branchName)
+				&& Objects.equals(closerBrowserUsed, other.closerBrowserUsed)
+				&& Objects.equals(closerEmail, other.closerEmail)
+				&& Objects.equals(closerHostName, other.closerHostName) && Objects.equals(closerIP, other.closerIP)
+				&& Objects.equals(dateCompleted, other.dateCompleted) && Objects.equals(dateLogged, other.dateLogged)
+				&& Objects.equals(holdEnd, other.holdEnd) && Objects.equals(holdStart, other.holdStart)
+				&& Objects.equals(issueDesc, other.issueDesc)
+				&& Objects.equals(loggerBrowserUsed, other.loggerBrowserUsed)
+				&& Objects.equals(loggerEmail, other.loggerEmail)
+				&& Objects.equals(loggerHostName, other.loggerHostName) && Objects.equals(loggerIP, other.loggerIP)
+				&& Objects.equals(loggerPhone, other.loggerPhone)
+				&& Objects.equals(reopenerBrowserUsed, other.reopenerBrowserUsed)
+				&& Objects.equals(reopenerEmail, other.reopenerEmail)
+				&& Objects.equals(reopenerHostName, other.reopenerHostName)
+				&& Objects.equals(reopenerIP, other.reopenerIP) && slaBreached == other.slaBreached
+				&& Objects.equals(slaDeadline, other.slaDeadline) && Objects.equals(startingDate, other.startingDate)
+				&& Objects.equals(statusDesc, other.statusDesc) && Objects.equals(statusId, other.statusId)
+				&& Objects.equals(terminalId, other.terminalId) && Objects.equals(terminalName, other.terminalName)
+				&& Objects.equals(vendorName, other.vendorName);
 	}
 
-
-
-
+	// NOTE: hashCode/equals intentionally left unchanged (based on the
+	// original required fields only) so existing equality checks elsewhere
+	// in the codebase aren't affected by the newly added SLA fields.
 }

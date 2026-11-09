@@ -1,16 +1,12 @@
 package com.infinity.app.service;
 
 import java.io.IOException;
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.ArrayList;
+
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -181,59 +177,13 @@ public class EmailIssueService {
 	}
 
 	public void saveloggedCall(@Valid EmailIssueMessageDto emailIssueMessage, Long id, HttpServletRequest request) {
-		String ip = request.getHeader("X-Forwarded-For");
-        if (ip == null || ip.isBlank()) {
-			ip = request.getRemoteAddr();
-		} else {
-			// X-Forwarded-For can be a comma-separated chain; first entry is the original
-			// client
-			ip = ip.split(",")[0].trim();
-		}
-		String hostname;
-		try {
-			hostname = InetAddress.getByName(ip).getCanonicalHostName();
-		} catch (UnknownHostException e) {
-			hostname = "unknown";
-		}
-
-		ip = ipv4(ip);
-		
-		String userAgent = request.getHeader("User-Agent");
-		String browser = parseBrowser(userAgent);
+		ClientInfoExtractor info = new ClientInfoExtractor(request);
+		String ip      = info.getIpAddress();
+		String hostname    = info.getHostname();
+		String browser = info.getBrowser(); 
 
 		loggedService.saveObj(emailIssueMessage, id, ip, browser, hostname);
 	}
 
-	private String ipv4(String ip) {
-		// Normalize localhost IPv6 loopback to IPv4 loopback
-		if (ip.equals("0:0:0:0:0:0:0:1") || ip.equals("::1")) {
-			return "127.0.0.1";
-		}
 
-		try {
-			InetAddress addr = InetAddress.getByName(ip);
-
-			// If it's an IPv4-mapped IPv6 address (::ffff:192.168.1.1),
-			// getHostAddress() on the resolved Inet4Address form extracts the IPv4 part
-			if (addr instanceof Inet4Address) {
-				return addr.getHostAddress();
-			} else {
-				// True IPv6 address with no IPv4 mapping — can't be meaningfully converted
-				return ip; // or "unavailable", depending on what you want downstream
-			}
-		} catch (UnknownHostException e) {
-			return ip; // fallback to whatever raw value we had
-		}
-
-	}
-	
-    private String parseBrowser(String userAgent) {
-        if (userAgent == null) return "unknown";
-        if (userAgent.contains("Edg/")) return "Edge";
-        if (userAgent.contains("Chrome/") && !userAgent.contains("Chromium")) return "Chrome";
-        if (userAgent.contains("Firefox/")) return "Firefox";
-        if (userAgent.contains("Safari/") && !userAgent.contains("Chrome")) return "Safari";
-        if (userAgent.contains("OPR/") || userAgent.contains("Opera")) return "Opera";
-        return "unknown";
-    }	
 }
